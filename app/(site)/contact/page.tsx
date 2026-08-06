@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { CalendarClock } from "lucide-react";
 import { PageShell } from "@/components/site/page-shell";
 import { ContactForm } from "@/components/contact/contact-form";
 import { socials } from "@/config/socials";
 import { profile } from "@/content/profile";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -57,6 +59,22 @@ export default function ContactPage() {
               {profile.email}
             </a>
           </div>
+
+          {siteConfig.calendlyUrl && (
+            <div className="rounded-2xl border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                Book a call
+              </p>
+              <a
+                href={siteConfig.calendlyUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
+              >
+                <CalendarClock className="size-4" /> Find a time
+              </a>
+            </div>
+          )}
         </aside>
       </div>
     </PageShell>

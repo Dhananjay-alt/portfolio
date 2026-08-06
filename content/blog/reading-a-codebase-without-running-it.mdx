@@ -1,0 +1,61 @@
+---
+title: "Reading a codebase without running it"
+description: "Repo Analyzer maps a repo's real dependency graph using Python's ast module — no execution, no guesswork. A look at static import resolution and why it beats running the code."
+date: "2025-07-10"
+tags: ["Developer Tools", "Python", "Static Analysis"]
+---
+
+To draw a dependency graph, you first have to answer a deceptively hard question: when a file says `import foo`, *which file* does that actually resolve to? [Repo Analyzer](/projects/repo-analyzer) answers it **statically** — without ever running the code — using Python's standard-library `ast` module.
+
+## Why not just run it?
+
+The tempting shortcut is to import the modules and inspect them at runtime. Don't. Running an unfamiliar repository is:
+
+- **Unsafe** — arbitrary code executes on your machine.
+- **Slow** — you pay import costs, and side effects fire.
+- **Fragile** — missing dependencies or env vars break the whole analysis.
+
+For a tool meant to help you *onboard* to a codebase, none of that is acceptable. Static analysis is safe, fast, and fully local — nothing about the user's code leaves their machine.
+
+## Parsing with `ast`
+
+`ast` turns source text into a tree you can walk, so you can find every import without executing a line:
+
+```python
+import ast
+
+def imports_in(source: str) -> list[str]:
+    tree = ast.parse(source)
+    names: list[str] = []
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            names += [alias.name for alias in node.names]
+        elif isinstance(node, ast.ImportFrom):
+            # level handles relative imports: from . import x
+            names.append(("." * node.level) + (node.module or ""))
+    return names
+```
+
+## The real work: resolution
+
+Collecting import *statements* is easy. The hard part is mapping each one to an actual file in the repo — and doing it correctly across:
+
+- **Packages** (`pkg/__init__.py`) vs. plain modules (`pkg.py`).
+- **Relative imports** (`from .utils import x`, `from ..core import y`), where the leading dots count how far up the package tree to walk.
+- **Submodules** — `import a.b.c` might resolve to `a/b/c.py` or `a/b/c/__init__.py`.
+
+And crucially, **excluding what isn't yours**: standard-library and third-party imports get filtered out, so the graph shows only the repo's *internal* structure — the part that actually teaches you how the code is organized.
+
+## What the graph unlocks
+
+Once every edge is resolved, the interesting analysis falls out for free:
+
+- **Circular dependencies** — [networkx](/projects/repo-analyzer) finds strongly-connected components, i.e. clusters of files that mutually depend on each other. These are the tangles a file explorer can never show you.
+- **Hubs and coupling** — a file imported by dozens of others is a load-bearing wall; changing it is risky.
+- **Complexity** — [radon](/projects/repo-analyzer) adds cyclomatic complexity per file, so bloated modules stand out.
+
+Feeding those same edges into an LLM is what makes the AI summaries useful — but that's [a separate post](/blog/grounding-llms-in-real-structure).
+
+## Takeaway
+
+If you want to understand a codebase's shape, resolve its imports statically. `ast` gives you the raw facts safely; careful resolution turns them into a real graph. Running the code would tell you less, slower, and with more risk.

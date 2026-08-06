@@ -8,6 +8,8 @@ export const siteConfig = {
   // TODO: set final production domain
   url: "https://dhananjay.dev",
   ogImage: "/og.png",
+  // TODO: paste a Calendly link to enable the "Book a call" card on Contact.
+  calendlyUrl: "",
   keywords: [
     "Dhananjay",
     "Full-Stack Engineer",

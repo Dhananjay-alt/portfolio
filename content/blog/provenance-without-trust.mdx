@@ -1,0 +1,53 @@
+---
+title: "Provenance without trust"
+description: "For LuxAuth, proving a luxury item is genuine meant designing verification a buyer can do without trusting the brand's database. Here's how ERC-721 + IPFS made authenticity a public fact."
+date: "2025-07-18"
+tags: ["Web3", "IPFS", "Provenance"]
+---
+
+Counterfeit luxury goods are a multi-billion-dollar problem, and the usual defenses — a paper certificate, a serial number in the brand's database — share one fatal flaw: **you have to trust the issuer, and you can't independently check.** A forged certificate looks identical to a real one, and a brand database is a black box to the buyer.
+
+[LuxAuth](/projects/luxauth) (built at ETHOnline 2025) set out to make authenticity something a buyer can verify themselves, with no trusted middleman.
+
+## The core idea: authenticity as a public, tamper-evident fact
+
+Instead of a certificate the brand *claims* is real, each authenticated product gets an on-chain **ERC-721 certificate** — a token whose existence and ownership anyone can check on a public blockchain. The certificate's details live in metadata pinned to **IPFS**, so they're content-addressed and can't be quietly altered.
+
+```solidity
+// A certificate is just an NFT the brand mints for a genuine product.
+function issueCertificate(address to, string calldata tokenURI)
+    external
+    onlyVerifiedBrand
+    returns (uint256 tokenId)
+{
+    tokenId = _nextId++;
+    _safeMint(to, tokenId);
+    _setTokenURI(tokenId, tokenURI); // ipfs://... — immutable content hash
+}
+```
+
+## Why IPFS instead of on-chain metadata
+
+Storing rich metadata (images, attributes, provenance history) fully on-chain is prohibitively expensive. But you also can't just point at a normal URL — a brand could swap the file later.
+
+IPFS threads the needle: content is addressed **by the hash of its bytes**, so the `ipfs://` URI *is* a fingerprint. Change one pixel and the hash changes, which means the token would no longer point at it. The token holds the authoritative pointer; IPFS holds tamper-evident content.
+
+- **On-chain:** ownership + the immutable metadata pointer (cheap, authoritative).
+- **IPFS:** the actual certificate content (rich, content-addressed).
+
+## Closing the physical-to-digital gap
+
+The hardest part of provenance isn't the contract — it's binding a *physical* item to its *digital* certificate. LuxAuth does this with a **public verification page**: a buyer scans a QR code (or checks a hash) and the page reads the certificate straight from the chain. No brand login, no trust required — the buyer confirms authenticity themselves.
+
+Two supporting surfaces make it usable:
+
+- A **brand-verification dashboard** so only vetted issuers can mint.
+- A **minting portal** that issues a certificate at the point of manufacture or sale.
+
+## Why ERC-721 over a custom registry
+
+I could have built a bespoke ownership registry, but modeling certificates as standard NFTs meant wallets, block explorers, and marketplaces understand them out of the box — and I inherited a battle-tested ownership model instead of writing (and auditing) my own.
+
+## Takeaway
+
+Trust-minimized provenance is less about cryptographic cleverness and more about **moving the proof to where the buyer can see it.** Put ownership on a public chain, put tamper-evident detail on IPFS, and give the end-buyer a page that reads both. The brand no longer asks to be trusted — it becomes checkable.

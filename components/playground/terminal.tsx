@@ -7,6 +7,7 @@ import { profile } from "@/content/profile";
 import { skillGroups } from "@/content/skills";
 import { getAllProjects } from "@/lib/projects";
 import { fireConfetti } from "@/lib/confetti";
+import { fireMatrix } from "@/lib/matrix";
 
 type Line = { type: "in" | "out" | "err"; text: string };
 
@@ -22,6 +23,7 @@ const HELP = [
   "  resume        — download the resume",
   "  theme <name>  — set theme (dark|light|system)",
   "  confetti      — 🎉",
+  "  matrix        — enter the matrix",
   "  clear         — clear the screen",
 ];
 
@@ -104,6 +106,10 @@ export function Terminal() {
       case "confetti":
         fireConfetti();
         print("🎉");
+        break;
+      case "matrix":
+        fireMatrix();
+        print("Wake up, Neo…");
         break;
       case "sudo":
         print("Nice try. You already have root here. 😉");
