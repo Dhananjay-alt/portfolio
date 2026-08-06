@@ -8,6 +8,7 @@ import { HeroBackground } from "@/components/hero/hero-background";
 import { getFeaturedProjects } from "@/lib/projects";
 import { JsonLd } from "@/components/seo/json-ld";
 import { personSchema, websiteSchema } from "@/lib/structured-data";
+import { Magnetic } from "@/components/site/magnetic";
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
@@ -41,19 +42,23 @@ export default function HomePage() {
 
         <Reveal delay={0.15}>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
-              href="/projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
-            >
-              View Projects
-              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 text-sm font-medium transition-colors hover:bg-accent"
-            >
-              Get in touch
-            </Link>
+            <Magnetic>
+              <Link
+                href="/projects"
+                className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03] active:scale-95"
+              >
+                View Projects
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3 text-sm font-medium transition-colors hover:bg-accent"
+              >
+                Get in touch
+              </Link>
+            </Magnetic>
             <a
               href="https://github.com/"
               target="_blank"

@@ -7,6 +7,8 @@ import { IntroOverlay } from "@/components/site/intro-overlay";
 import { AiAssistant } from "@/components/ai/ai-assistant";
 import { SoundManager } from "@/components/site/sound-manager";
 import { KonamiEasterEgg } from "@/components/site/konami-easter-egg";
+import { ShortcutsHelp } from "@/components/site/shortcuts-help";
+import { BackToTop } from "@/components/site/back-to-top";
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -21,6 +23,8 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       <CustomCursor />
       <SoundManager />
       <KonamiEasterEgg />
+      <ShortcutsHelp />
+      <BackToTop />
       <CommandPalette />
       <FloatingNav />
       <main id="main" className="flex-1">

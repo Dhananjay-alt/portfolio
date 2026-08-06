@@ -13,6 +13,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/structured-data";
 import { ShareButton } from "@/components/site/share-button";
 import { ReadingMode } from "@/components/blog/reading-mode";
+import { CopyCode } from "@/components/blog/copy-code";
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -61,6 +62,7 @@ export default async function BlogPostPage({
   return (
     <>
       <ReadingProgress />
+      <CopyCode />
       <JsonLd
         data={[
           blogPostingSchema(post.meta),
