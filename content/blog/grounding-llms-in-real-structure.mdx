@@ -1,0 +1,54 @@
+---
+title: "Grounding LLMs in real structure"
+description: "Why a generic 'summarize this file' prompt produces vague output — and how feeding an LLM the actual dependency edges made Repo Analyzer's summaries useful."
+date: "2025-08-01"
+tags: ["AI", "Developer Tools", "RAG"]
+---
+
+When I built [Repo Analyzer](/projects/repo-analyzer), the AI summaries were the feature everyone noticed — but the first version was almost useless. The lesson that fixed it is the same one behind the assistant on this very site: **an LLM is only as good as the context you hand it.**
+
+## The vague-summary problem
+
+The naive approach is to send the model a file and ask it to explain the file. You get back something technically true and completely unhelpful:
+
+```text
+This module defines several functions and a class. It imports
+standard libraries and processes data before returning a result.
+```
+
+That describes almost any file ever written. It tells a new engineer nothing about *why this file exists* or *how it fits into the system*.
+
+## Give the model the graph, not just the file
+
+Repo Analyzer already computes the real dependency graph — it resolves every import to the actual file in the repo using Python's `ast` module. So the fix was to stop summarizing files in isolation and start summarizing them **in context of their edges**:
+
+```python
+prompt = f"""
+File: {path}
+It imports: {", ".join(imports)}
+It is imported by: {", ".join(dependents)}
+
+In 3 sentences, explain this file's ROLE in the system.
+"""
+```
+
+Now the model can see that a file is imported by twelve others (a hub), or that it only depends on the database layer (a repository), and the summary reflects that:
+
+> "This is the central routing module — nearly every request handler
+> imports it, and it wires the auth and storage layers together."
+
+Same model, same file. The difference is entirely in the context.
+
+## The same idea, one level up
+
+This generalizes into a rule I keep coming back to:
+
+- **Retrieval beats parametric memory** for anything specific. Don't ask the model what it "knows" about your data — put the data in the prompt.
+- **Structure is the highest-signal context.** Edges, types, and relationships tell the model more per token than prose does.
+- **Stay provider-agnostic.** When Gemini's API access blocked development, swapping to [Groq's Llama 3.3 70B](/projects/repo-analyzer) was a one-file change because the AI layer never leaked into the rest of the system.
+
+The AI assistant on this site works the same way: it retrieves the most relevant chunks of my actual project and profile content, then hands them to the model with strict instructions to answer only from that context. No hallucinated credentials, no invented projects — just grounded answers.
+
+## Takeaway
+
+If your LLM feature feels generic, the problem usually isn't the model. It's that you're asking it to reason without the context that makes reasoning possible. Find the structure you already have, and put it in the prompt.
