@@ -6,11 +6,14 @@ import { Reveal } from "@/components/site/reveal";
 import { ProjectCard } from "@/components/projects/project-card";
 import { HeroBackground } from "@/components/hero/hero-background";
 import { getFeaturedProjects } from "@/lib/projects";
+import { JsonLd } from "@/components/seo/json-ld";
+import { personSchema, websiteSchema } from "@/lib/structured-data";
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
   return (
     <>
+    <JsonLd data={[personSchema(), websiteSchema()]} />
     <section className="relative overflow-hidden">
       <HeroBackground />
 

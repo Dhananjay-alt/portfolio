@@ -28,6 +28,7 @@ export function FloatingNav() {
       animate={{ y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
+      data-chrome
     >
       <nav className="glass flex items-center gap-1 rounded-full p-1.5 shadow-lg shadow-black/5">
         <Link

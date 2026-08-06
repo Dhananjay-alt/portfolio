@@ -1,0 +1,61 @@
+---
+title: "Why I reached for CRDTs over OT"
+description: "Building SyncSpace's realtime layer meant choosing how concurrent edits converge. Here's why CRDTs beat operational transform for a small team shipping fast."
+date: "2025-08-04"
+tags: ["Realtime", "Distributed Systems", "CRDTs"]
+---
+
+Every collaborative editor has to answer one question: when two people edit the same spot at the same time, what happens? For [SyncSpace](/projects/syncspace) — a realtime study and coding workspace — getting this wrong means dropped keystrokes and cursors that jump around. Getting it right is the whole product.
+
+There are two well-trodden answers: **operational transform (OT)** and **conflict-free replicated data types (CRDTs)**. I chose CRDTs. Here's the reasoning.
+
+## The problem with "just broadcast the changes"
+
+The naive approach is to send each edit to everyone else and apply it. This falls apart immediately under concurrency:
+
+```text
+Doc: "cat"
+User A inserts "s" at index 3  -> "cats"
+User B inserts "!" at index 3  -> "cat!"
+```
+
+Apply both naively and you get `"cats!"` on one client and `"cat!s"` on another. The documents have **diverged** — the cardinal sin of collaborative editing.
+
+## Operational transform
+
+OT fixes this by *transforming* each operation against the ones it didn't know about. If A's insert arrives at B's client, B transforms it to account for edits B already applied. It's the classic approach — Google Docs famously uses it.
+
+The catch is that OT is **hard to implement correctly**. The transform functions have to satisfy tricky mathematical properties, and most real systems lean on a **central server** to order and transform every operation. That server is both complexity and a single point of failure.
+
+## Conflict-free replicated data types
+
+CRDTs take a different tack: design the data structure so that **any order of operations converges to the same state**, automatically. Instead of transforming operations, each character gets a unique, ordered identifier, and merging is just a deterministic set union.
+
+With [Yjs](https://yjs.dev) — the CRDT library I used — the client code barely knows collaboration is happening:
+
+```ts
+import * as Y from "yjs";
+
+const doc = new Y.Doc();
+const text = doc.getText("editor");
+
+// Edits from anywhere merge automatically — no transform step,
+// no central authority deciding order.
+text.insert(3, "s");
+```
+
+## Why CRDTs won for this project
+
+For a small team shipping under a deadline, three properties decided it:
+
+- **No central transform authority.** Convergence is a property of the data structure, so there's no server-side transform to implement or get subtly wrong.
+- **Offline and late-join just work.** A client that was disconnected can merge its edits back in whenever it reconnects — the merge is always well-defined.
+- **The client stays simple.** I sync Yjs updates over [Supabase](/projects/syncspace) channels and let the CRDT handle correctness. That freed my time for the parts users actually see: live cursors, presence, and the sandboxed code runner.
+
+## The trade-off
+
+CRDTs aren't free. They carry **per-character metadata**, so documents use more memory than a plain string, and very large documents need care. But for collaborative documents at human scale, that overhead is a rounding error next to the engineering time OT would have cost.
+
+## Takeaway
+
+Pick the primitive that moves correctness *out* of your application code. OT makes convergence something you must carefully enforce; CRDTs make it something you get by construction. For a team that needs to ship, that difference is everything.

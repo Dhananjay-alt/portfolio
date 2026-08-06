@@ -87,6 +87,7 @@ export function AiAssistant() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label="Open AI assistant"
+        data-chrome
         className="fixed bottom-5 right-5 z-[150] grid size-12 place-items-center rounded-full bg-brand-gradient text-brand-foreground shadow-lg shadow-brand/25 transition-transform hover:scale-105 active:scale-95"
       >
         <AnimatePresence mode="wait" initial={false}>

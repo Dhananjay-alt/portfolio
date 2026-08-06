@@ -7,6 +7,8 @@ import { ProjectHero } from "@/components/projects/project-hero";
 import { ProjectSection } from "@/components/projects/project-section";
 import { ArchitectureDiagram } from "@/components/projects/architecture-diagram";
 import { TechBadge } from "@/components/projects/tech-badge";
+import { JsonLd } from "@/components/seo/json-ld";
+import { projectSchema, breadcrumbSchema } from "@/lib/structured-data";
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
@@ -51,6 +53,16 @@ export default async function ProjectDetailPage({
 
   return (
     <article className="pb-24">
+      <JsonLd
+        data={[
+          projectSchema(project),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+            { name: project.title, path: `/projects/${project.slug}` },
+          ]),
+        ]}
+      />
       <ProjectHero project={project} />
 
       <div className="mx-auto mt-4 w-full max-w-5xl px-6">

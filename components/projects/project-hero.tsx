@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowUpRight, ExternalLink, PlayCircle, Trophy } from "lucide-react";
 import type { Project } from "@/types/project";
 import { GithubIcon } from "@/components/site/brand-icons";
+import { ShareButton } from "@/components/site/share-button";
 
 export function ProjectHero({ project }: { project: Project }) {
   const accent = project.accent ?? "var(--brand)";
@@ -71,6 +72,7 @@ export function ProjectHero({ project }: { project: Project }) {
             <PlayCircle className="size-4" /> Watch demo
           </a>
         )}
+        <ShareButton title={`${project.title} — ${project.tagline}`} />
       </div>
 
       {/* Hero media — real image when available, styled placeholder otherwise */}

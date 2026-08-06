@@ -9,6 +9,10 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { getAllPostSlugs, getPost } from "@/lib/blog";
 import { ReadingProgress } from "@/components/blog/reading-progress";
 import { TableOfContents } from "@/components/blog/table-of-contents";
+import { JsonLd } from "@/components/seo/json-ld";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/structured-data";
+import { ShareButton } from "@/components/site/share-button";
+import { ReadingMode } from "@/components/blog/reading-mode";
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -57,13 +61,29 @@ export default async function BlogPostPage({
   return (
     <>
       <ReadingProgress />
+      <JsonLd
+        data={[
+          blogPostingSchema(post.meta),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.meta.title, path: `/blog/${post.meta.slug}` },
+          ]),
+        ]}
+      />
       <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-36 md:pt-44">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="size-4" /> All posts
-        </Link>
+        <div className="flex items-center justify-between gap-4">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft className="size-4" /> All posts
+          </Link>
+          <div className="flex items-center gap-2">
+            <ReadingMode />
+            <ShareButton title={post.meta.title} />
+          </div>
+        </div>
 
         <div className="mt-8 grid gap-12 lg:grid-cols-[1fr_220px]">
           <article className="min-w-0 max-w-2xl">
@@ -104,7 +124,7 @@ export default async function BlogPostPage({
             <div className="prose">{content}</div>
           </article>
 
-          <aside className="hidden lg:block">
+          <aside className="hidden lg:block" data-reading-hide>
             <div className="sticky top-28">
               <TableOfContents headings={post.headings} />
             </div>

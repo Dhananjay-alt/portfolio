@@ -327,6 +327,17 @@
 }
 
 /* ------------------------------------------------------------------ *
+ *  Reading mode — distraction-free                                    *
+ * ------------------------------------------------------------------ */
+.reading-mode [data-chrome] {
+  opacity: 0;
+  pointer-events: none;
+}
+.reading-mode [data-reading-hide] {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ *
  *  Reduced motion — first-class path                                  *
  * ------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
