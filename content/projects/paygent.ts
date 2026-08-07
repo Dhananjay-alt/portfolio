@@ -3,34 +3,36 @@ import type { Project } from "@/types/project";
 export const paygent: Project = {
   slug: "paygent",
   title: "Paygent",
-  tagline: "On-chain payments dApp with ENS.",
+  tagline: "Agentic on-chain payments & DeFi automation with ENS.",
   category: "Web3",
-  year: 2024,
+  secondaryCategory: "AI",
+  year: 2026,
   status: "Hackathon",
   role: "Full-stack Web3 engineer",
-  timeline: "Built at ETHGlobal HackMoney",
+  timeline: "ETHGlobal HackMoney 2026 · Jan–Feb 2026",
   priority: 2,
   featured: true,
   context:
-    "Built at ETHGlobal HackMoney and awarded an ENS partner prize (Paygent V2) — a payments-focused decentralized app that lets people transact using human-readable names instead of raw addresses.",
+    "Built at ETHGlobal HackMoney 2026 and awarded the Integrate ENS partner prize (Paygent V2) — an agent-driven platform that automates liquidity allocation and on-chain settlement, with ENS as the human-readable control surface.",
   links: {
     liveDemo: "", // TODO
     github: "", // TODO
   },
-  award: "🏆 ETHGlobal HackMoney — ENS Partner Prize",
+  award: "🏆 ETHGlobal HackMoney 2026 — Integrate ENS Prize",
   techStack: {
     frontend: ["React", "Next.js", "wagmi", "viem"],
     web3: ["Solidity", "Foundry", "ENS"],
+    ai: ["Agent orchestration"],
   },
   problem:
-    "Crypto payments still ask people to copy-paste 42-character hexadecimal addresses, where a single wrong character means funds are gone forever. That friction and risk keeps on-chain payments intimidating for anyone who isn't already deep in the ecosystem.",
+    "Managing on-chain payments and DeFi positions is manual, error-prone, and unfriendly: you juggle raw addresses, sign every step by hand, and rebalance liquidity yourself. There's no readable, automated control layer over payment and settlement workflows.",
   approach:
-    "Paygent puts ENS at the center of the payment flow: you send to a human-readable name, and the app resolves it to an address under the hood. Smart contracts authored and tested with Foundry handle the on-chain logic, while the frontend orchestrates wallet connections and chain interactions through wagmi and viem for a clean, typed Web3 surface.",
+    "Paygent is an agent-driven orchestration layer over payments and DeFi. Agents automate liquidity allocation and on-chain settlement against Solidity contracts for vault, payment, and settlement workflows, while ENS provides human-readable strategy management — you name and manage strategies instead of tracking addresses. wagmi and viem give the frontend a typed interface to wallets and chains.",
   architecture: [
-    { layer: "Contracts", detail: "Solidity payment contracts, authored and tested with Foundry" },
-    { layer: "Name resolution", detail: "ENS resolves human-readable names to addresses in the payment path" },
-    { layer: "Wallet layer", detail: "wagmi + viem handle connection, signing, and chain interactions" },
-    { layer: "Frontend", detail: "React / Next.js payment UX built around names, not addresses" },
+    { layer: "Agents", detail: "Orchestrate liquidity allocation and on-chain settlement automatically" },
+    { layer: "Contracts", detail: "Solidity vault / payment / settlement workflows, tested with Foundry" },
+    { layer: "ENS control surface", detail: "Human-readable strategy management via ENS names" },
+    { layer: "Wallet layer", detail: "wagmi + viem for typed connection, signing, and chain interactions" },
   ],
   features: [
     {

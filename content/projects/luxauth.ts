@@ -9,7 +9,7 @@ export const luxauth: Project = {
   year: 2025,
   status: "Hackathon",
   role: "Full-stack Web3 engineer",
-  timeline: "Built at ETHGlobal ETHOnline 2025",
+  timeline: "ETHGlobal ETHOnline 2025 · Sept 2025",
   priority: 3,
   featured: true,
   context:

@@ -4,7 +4,7 @@
  */
 
 export const profile = {
-  name: "Dhananjay",
+  name: "Dhananjay Hire",
   role: "Full-Stack & Web3 Engineer",
   tagline:
     "Full-stack engineer who ships — from CRDT-backed realtime apps to on-chain protocols and AI-powered developer tooling.",
@@ -21,24 +21,25 @@ export const profile = {
     "Multiple ETHGlobal builds — including an ENS partner-prize win at HackMoney — plus open-source work on Rust and Ethereum tooling.",
   ],
   stack: {
-    frontend: ["TypeScript", "React", "Next.js"],
-    backend: ["FastAPI (Python)", "Node"],
-    systems: ["Rust"],
+    frontend: ["TypeScript", "JavaScript", "React", "Next.js", "TailwindCSS"],
+    backend: ["FastAPI (Python)", "Node.js", "Postgres"],
+    systems: ["Rust", "C++"],
     web3: ["Solidity", "Foundry", "wagmi", "viem", "OpenZeppelin"],
-    ai: ["LLM integration (Groq / Llama)", "Retrieval", "Agent workflows"],
+    ai: ["LLM integration (Groq / Llama)", "Vision models", "Retrieval", "Agent workflows"],
   },
   communities: [
     { name: "BlocSoc IIT Roorkee", role: "Blockchain society" },
     { name: "GDSC IIT Roorkee", role: "Google Developer Student Clubs" },
+    { name: "Esports IITR", role: "Operations team" },
   ],
   highlights: [
     "Multiple ETHGlobal builds, incl. an ENS partner-prize win at HackMoney",
     "Solo and team full-stack products shipped end to end",
     "Open-source contribution (Rust / Ethereum tooling)",
   ],
-  // TODO: confirm/replace before launch
-  email: "hackerxdhananjay@gmail.com", // TODO: confirm public contact address
-  resumeUrl: "/resume.pdf", // TODO: add resume PDF to /public
+  // From résumé. Swap to a personal address here if you prefer a durable one.
+  email: "dhananjay_h@mt.iitr.ac.in",
+  resumeUrl: "/resume.pdf", // generated from Dhananjay_Hire_Resume.docx
   headshot: "/headshot.jpg", // TODO: add headshot to /public
 } as const;
 

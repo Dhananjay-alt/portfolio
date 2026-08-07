@@ -60,7 +60,7 @@ export default function HomePage() {
               </Link>
             </Magnetic>
             <a
-              href="https://github.com/"
+              href="https://github.com/Dhananjay-alt"
               target="_blank"
               rel="noreferrer noopener"
               className="inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"

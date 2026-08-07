@@ -6,10 +6,10 @@ export const repoAnalyzer: Project = {
   tagline: "Repository dependency visualizer with AI summaries.",
   category: "Developer Tools",
   secondaryCategory: "AI",
-  year: 2025,
+  year: 2026,
   status: "Live",
   role: "Solo full-stack engineer",
-  timeline: "Solo build for GDSC IIT Roorkee — Open Summer of Code",
+  timeline: "GDSC IIT Roorkee · June–July 2026",
   priority: 4,
   featured: true,
   context:

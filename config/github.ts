@@ -3,4 +3,4 @@
  * TODO: set this to Dhananjay's real GitHub handle to activate the page.
  * Can also be provided via the GITHUB_USERNAME env var (takes precedence).
  */
-export const githubUsername = process.env.GITHUB_USERNAME ?? ""; // TODO
+export const githubUsername = process.env.GITHUB_USERNAME ?? "Dhananjay-alt";
