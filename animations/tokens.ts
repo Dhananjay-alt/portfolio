@@ -2,6 +2,8 @@ import type { Transition, Variants } from "motion/react";
 
 /** Shared easing curves — mirror the CSS custom props in globals.css. */
 export const easing = {
+  /** Default reveal curve (calm ease-out). */
+  reveal: [0.22, 1, 0.36, 1],
   outExpo: [0.16, 1, 0.3, 1],
   outQuart: [0.25, 1, 0.5, 1],
   spring: [0.34, 1.56, 0.64, 1],
@@ -11,10 +13,14 @@ export const duration = {
   xs: 0.15,
   s: 0.3,
   m: 0.5,
+  reveal: 0.55,
   l: 0.8,
 } as const;
 
 export const stagger = 0.06;
+
+/** Shared viewport config for scroll reveals — fire once, slightly before fully in view. */
+export const revealViewport = { once: true, margin: "-15% 0px" } as const;
 
 /** Spring presets for interactive/gesture motion. */
 export const springs = {
@@ -25,11 +31,11 @@ export const springs = {
 
 /** Reveal-on-scroll: fade + rise. Pair with `whileInView`. */
 export const revealUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: duration.l, ease: easing.outExpo },
+    transition: { duration: duration.reveal, ease: easing.reveal },
   },
 };
 

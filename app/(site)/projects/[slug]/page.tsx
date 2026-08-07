@@ -9,6 +9,7 @@ import { ArchitectureDiagram } from "@/components/projects/architecture-diagram"
 import { TechBadge } from "@/components/projects/tech-badge";
 import { JsonLd } from "@/components/seo/json-ld";
 import { projectSchema, breadcrumbSchema } from "@/lib/structured-data";
+import { FlagshipScroll } from "@/components/projects/flagship-scroll";
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
@@ -105,12 +106,16 @@ export default async function ProjectDetailPage({
           <p className="text-lg leading-relaxed text-foreground/90">{project.problem}</p>
         </ProjectSection>
 
-        <ProjectSection index="02" title="Approach & architecture">
-          <p className="text-lg leading-relaxed text-foreground/90">{project.approach}</p>
-          <div className="mt-8">
-            <ArchitectureDiagram steps={project.architecture} accent={project.accent} />
-          </div>
-        </ProjectSection>
+        {project.slug === "syncspace" ? (
+          <FlagshipScroll project={project} />
+        ) : (
+          <ProjectSection index="02" title="Approach & architecture">
+            <p className="text-lg leading-relaxed text-foreground/90">{project.approach}</p>
+            <div className="mt-8">
+              <ArchitectureDiagram steps={project.architecture} accent={project.accent} />
+            </div>
+          </ProjectSection>
+        )}
 
         <ProjectSection index="03" title="Key features">
           <ul className="space-y-5">

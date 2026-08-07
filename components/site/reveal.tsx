@@ -2,8 +2,13 @@
 
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
-import { revealUp, staggerContainer } from "@/animations/tokens";
+import { revealUp, staggerContainer, revealViewport } from "@/animations/tokens";
 
+/**
+ * Default reveal used across the whole site: fade + small rise on enter,
+ * once, slightly before fully in view. Honors reduced motion via the global
+ * MotionConfig (reducedMotion="user"), which drops the transform.
+ */
 export function Reveal({
   children,
   className,
@@ -19,7 +24,7 @@ export function Reveal({
       variants={revealUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={revealViewport}
       transition={{ delay }}
     >
       {children}
@@ -27,6 +32,7 @@ export function Reveal({
   );
 }
 
+/** Container that staggers its children (each a <RevealItem/>). */
 export function RevealGroup({
   children,
   className,
@@ -40,7 +46,7 @@ export function RevealGroup({
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={revealViewport}
     >
       {children}
     </motion.div>

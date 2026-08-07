@@ -36,10 +36,10 @@ export function ProjectCard({ project, index = 0 }: { project: Project; index?: 
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.06 }}
+      viewport={{ once: true, margin: "-15% 0px" }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: index * 0.06 }}
       style={{ perspective: 1000 }}
     >
       <motion.div style={reduced ? undefined : { rotateX, rotateY, transformStyle: "preserve-3d" }}>

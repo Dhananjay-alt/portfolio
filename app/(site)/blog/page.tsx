@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageShell, ComingSoon } from "@/components/site/page-shell";
+import { Reveal } from "@/components/site/reveal";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -22,8 +23,9 @@ export default function BlogPage() {
         <ComingSoon phase="Phase 2" />
       ) : (
         <ul className="mt-12 divide-y divide-border/60">
-          {posts.map((post) => (
+          {posts.map((post, i) => (
             <li key={post.slug}>
+              <Reveal delay={i * 0.06}>
               <Link
                 href={`/blog/${post.slug}`}
                 className="group flex flex-col gap-2 py-8 transition-colors sm:flex-row sm:items-baseline sm:justify-between"
@@ -47,6 +49,7 @@ export default function BlogPage() {
                 </div>
                 <ArrowUpRight className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </Link>
+              </Reveal>
             </li>
           ))}
         </ul>
