@@ -45,11 +45,11 @@ export default async function ProjectOgImage({
             width: 640,
             height: 640,
             borderRadius: "9999px",
-            background: "radial-gradient(circle, rgba(34,211,238,0.28), transparent 70%)",
+            background: "radial-gradient(circle, rgba(100,210,255,0.28), transparent 70%)",
           }}
         />
         <div style={{ display: "flex", gap: 16, color: "#8b8fa3", fontSize: 28, fontFamily: "monospace" }}>
-          <span style={{ color: "#818cf8" }}>{category}</span>
+          <span style={{ color: "#5AA9FF" }}>{category}</span>
           <span>·</span>
           <span>{year}</span>
         </div>
@@ -62,7 +62,7 @@ export default async function ProjectOgImage({
             {tagline}
           </div>
           {award && (
-            <div style={{ marginTop: 28, fontSize: 30, color: "#818cf8", fontWeight: 600 }}>
+            <div style={{ marginTop: 28, fontSize: 30, color: "#5AA9FF", fontWeight: 600 }}>
               {award}
             </div>
           )}
@@ -77,7 +77,7 @@ export default async function ProjectOgImage({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(120deg,#6366f1,#22d3ee)",
+              background: "linear-gradient(120deg,#0A84FF,#64D2FF)",
               color: "#0a0a0f",
               fontWeight: 800,
             }}

@@ -1,41 +1,51 @@
 import type { Transition, Variants } from "motion/react";
 
-/** Shared easing curves — mirror the CSS custom props in globals.css. */
+/**
+ * Motion tokens, Apple-style. Springs are the default tool: interruptible,
+ * velocity-aware, and continuous. `bounce` + `duration` map to Apple's
+ * damping + response — bounce 0 is critically damped (no overshoot).
+ */
+
+/** Eased curves for the few non-spring cases (mirror globals.css). */
 export const easing = {
-  /** Default reveal curve (calm ease-out). */
   reveal: [0.22, 1, 0.36, 1],
   outExpo: [0.16, 1, 0.3, 1],
-  outQuart: [0.25, 1, 0.5, 1],
-  spring: [0.34, 1.56, 0.64, 1],
 } as const;
 
 export const duration = {
   xs: 0.15,
   s: 0.3,
   m: 0.5,
-  reveal: 0.55,
   l: 0.8,
 } as const;
 
 export const stagger = 0.06;
 
-/** Shared viewport config for scroll reveals — fire once, slightly before fully in view. */
+/** Fire once, slightly before fully in view. */
 export const revealViewport = { once: true, margin: "-15% 0px" } as const;
 
-/** Spring presets for interactive/gesture motion. */
+/**
+ * Apple spring presets. Default UI is critically damped (no overshoot);
+ * bounce is reserved for momentum-driven interactions (flick / drag release).
+ */
 export const springs = {
-  soft: { type: "spring", stiffness: 120, damping: 18, mass: 0.6 },
-  snappy: { type: "spring", stiffness: 400, damping: 30 },
-  gentle: { type: "spring", stiffness: 90, damping: 20 },
+  /** Default UI move/reposition — critically damped. */
+  ui: { type: "spring", bounce: 0, duration: 0.4 },
+  /** Momentum interaction — slight overshoot, only after a flick/throw. */
+  momentum: { type: "spring", bounce: 0.2, duration: 0.4 },
+  /** Drawer / sheet. */
+  drawer: { type: "spring", bounce: 0.2, duration: 0.3 },
+  /** Snappy control (toggles, small chips). */
+  snappy: { type: "spring", bounce: 0, duration: 0.3 },
 } satisfies Record<string, Transition>;
 
-/** Reveal-on-scroll: fade + rise. Pair with `whileInView`. */
+/** Reveal-on-scroll: fade + small rise, on a calm critically-damped spring. */
 export const revealUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: duration.reveal, ease: easing.reveal },
+    transition: { type: "spring", bounce: 0, duration: 0.55 },
   },
 };
 

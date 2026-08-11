@@ -29,7 +29,7 @@ export default function OpengraphImage() {
             width: 640,
             height: 640,
             borderRadius: "9999px",
-            background: "radial-gradient(circle, rgba(99,102,241,0.35), transparent 70%)",
+            background: "radial-gradient(circle, rgba(10,132,255,0.35), transparent 70%)",
           }}
         />
         <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#8b8fa3", fontSize: 26 }}>
@@ -41,7 +41,7 @@ export default function OpengraphImage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(120deg,#6366f1,#22d3ee)",
+              background: "linear-gradient(120deg,#0A84FF,#64D2FF)",
               color: "#0a0a0f",
               fontWeight: 800,
               fontSize: 28,
@@ -61,7 +61,7 @@ export default function OpengraphImage() {
               fontSize: 60,
               fontWeight: 800,
               letterSpacing: -1,
-              backgroundImage: "linear-gradient(120deg,#818cf8,#22d3ee)",
+              backgroundImage: "linear-gradient(120deg,#5AA9FF,#64D2FF)",
               backgroundClip: "text",
               color: "transparent",
             }}
