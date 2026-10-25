@@ -1,9 +1,8 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 import { CustomCursor } from "@/components/site/custom-cursor";
 import { FloatingNav } from "@/components/site/floating-nav";
 import { Footer } from "@/components/site/footer";
 import { CommandPalette } from "@/components/command/command-palette";
-import { IntroOverlay } from "@/components/site/intro-overlay";
 import { AiAssistant } from "@/components/ai/ai-assistant";
 import { SoundManager } from "@/components/site/sound-manager";
 import { KonamiEasterEgg } from "@/components/site/konami-easter-egg";
@@ -19,7 +18,6 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       >
         Skip to content
       </a>
-      <IntroOverlay />
       <CustomCursor />
       <SoundManager />
       <KonamiEasterEgg />

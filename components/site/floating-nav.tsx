@@ -1,154 +1,143 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence, useMotionValueEvent, useScroll } from "motion/react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { Search } from "lucide-react";
-import { navItems } from "@/config/nav";
-import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/site/theme-toggle";
-import { SoundToggle } from "@/components/site/sound-toggle";
 import { useUIStore } from "@/stores/ui-store";
+
+const links = [
+  { label: "WORK", href: "/projects" },
+  { label: "ABOUT", href: "/about" },
+  { label: "ROSTER", href: "/#roster" },
+  { label: "DATES", href: "/#dates" },
+  { label: "WRITING", href: "/blog" },
+  { label: "EXPERIENCE", href: "/experience" },
+];
 
 export function FloatingNav() {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
-  const [hidden, setHidden] = useState(false);
+  const toggleCommand = useUIStore((s) => s.toggleCommand);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    // Hide when scrolling down past a threshold; reveal on scroll up.
-    setHidden(latest > previous && latest > 160);
-  });
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
-    <motion.header
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
+    <header
       data-chrome
+      className="fixed inset-x-0 top-0 z-50 flex h-[58px] items-center justify-between border-b border-[rgba(237,231,220,0.13)] bg-[#0A0C0E]/80 px-6 backdrop-blur-[14px] md:px-12"
     >
-      <nav className="glass flex items-center gap-1 rounded-full p-1.5 shadow-lg shadow-black/5">
+      {/* Display wordmark at 15px with trailing period in the amber */}
+      <div className="flex items-center gap-6">
         <Link
           href="/"
-          className="mr-1 grid size-8 place-items-center rounded-full bg-brand-gradient text-sm font-bold text-brand-foreground"
-          aria-label="Home"
+          className="font-syne text-[15px] font-bold tracking-[-0.02em] text-[#EDE7DC] transition-opacity hover:opacity-85"
         >
-          D
+          DHANANJAY<span className="text-[#E8913C]">.</span>
+        </Link>
+      </div>
+
+      {/* Uppercase links at 10.5px turning amber on hover */}
+      <nav className="hidden items-center gap-8 md:flex">
+        {links.map((link) => {
+          const active = pathname === link.href;
+          return (
+            <Link
+              key={link.label}
+              href={link.href}
+              className={`font-sora text-[10.5px] uppercase tracking-[0.14em] transition-colors ${
+                active ? "text-[#E8913C]" : "text-[#9EA5A8] hover:text-[#E8913C]"
+              }`}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Right actions: search trigger + one pill button */}
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={toggleCommand}
+          aria-label="Search"
+          className="hidden items-center gap-2 rounded-full border border-[rgba(237,231,220,0.13)] px-3 py-1.5 text-[#9EA5A8] transition-colors hover:border-[#E8913C] hover:text-[#EDE7DC] md:inline-flex"
+        >
+          <Search className="size-3 text-[#9EA5A8]" />
+          <span className="font-sora text-[10px] tracking-[0.12em]">⌘K</span>
+        </button>
+
+        {/* One pill button */}
+        <Link
+          href="/contact"
+          className="rounded-full border border-[rgba(237,231,220,0.18)] px-4 py-1.5 font-sora text-[10.5px] font-medium uppercase tracking-[0.14em] text-[#EDE7DC] transition-colors hover:border-[#E8913C] hover:text-[#E8913C]"
+        >
+          GET IN TOUCH
         </Link>
 
-        <ul className="hidden items-center gap-0.5 md:flex">
-          {navItems.slice(1).map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "relative rounded-full px-3 py-1.5 text-sm transition-colors",
-                    active
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground",
-                  )}
-                >
-                  {active && (
-                    <motion.span
-                      layoutId="nav-active"
-                      className="absolute inset-0 -z-10 rounded-full bg-accent"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    />
-                  )}
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label="Toggle Navigation"
+          className="flex size-8 items-center justify-center text-[#EDE7DC] md:hidden"
+        >
+          <div className="flex flex-col gap-1.5">
+            <span
+              className={`block h-px w-5 bg-current transition-transform ${
+                mobileOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-px w-5 bg-current transition-opacity ${
+                mobileOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-px w-5 bg-current transition-transform ${
+                mobileOpen ? "-translate-y-1.5 -rotate-45" : ""
+              }`}
+            />
+          </div>
+        </button>
+      </div>
 
-        <span className="mx-1 hidden h-5 w-px bg-border md:block" />
-        <CommandTrigger />
-        <SoundToggle />
-        <ThemeToggle />
-        <MobileMenu />
-      </nav>
-    </motion.header>
-  );
-}
-
-function CommandTrigger() {
-  const toggle = useUIStore((s) => s.toggleCommand);
-  return (
-    <button
-      type="button"
-      onClick={toggle}
-      aria-label="Open command menu"
-      className="hidden items-center gap-2 rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground md:inline-flex"
-    >
-      <Search className="size-4" />
-      <kbd className="rounded border border-border bg-secondary/60 px-1.5 py-0.5 font-mono text-[10px]">
-        ⌘K
-      </kbd>
-    </button>
-  );
-}
-
-function MobileMenu() {
-  const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => setOpen(false), [pathname]);
-
-  return (
-    <div className="md:hidden">
-      <button
-        type="button"
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-        className="grid size-9 place-items-center rounded-full text-muted-foreground hover:text-foreground"
-      >
-        <div className="relative h-3 w-4">
-          <span
-            className={cn(
-              "absolute left-0 top-0 h-0.5 w-full bg-current transition-transform",
-              open && "translate-y-[5px] rotate-45",
-            )}
-          />
-          <span
-            className={cn(
-              "absolute bottom-0 left-0 h-0.5 w-full bg-current transition-transform",
-              open && "-translate-y-[5px] -rotate-45",
-            )}
-          />
-        </div>
-      </button>
-
+      {/* Mobile Drawer */}
       <AnimatePresence>
-        {open && (
-          <motion.ul
+        {mobileOpen && (
+          <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="glass absolute right-4 top-16 flex w-48 flex-col gap-1 rounded-2xl p-2"
+            className="absolute inset-x-0 top-[58px] border-b border-[rgba(237,231,220,0.13)] bg-[#0A0C0E]/95 px-6 py-6 backdrop-blur-[16px] md:hidden"
           >
-            {navItems.map((item) => (
-              <li key={item.href}>
+            <div className="flex flex-col space-y-4">
+              {links.map((link) => (
                 <Link
-                  href={item.href}
-                  className="block rounded-xl px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                  key={link.label}
+                  href={link.href}
+                  className="font-sora text-[11px] uppercase tracking-[0.15em] text-[#EDE7DC] hover:text-[#E8913C]"
                 >
-                  {item.label}
+                  {link.label}
                 </Link>
-              </li>
-            ))}
-          </motion.ul>
+              ))}
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={toggleCommand}
+                  className="flex items-center gap-2 font-sora text-[11px] uppercase tracking-[0.15em] text-[#9EA5A8]"
+                >
+                  <Search className="size-3.5" />
+                  <span>SEARCH / COMMAND</span>
+                </button>
+              </div>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </header>
   );
 }

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
@@ -58,13 +58,13 @@ export function CustomCursor() {
     };
   }, [enabled, x, y]);
 
-  if (!enabled) return null;
+  if (!enabled || !visible) return null;
 
   return (
     <motion.div
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[9999] mix-blend-difference"
-      style={{ x: springX, y: springY, opacity: visible ? 1 : 0 }}
+      style={{ x: springX, y: springY }}
     >
       <motion.div
         className="rounded-full bg-white"

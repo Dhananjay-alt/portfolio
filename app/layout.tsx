@@ -1,8 +1,23 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
+import { Syne, Sora } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Providers } from "@/providers";
 import { RegisterSW } from "@/components/pwa/register-sw";
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  weight: ["600", "700", "800"],
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -37,16 +52,21 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0f" },
-    { media: "(prefers-color-scheme: light)", color: "#fbfbfd" },
-  ],
+  themeColor: "#0A0C0E",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" suppressHydrationWarning className="h-full antialiased">
-      <body className="flex min-h-full flex-col">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${syne.variable} ${sora.variable} dark h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col bg-[#0A0C0E] text-[#EDE7DC] selection:bg-[#E8913C]/20 selection:text-[#EDE7DC]">
         <Providers>{children}</Providers>
         <RegisterSW />
       </body>
