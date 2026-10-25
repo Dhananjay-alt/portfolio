@@ -37,6 +37,7 @@ export function PortalHero() {
     [0, 0.85],
     ["-0.01em", "-0.04em"]
   );
+  // Split DHANANJAY into two halves: "DHAN" and "ANJAY" traveling outward
   const spanLeftX = useTransform(scrollYProgress, [0, 0.85], ["0%", "-48%"]);
   const spanRightX = useTransform(scrollYProgress, [0, 0.85], ["0%", "48%"]);
 
@@ -118,7 +119,7 @@ export function PortalHero() {
         {/* Layer 6: Corner metadata pins to top and bottom edges */}
         <div className="pointer-events-none absolute inset-x-0 top-20 z-30 flex items-center justify-between px-6 md:px-12">
           <span className="font-sora text-[10.5px] uppercase tracking-[0.14em] text-[#9EA5A8]">
-            DHANANJAY HIRE / 2026
+            DHANANJAY / 2026
           </span>
           <span className="font-sora text-[10.5px] uppercase tracking-[0.14em] text-[#9EA5A8]">
             IIT ROORKEE — INDIA
@@ -137,7 +138,7 @@ export function PortalHero() {
           </span>
         </div>
 
-        {/* Layer 7: The Portal Title on top, split into two spans */}
+        {/* Layer 7: The Portal Title on top, split into two spans: DHAN + ANJAY */}
         <div className="relative z-25 flex items-center justify-center px-4">
           <motion.h1
             style={
@@ -152,16 +153,15 @@ export function PortalHero() {
           >
             <motion.span
               style={reduced ? undefined : { x: spanLeftX }}
-              className="inline-block text-[clamp(2.2rem,6.2vw,6.5rem)] leading-none"
+              className="inline-block text-[clamp(2.5rem,8vw,7.8rem)] leading-none tracking-[-0.025em]"
             >
-              DHANANJAY
+              DHAN
             </motion.span>
-            <span className="inline-block w-[0.25em]" />
             <motion.span
               style={reduced ? undefined : { x: spanRightX }}
-              className="inline-block text-[clamp(2.2rem,6.2vw,6.5rem)] leading-none text-[#EDE7DC]"
+              className="inline-block text-[clamp(2.5rem,8vw,7.8rem)] leading-none tracking-[-0.025em] text-[#EDE7DC]"
             >
-              HIRE
+              ANJAY
             </motion.span>
           </motion.h1>
         </div>

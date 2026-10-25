@@ -80,8 +80,8 @@ export function PortalClose() {
 
       {/* The wordmark full width, translated down slightly so the page edge crops it */}
       <div className="pointer-events-none select-none overflow-hidden border-t border-[rgba(237,231,220,0.06)] pt-6">
-        <div className="w-full translate-y-[32%] text-center font-syne text-[clamp(3.5rem,14.5vw,16rem)] font-extrabold uppercase leading-[0.78] tracking-[-0.035em] text-[#EDE7DC] whitespace-nowrap opacity-90">
-          DHANANJAY HIRE
+        <div className="w-full translate-y-[32%] text-center font-syne text-[clamp(4.5rem,18vw,22rem)] font-extrabold uppercase leading-[0.78] tracking-[-0.035em] text-[#EDE7DC] whitespace-nowrap opacity-90">
+          DHANANJAY
         </div>
       </div>
     </footer>
