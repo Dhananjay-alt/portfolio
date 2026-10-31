@@ -5,9 +5,8 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 import { useIsTouch, usePrefersReducedMotion } from "@/hooks/use-media-query";
 
 /**
- * A context-aware cursor: a soft dot that trails the pointer and expands into
- * a ring over interactive elements. Fully disabled on touch devices and when
- * the user prefers reduced motion — the native cursor is never removed there.
+ * Editorial Warm Print Register Cursor:
+ * Zero radius, sharp square crosshair indicator, responsive to interactive targets.
  */
 export function CustomCursor() {
   const isTouch = useIsTouch();
@@ -16,8 +15,8 @@ export function CustomCursor() {
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const springX = useSpring(x, { stiffness: 500, damping: 40, mass: 0.4 });
-  const springY = useSpring(y, { stiffness: 500, damping: 40, mass: 0.4 });
+  const springX = useSpring(x, { stiffness: 550, damping: 38, mass: 0.35 });
+  const springY = useSpring(y, { stiffness: 550, damping: 38, mass: 0.35 });
 
   const [hovering, setHovering] = useState(false);
   const [pressed, setPressed] = useState(false);
@@ -67,16 +66,17 @@ export function CustomCursor() {
       style={{ x: springX, y: springY }}
     >
       <motion.div
-        className="rounded-full bg-white"
+        className="bg-white"
+        style={{ borderRadius: 0 }}
         animate={{
-          width: hovering ? 44 : 14,
-          height: hovering ? 44 : 14,
-          x: hovering ? -22 : -7,
-          y: hovering ? -22 : -7,
+          width: hovering ? 36 : 10,
+          height: hovering ? 36 : 10,
+          x: hovering ? -18 : -5,
+          y: hovering ? -18 : -5,
           scale: pressed ? 0.8 : 1,
-          opacity: hovering ? 0.35 : 1,
+          opacity: hovering ? 0.3 : 1,
         }}
-        transition={{ type: "spring", stiffness: 350, damping: 28 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }}
       />
     </motion.div>
   );

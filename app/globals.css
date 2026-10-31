@@ -5,199 +5,187 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ------------------------------------------------------------------ *
- *  Design tokens exposed to Tailwind's `@theme`                       *
+ *  Warm Print Register Design Tokens                                  *
  * ------------------------------------------------------------------ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-cream: #e7e2d8;
+  --color-ink: #171717;
+  --color-hot-red: #ef493c;
+  --color-deep-red: #b92725;
+  --color-paper: #fffdf8;
+  --color-loam: #241a12;
 
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
+  --color-background: #e7e2d8;
+  --color-foreground: #171717;
 
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
+  --color-card: #fffdf8;
+  --color-card-foreground: #171717;
 
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  --color-primary: #171717;
+  --color-primary-foreground: #e7e2d8;
 
-  /* Record Label Spec Palettes */
-  --color-ground: #0A0C0E;
-  --color-ground-secondary: #101317;
-  --color-ink: #EDE7DC;
-  --color-ink-secondary: #9EA5A8;
-  --color-muted-ink: #6C7378;
-  --color-amber: #E8913C;
-  --color-teal: #2E6B72;
-  --color-hairline: rgba(237, 231, 220, 0.13);
+  --color-muted: rgba(23, 23, 23, 0.08);
+  --color-muted-foreground: rgba(23, 23, 23, 0.56);
 
-  --color-brand: var(--brand);
-  --color-brand-foreground: var(--brand-foreground);
-  --color-brand-2: var(--brand-2);
+  --color-border: rgba(23, 23, 23, 0.16);
+  --color-hairline: rgba(23, 23, 23, 0.16);
+  --color-hairline-subtle: rgba(23, 23, 23, 0.08);
 
-  --font-sans: var(--font-sora), 'Sora', sans-serif;
-  --font-heading: var(--font-syne), 'Syne', sans-serif;
-  --font-syne: var(--font-syne), 'Syne', sans-serif;
-  --font-sora: var(--font-sora), 'Sora', sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
-
-  --text-display: clamp(2.75rem, 1.4rem + 6.6vw, 6.75rem);
-  --text-h1: clamp(2.25rem, 1.35rem + 4.4vw, 4.5rem);
-  --text-h2: clamp(1.75rem, 1.2rem + 2.6vw, 3rem);
-  --text-h3: clamp(1.35rem, 1.05rem + 1.4vw, 2rem);
-  --text-lead: clamp(1.0625rem, 0.98rem + 0.5vw, 1.3125rem);
+  --font-anton: var(--font-anton), 'Anton', sans-serif;
+  --font-inter: var(--font-inter), 'Inter', sans-serif;
+  --font-martian: var(--font-martian), 'Martian Mono', monospace;
+  --font-mono: var(--font-martian), 'Martian Mono', monospace;
 }
 
-:root,
-.dark {
-  --radius: 0.875rem;
+:root {
+  --radius: 0px !important;
 
-  --font-sans: var(--font-sora), 'Sora', sans-serif;
-  --font-heading: var(--font-syne), 'Syne', sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  /* Default CSS Custom Properties for Pinned Stages */
+  --hero-type-y: 0px;
+  --hero-type-scale: 1;
+  --hero-type-alpha: 1;
 
-  --background: #0A0C0E;
-  --foreground: #EDE7DC;
+  --manifesto-wipe: 0%;
+  --manifesto-scale: 1;
 
-  --card: #101317;
-  --card-foreground: #EDE7DC;
-  --popover: #101317;
-  --popover-foreground: #EDE7DC;
+  --rail-progress: 0;
+  --rail-overflow: 0px;
 
-  --primary: #EDE7DC;
-  --primary-foreground: #0A0C0E;
-  --secondary: #101317;
-  --secondary-foreground: #EDE7DC;
-  --muted: #101317;
-  --muted-foreground: #9EA5A8;
-  --accent: #101317;
-  --accent-foreground: #EDE7DC;
-  --destructive: #d44d44;
+  --packet-alpha: 0;
+  --packet-enter: 38px;
+  --packet-scale: 0.78;
+  --packet-cut: 0;
+  --packet-meter: 0%;
+  --packet-copy-x: 0px;
 
-  --border: rgba(237, 231, 220, 0.13);
-  --input: rgba(237, 231, 220, 0.13);
-  --ring: #E8913C;
+  --season-y: -4%;
+  --season-scale: 1.10;
+  --season-progress: 0;
 
-  --brand: #E8913C;
-  --brand-foreground: #0A0C0E;
-  --brand-2: #2E6B72;
-
-  --material: rgba(10, 12, 14, 0.85);
-  --material-heavy: rgba(16, 19, 23, 0.95);
-  --hairline: rgba(237, 231, 220, 0.13);
-  --shadow-elev: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
+  --ease-warm: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinematic: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 @layer base {
-  * {
-    border-color: rgba(237, 231, 220, 0.13);
+  *, *::before, *::after {
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
 
   html {
-    font-family: var(--font-sora), 'Sora', sans-serif;
+    font-family: var(--font-inter), 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background-color: #0A0C0E;
-    color: #EDE7DC;
+    background-color: #e7e2d8;
+    color: #171717;
+    scroll-behavior: auto;
   }
 
   body {
-    background-color: #0A0C0E;
-    color: #EDE7DC;
+    background-color: #e7e2d8;
+    color: #171717;
+    overflow-x: hidden;
   }
 
   ::selection {
-    background: rgba(232, 145, 60, 0.25);
-    color: #EDE7DC;
+    background: rgba(239, 73, 60, 0.22);
+    color: #171717;
   }
 
-  h1, h2, h3, h4 {
-    font-family: var(--font-syne), 'Syne', sans-serif;
-    letter-spacing: -0.025em;
-    text-wrap: balance;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-anton), 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.035em;
+    line-height: 0.86;
   }
 
   p {
+    font-family: var(--font-inter), 'Inter', sans-serif;
     text-wrap: pretty;
   }
 
-  html.lenis,
-  html.lenis body {
-    height: auto;
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
   }
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
+  ::-webkit-scrollbar-track {
+    background: #e7e2d8;
   }
-
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: #0A0C0E; }
   ::-webkit-scrollbar-thumb {
-    background: rgba(237, 231, 220, 0.2);
-    border-radius: 999px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(232, 145, 60, 0.5);
+    background: #171717;
   }
 }
 
 @layer utilities {
-  .font-syne {
-    font-family: var(--font-syne), 'Syne', sans-serif;
-  }
-  .font-sora {
-    font-family: var(--font-sora), 'Sora', sans-serif;
-  }
-  .label-caps {
-    font-family: var(--font-sora), 'Sora', sans-serif;
-    font-size: 10.5px;
+  .font-anton {
+    font-family: var(--font-anton), 'Anton', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: #9EA5A8;
+    letter-spacing: -0.035em;
+    line-height: 0.86;
   }
-  .text-bone {
-    color: #EDE7DC;
+
+  .font-inter {
+    font-family: var(--font-inter), 'Inter', sans-serif;
   }
-  .text-secondary-ink {
-    color: #9EA5A8;
+
+  .font-martian {
+    font-family: var(--font-martian), 'Martian Mono', monospace;
   }
-  .text-muted-ink {
-    color: #6C7378;
+
+  .mono-label {
+    font-family: var(--font-martian), 'Martian Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.2;
   }
-  .text-amber {
-    color: #E8913C;
+
+  .border-ink-15 {
+    border: 1.5px solid #171717;
   }
-  .text-teal {
-    color: #2E6B72;
-  }
+
   .border-hairline {
-    border-color: rgba(237, 231, 220, 0.13);
+    border-color: rgba(23, 23, 23, 0.16);
   }
-  .bg-ground {
-    background-color: #0A0C0E;
+
+  .border-hairline-subtle {
+    border-color: rgba(23, 23, 23, 0.08);
   }
-  .bg-ground-secondary {
-    background-color: #101317;
+
+  .border-loam-hairline {
+    border-color: rgba(231, 226, 216, 0.16);
   }
-  .stroke-numeral {
-    -webkit-text-stroke: 1px rgba(237, 231, 220, 0.16);
-    color: transparent;
-  }
+}
+
+/* ------------------------------------------------------------------ *
+ *  Per-Atom Motion Budget (~200 independent elements)                 *
+ * ------------------------------------------------------------------ */
+.word-span {
+  display: inline-block;
+  transform: translateY(0.42em);
+  opacity: 0;
+  transition: transform 0.56s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--word-d, 0ms);
+  will-change: transform, opacity;
+}
+
+.is-revealed .word-span,
+.word-span.is-revealed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+[data-rev] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--d, 0ms);
+  will-change: transform, opacity;
+}
+
+[data-rev].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -208,5 +196,18 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+    transform: none !important;
+  }
+
+  .word-span,
+  [data-rev] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .rail-track {
+    flex-wrap: wrap !important;
+    transform: none !important;
+    justify-content: center !important;
   }
 }

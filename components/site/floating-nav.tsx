@@ -10,10 +10,9 @@ import { useUIStore } from "@/stores/ui-store";
 const links = [
   { label: "WORK", href: "/projects" },
   { label: "ABOUT", href: "/about" },
-  { label: "ROSTER", href: "/#roster" },
-  { label: "DATES", href: "/#dates" },
   { label: "WRITING", href: "/blog" },
   { label: "EXPERIENCE", href: "/experience" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 export function FloatingNav() {
@@ -28,19 +27,19 @@ export function FloatingNav() {
   return (
     <header
       data-chrome
-      className="fixed inset-x-0 top-0 z-50 flex h-[58px] items-center justify-between border-b border-[rgba(237,231,220,0.13)] bg-[#0A0C0E]/80 px-6 backdrop-blur-[14px] md:px-12"
+      className="fixed inset-x-0 top-0 z-50 flex h-[56px] items-center justify-between border-b border-[rgba(231,226,216,0.16)] bg-[#241a12]/90 px-6 backdrop-blur-md md:px-12 select-none text-[#fffdf8]"
     >
-      {/* Display wordmark at 15px with trailing period in the amber */}
+      {/* Brand Wordmark in Anton display with hot red period */}
       <div className="flex items-center gap-6">
         <Link
           href="/"
-          className="font-syne text-[15px] font-bold tracking-[-0.02em] text-[#EDE7DC] transition-opacity hover:opacity-85"
+          className="font-anton text-[20px] tracking-tight text-[#fffdf8] transition-opacity hover:opacity-85"
         >
-          DHANANJAY<span className="text-[#E8913C]">.</span>
+          DHANANJAY<span className="text-[#ef493c]">.</span>
         </Link>
       </div>
 
-      {/* Uppercase links at 10.5px turning amber on hover */}
+      {/* Uppercase links at 10.5px with +0.18em tracking turning red on hover */}
       <nav className="hidden items-center gap-8 md:flex">
         {links.map((link) => {
           const active = pathname === link.href;
@@ -48,8 +47,8 @@ export function FloatingNav() {
             <Link
               key={link.label}
               href={link.href}
-              className={`font-sora text-[10.5px] uppercase tracking-[0.14em] transition-colors ${
-                active ? "text-[#E8913C]" : "text-[#9EA5A8] hover:text-[#E8913C]"
+              className={`mono-label transition-colors ${
+                active ? "text-[#ef493c]" : "text-[rgba(231,226,216,0.65)] hover:text-[#ef493c]"
               }`}
             >
               {link.label}
@@ -58,22 +57,21 @@ export function FloatingNav() {
         })}
       </nav>
 
-      {/* Right actions: search trigger + one pill button */}
+      {/* Right actions: search trigger + 0-radius square CTA */}
       <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={toggleCommand}
           aria-label="Search"
-          className="hidden items-center gap-2 rounded-full border border-[rgba(237,231,220,0.13)] px-3 py-1.5 text-[#9EA5A8] transition-colors hover:border-[#E8913C] hover:text-[#EDE7DC] md:inline-flex"
+          className="hidden items-center gap-2 border border-[rgba(231,226,216,0.18)] px-3 py-1.5 mono-label text-[rgba(231,226,216,0.65)] hover:border-[#ef493c] hover:text-[#fffdf8] transition-colors md:inline-flex"
         >
-          <Search className="size-3 text-[#9EA5A8]" />
-          <span className="font-sora text-[10px] tracking-[0.12em]">⌘K</span>
+          <Search className="size-3" />
+          <span>⌘K</span>
         </button>
 
-        {/* One pill button */}
         <Link
           href="/contact"
-          className="rounded-full border border-[rgba(237,231,220,0.18)] px-4 py-1.5 font-sora text-[10.5px] font-medium uppercase tracking-[0.14em] text-[#EDE7DC] transition-colors hover:border-[#E8913C] hover:text-[#E8913C]"
+          className="border border-[#ef493c] bg-[rgba(239,73,60,0.12)] px-4 py-1.5 mono-label text-[#ef493c] hover:bg-[#ef493c] hover:text-[#fffdf8] transition-colors"
         >
           GET IN TOUCH
         </Link>
@@ -83,7 +81,7 @@ export function FloatingNav() {
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle Navigation"
-          className="flex size-8 items-center justify-center text-[#EDE7DC] md:hidden"
+          className="flex size-8 items-center justify-center text-[#fffdf8] md:hidden"
         >
           <div className="flex flex-col gap-1.5">
             <span
@@ -112,14 +110,14 @@ export function FloatingNav() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="absolute inset-x-0 top-[58px] border-b border-[rgba(237,231,220,0.13)] bg-[#0A0C0E]/95 px-6 py-6 backdrop-blur-[16px] md:hidden"
+            className="absolute inset-x-0 top-[56px] border-b border-[rgba(231,226,216,0.16)] bg-[#241a12] px-6 py-6 md:hidden"
           >
             <div className="flex flex-col space-y-4">
               {links.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="font-sora text-[11px] uppercase tracking-[0.15em] text-[#EDE7DC] hover:text-[#E8913C]"
+                  className="mono-label text-[11px] text-[#fffdf8] hover:text-[#ef493c]"
                 >
                   {link.label}
                 </Link>
@@ -128,7 +126,7 @@ export function FloatingNav() {
                 <button
                   type="button"
                   onClick={toggleCommand}
-                  className="flex items-center gap-2 font-sora text-[11px] uppercase tracking-[0.15em] text-[#9EA5A8]"
+                  className="flex items-center gap-2 mono-label text-[11px] text-[rgba(231,226,216,0.6)]"
                 >
                   <Search className="size-3.5" />
                   <span>SEARCH / COMMAND</span>

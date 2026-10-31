@@ -1,21 +1,28 @@
 ﻿import type { Metadata, Viewport } from "next";
-import { Syne, Sora } from "next/font/google";
+import { Anton, Inter, Martian_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Providers } from "@/providers";
 import { RegisterSW } from "@/components/pwa/register-sw";
 
-const syne = Syne({
+const anton = Anton({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["600", "700", "800"],
+  variable: "--font-anton",
+  weight: "400",
   display: "swap",
 });
 
-const sora = Sora({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sora",
-  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const martianMono = Martian_Mono({
+  subsets: ["latin"],
+  variable: "--font-martian",
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -52,7 +59,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A0C0E",
+  themeColor: "#241a12",
 };
 
 export default function RootLayout({
@@ -64,9 +71,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${syne.variable} ${sora.variable} dark h-full antialiased`}
+      className={`${anton.variable} ${inter.variable} ${martianMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[#0A0C0E] text-[#EDE7DC] selection:bg-[#E8913C]/20 selection:text-[#EDE7DC]">
+      <body className="flex min-h-full flex-col bg-[#e7e2d8] text-[#171717] selection:bg-[#ef493c]/20 selection:text-[#171717]">
         <Providers>{children}</Providers>
         <RegisterSW />
       </body>
