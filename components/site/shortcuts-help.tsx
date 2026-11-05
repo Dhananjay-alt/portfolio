@@ -55,7 +55,7 @@ export function ShortcutsHelp() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between">
-              <h2 className="font-semibold">Keyboard shortcuts</h2>
+              <h2 className="font-normal">Keyboard shortcuts</h2>
               <button
                 type="button"
                 aria-label="Close"

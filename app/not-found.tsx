@@ -5,7 +5,7 @@ export default function NotFound() {
     <main className="grid min-h-[80vh] place-items-center px-6 text-center">
       <div>
         <p className="font-mono text-sm text-brand">404</p>
-        <h1 className="mt-4 text-[length:var(--text-h2)] font-semibold">
+        <h1 className="mt-4 text-[length:var(--text-h2)] font-normal">
           This page drifted off-chain.
         </h1>
         <p className="mx-auto mt-4 max-w-md text-muted-foreground">

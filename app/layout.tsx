@@ -1,28 +1,14 @@
-﻿import type { Metadata, Viewport } from "next";
-import { Anton, Inter, Martian_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Providers } from "@/providers";
 import { RegisterSW } from "@/components/pwa/register-sw";
 
-const anton = Anton({
-  subsets: ["latin"],
-  variable: "--font-anton",
-  weight: "400",
-  display: "swap",
-});
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const martianMono = Martian_Mono({
-  subsets: ["latin"],
-  variable: "--font-martian",
-  weight: ["400", "500"],
+  weight: ["200", "400", "600", "700"],
   display: "swap",
 });
 
@@ -59,7 +45,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#241a12",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -71,9 +57,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${anton.variable} ${inter.variable} ${martianMono.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[#e7e2d8] text-[#171717] selection:bg-[#ef493c]/20 selection:text-[#171717]">
+      <body className="flex min-h-full flex-col bg-black font-extralight text-white">
         <Providers>{children}</Providers>
         <RegisterSW />
       </body>

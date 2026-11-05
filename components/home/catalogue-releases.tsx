@@ -192,7 +192,7 @@ export function CatalogueReleases() {
             </span>
           </div>
 
-          <h2 className="font-syne text-[clamp(28px,4vw,52px)] font-bold leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
+          <h2 className="font-syne text-[clamp(28px,4vw,52px)] font-normal leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
             SELECTED BUILDS & SYSTEMS
           </h2>
 
@@ -261,7 +261,7 @@ export function CatalogueReleases() {
                       {card.category}
                     </div>
 
-                    <h3 className="font-syne text-[32px] font-bold tracking-[-0.02em] text-[#EDE7DC]">
+                    <h3 className="font-syne text-[32px] font-normal tracking-[-0.02em] text-[#EDE7DC]">
                       {card.title}
                     </h3>
 

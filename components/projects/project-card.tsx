@@ -71,7 +71,7 @@ export function ProjectCard({ project, index = 0 }: { project: Project; index?: 
               <ArrowUpRight className="size-5 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
             </div>
 
-            <h3 className="mt-4 text-2xl font-semibold tracking-tight">{project.title}</h3>
+            <h3 className="mt-4 text-2xl font-normal tracking-tight">{project.title}</h3>
             <p className="mt-2 text-muted-foreground">{project.tagline}</p>
 
             {project.award && (

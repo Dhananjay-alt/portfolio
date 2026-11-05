@@ -23,7 +23,7 @@ export function ProjectHero({ project }: { project: Project }) {
         </span>
       </div>
 
-      <h1 className="mt-5 text-[length:var(--text-h1)] font-semibold leading-[1.02] tracking-tight">
+      <h1 className="mt-5 text-[length:var(--text-h1)] font-normal leading-[1.02] tracking-tight">
         {project.title}
       </h1>
       <p className="mt-4 max-w-2xl text-[length:var(--text-lead)] text-muted-foreground">

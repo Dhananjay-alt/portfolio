@@ -32,7 +32,7 @@ export function ContactForm() {
         >
           <Check className="size-7" />
         </motion.div>
-        <h2 className="mt-5 text-xl font-semibold">Message sent</h2>
+        <h2 className="mt-5 text-xl font-normal">Message sent</h2>
         <p className="mt-2 text-muted-foreground">
           Thanks for reaching out — I&apos;ll get back to you soon.
         </p>

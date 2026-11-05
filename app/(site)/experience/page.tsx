@@ -46,7 +46,7 @@ export default function ExperiencePage() {
                   </span>
                 </div>
 
-                <h2 className="mt-2 text-lg font-semibold tracking-tight">
+                <h2 className="mt-2 text-lg font-normal tracking-tight">
                   {entry.href ? (
                     <Link
                       href={entry.href}

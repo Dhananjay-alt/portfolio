@@ -10,20 +10,12 @@ type PageShellProps = {
 /** Standard heading block for interior pages. */
 export function PageShell({ eyebrow, title, description, children }: PageShellProps) {
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-36 md:pt-44">
-      <header className="max-w-3xl">
-        {eyebrow && (
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-brand">
-            {eyebrow}
-          </p>
-        )}
-        <h1 className="text-balance text-[length:var(--text-h1)] font-semibold leading-[1.05]">
-          {title}
-        </h1>
+    <div className="void-container pb-24 pt-40 md:pt-48">
+      <header className="max-w-4xl">
+        {eyebrow && <p className="eyebrow mb-6">{eyebrow}</p>}
+        <h1 className="text-heading-lg font-normal text-white">{title}</h1>
         {description && (
-          <p className="mt-6 text-[length:var(--text-lead)] leading-relaxed text-muted-foreground">
-            {description}
-          </p>
+          <p className="body-light mt-8 max-w-[560px] text-[#bdbdbd]">{description}</p>
         )}
       </header>
       {children}

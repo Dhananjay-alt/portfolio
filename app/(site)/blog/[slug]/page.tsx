@@ -101,7 +101,7 @@ export default async function BlogPostPage({
                 <span>·</span>
                 <span>{post.meta.readingTime}</span>
               </div>
-              <h1 className="mt-4 text-[length:var(--text-h2)] font-semibold leading-tight tracking-tight">
+              <h1 className="mt-4 text-[length:var(--text-h2)] font-normal leading-tight tracking-tight">
                 {post.meta.title}
               </h1>
               <p className="mt-4 text-[length:var(--text-lead)] text-muted-foreground">

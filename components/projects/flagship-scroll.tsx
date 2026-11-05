@@ -71,7 +71,7 @@ export function FlagshipScroll({ project }: { project: Project }) {
         <div className="grid gap-8 md:grid-cols-[200px_1fr]">
           <div>
             <p className="font-mono text-xs text-brand">02</p>
-            <h2 className="mt-2 text-[length:var(--text-h3)] font-semibold tracking-tight">
+            <h2 className="mt-2 text-[length:var(--text-h3)] font-normal tracking-tight">
               Approach &amp; architecture
             </h2>
           </div>
@@ -96,7 +96,7 @@ export function FlagshipScroll({ project }: { project: Project }) {
         <div className="grid w-full gap-10 md:grid-cols-[220px_1fr]">
           <div className="md:pt-2" data-flagship-lead>
             <p className="font-mono text-xs text-brand">02 · Flagship</p>
-            <h2 className="mt-2 text-[length:var(--text-h2)] font-semibold leading-[1.05] tracking-tight">
+            <h2 className="mt-2 text-[length:var(--text-h2)] font-normal leading-[1.05] tracking-tight">
               Inside SyncSpace
             </h2>
             <p className="mt-4 max-w-xs text-muted-foreground">{project.approach}</p>

@@ -28,7 +28,7 @@ export default function ResumePage() {
       {/* Printable resume sheet */}
       <div className="mt-10 rounded-2xl border border-border bg-card p-8 md:p-10 print:border-0 print:p-0">
         <header className="border-b border-border pb-6">
-          <h2 className="text-2xl font-bold tracking-tight">{profile.name}</h2>
+          <h2 className="text-2xl font-normal tracking-tight">{profile.name}</h2>
           <p className="mt-1 text-brand">{profile.role}</p>
           <p className="mt-2 text-sm text-muted-foreground">
             {profile.email} · {profile.location}

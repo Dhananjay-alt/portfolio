@@ -1,170 +1,256 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
 /* ------------------------------------------------------------------ *
- *  Warm Print Register Design Tokens                                  *
+ *  Void / Constellation design tokens (see PortfloioDesign.md)        *
+ *  Pure black canvas, white type, one violet action colour,           *
+ *  amber emphasis, teal only in the logo + particle field.            *
  * ------------------------------------------------------------------ */
 @theme inline {
-  --color-cream: #e7e2d8;
-  --color-ink: #171717;
-  --color-hot-red: #ef493c;
-  --color-deep-red: #b92725;
-  --color-paper: #fffdf8;
-  --color-loam: #241a12;
+  /* Palette */
+  --color-void: #000000;
+  --color-bone-white: #ffffff;
+  --color-ash-gray: #9a9a9a;
+  --color-silver-mist: #bdbdbd;
+  --color-electric-iris: #8052ff;
+  --color-saffron-spark: #ffb829;
+  --color-deep-verdant: #15846e;
 
-  --color-background: #e7e2d8;
-  --color-foreground: #171717;
+  /* Semantic (consumed by shadcn + inner pages) */
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-card: #000000;
+  --color-card-foreground: #ffffff;
+  --color-popover: #0a0a0a;
+  --color-popover-foreground: #ffffff;
+  --color-primary: #8052ff;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: rgba(255, 255, 255, 0.06);
+  --color-secondary-foreground: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.06);
+  --color-muted-foreground: #9a9a9a;
+  --color-accent: rgba(255, 255, 255, 0.06);
+  --color-accent-foreground: #ffffff;
+  --color-brand: #8052ff;
+  --color-brand-foreground: #ffffff;
+  --color-destructive: #ff5c5c;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-input: rgba(255, 255, 255, 0.12);
+  --color-ring: #8052ff;
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-hairline-subtle: rgba(255, 255, 255, 0.04);
 
-  --color-card: #fffdf8;
-  --color-card-foreground: #171717;
+  /* Type */
+  --font-sans: var(--font-inter), "PPNeueMontreal", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-primary: #171717;
-  --color-primary-foreground: #e7e2d8;
+  --text-caption: 12px;
+  --text-caption--line-height: 1.5;
+  --text-nav-label: 14px;
+  --text-nav-label--line-height: 1.2;
+  --text-nav-label--letter-spacing: 0.025em;
+  --text-body: 18px;
+  --text-body--line-height: 1.5;
+  --text-heading-2xs: 24px;
+  --text-heading-2xs--line-height: 1.25;
+  --text-heading-2xs--letter-spacing: -0.02em;
+  --text-heading-xs: 27px;
+  --text-heading-xs--line-height: 1;
+  --text-subheading: 36px;
+  --text-subheading--line-height: 1.2;
+  --text-heading-sm: clamp(32px, 4vw, 42px);
+  --text-heading-sm--line-height: 1.2;
+  --text-heading-sm--letter-spacing: -0.04em;
+  --text-heading: clamp(36px, 4.6vw, 48px);
+  --text-heading--line-height: 1.1;
+  --text-heading--letter-spacing: -0.035em;
+  --text-heading-lg: clamp(44px, 6.6vw, 78px);
+  --text-heading-lg--line-height: 1.1;
+  --text-heading-lg--letter-spacing: -0.04em;
+  --text-display: clamp(56px, 9vw, 113px);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.04em;
 
-  --color-muted: rgba(23, 23, 23, 0.08);
-  --color-muted-foreground: rgba(23, 23, 23, 0.56);
-
-  --color-border: rgba(23, 23, 23, 0.16);
-  --color-hairline: rgba(23, 23, 23, 0.16);
-  --color-hairline-subtle: rgba(23, 23, 23, 0.08);
-
-  --font-anton: var(--font-anton), 'Anton', sans-serif;
-  --font-inter: var(--font-inter), 'Inter', sans-serif;
-  --font-martian: var(--font-martian), 'Martian Mono', monospace;
-  --font-mono: var(--font-martian), 'Martian Mono', monospace;
+  /* Radius — 24px everywhere, pills only at small sizes */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 24px;
+  --radius-2xl: 24px;
+  --radius-3xl: 24px;
 }
 
 :root {
-  --radius: 0px !important;
+  --radius: 24px;
+  --page-max-width: 1280px;
 
-  /* Default CSS Custom Properties for Pinned Stages */
-  --hero-type-y: 0px;
-  --hero-type-scale: 1;
-  --hero-type-alpha: 1;
+  /* Legacy size aliases used by interior pages */
+  --text-h1: clamp(44px, 6.6vw, 78px);
+  --text-h2: clamp(32px, 4.6vw, 48px);
+  --text-h3: 24px;
+  --text-lead: 18px;
 
+  /* Scroll-driven manifesto wipe */
   --manifesto-wipe: 0%;
-  --manifesto-scale: 1;
 
-  --rail-progress: 0;
-  --rail-overflow: 0px;
-
-  --packet-alpha: 0;
-  --packet-enter: 38px;
-  --packet-scale: 0.78;
-  --packet-cut: 0;
-  --packet-meter: 0%;
-  --packet-copy-x: 0px;
-
-  --season-y: -4%;
-  --season-scale: 1.10;
-  --season-progress: 0;
-
-  --ease-warm: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-cinematic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-void: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
   *, *::before, *::after {
-    border-radius: 0 !important;
-    box-shadow: none !important;
+    box-shadow: none !important; /* the void has no elevation */
   }
 
   html {
-    font-family: var(--font-inter), 'Inter', sans-serif;
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" on;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background-color: #e7e2d8;
-    color: #171717;
+    background-color: #000000;
+    color: #ffffff;
+    color-scheme: dark;
     scroll-behavior: auto;
   }
 
   body {
-    background-color: #e7e2d8;
-    color: #171717;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: 200;
     overflow-x: hidden;
   }
 
   ::selection {
-    background: rgba(239, 73, 60, 0.22);
-    color: #171717;
+    background: rgba(128, 82, 255, 0.45);
+    color: #ffffff;
   }
 
+  /* Hierarchy through scale, never weight */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-anton), 'Anton', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: -0.035em;
-    line-height: 0.86;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    text-wrap: balance;
   }
 
   p {
-    font-family: var(--font-inter), 'Inter', sans-serif;
     text-wrap: pretty;
   }
 
+  a {
+    color: inherit;
+  }
+
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #e7e2d8;
+    background: #000000;
   }
   ::-webkit-scrollbar-thumb {
-    background: #171717;
+    background: #2a2a2a;
+    border-radius: 9999px;
+  }
+}
+
+@layer components {
+  /* Electric Iris pill — the single primary action per view */
+  .btn-iris {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #8052ff;
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 14.4px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    transition: background-color 0.2s var(--ease-void), transform 0.2s var(--ease-void);
+  }
+  .btn-iris:hover {
+    background: #9168ff;
+  }
+  .btn-iris:active {
+    transform: translateY(1px);
+  }
+  .btn-iris:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+  }
+
+  /* Ghost text button / nav link */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #9a9a9a;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    transition: color 0.2s var(--ease-void);
+  }
+  .btn-ghost:hover,
+  .btn-ghost[aria-current="page"] {
+    color: #ffffff;
+  }
+
+  /* Small uppercase label (amber by default) */
+  .eyebrow {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: #ffb829;
+  }
+
+  .body-light {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.5;
+  }
+
+  .void-container {
+    width: 100%;
+    max-width: var(--page-max-width);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+  @media (min-width: 768px) {
+    .void-container {
+      padding-inline: 48px;
+    }
   }
 }
 
 @layer utilities {
-  .font-anton {
-    font-family: var(--font-anton), 'Anton', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: -0.035em;
-    line-height: 0.86;
+  /* Gradients are reserved for the logo mark only */
+  .bg-brand-gradient {
+    background-image: linear-gradient(135deg, #8052ff 0%, #15846e 100%);
   }
-
-  .font-inter {
-    font-family: var(--font-inter), 'Inter', sans-serif;
-  }
-
-  .font-martian {
-    font-family: var(--font-martian), 'Martian Mono', monospace;
-  }
-
-  .mono-label {
-    font-family: var(--font-martian), 'Martian Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    line-height: 1.2;
-  }
-
-  .border-ink-15 {
-    border: 1.5px solid #171717;
-  }
-
-  .border-hairline {
-    border-color: rgba(23, 23, 23, 0.16);
-  }
-
-  .border-hairline-subtle {
-    border-color: rgba(23, 23, 23, 0.08);
-  }
-
-  .border-loam-hairline {
-    border-color: rgba(231, 226, 216, 0.16);
+  .text-brand-gradient {
+    background-image: linear-gradient(135deg, #8052ff 0%, #15846e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
 
 /* ------------------------------------------------------------------ *
- *  Per-Atom Motion Budget (~200 independent elements)                 *
+ *  Reveal choreography                                                *
  * ------------------------------------------------------------------ */
 .word-span {
   display: inline-block;
   transform: translateY(0.42em);
   opacity: 0;
-  transition: transform 0.56s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.7s var(--ease-void), opacity 0.7s var(--ease-void);
   transition-delay: var(--word-d, 0ms);
   will-change: transform, opacity;
 }
@@ -178,7 +264,7 @@
 [data-rev] {
   opacity: 0;
   transform: translateY(24px);
-  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.8s var(--ease-void), opacity 0.8s var(--ease-void);
   transition-delay: var(--d, 0ms);
   will-change: transform, opacity;
 }
@@ -196,18 +282,11 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
-    transform: none !important;
   }
 
   .word-span,
   [data-rev] {
     opacity: 1 !important;
     transform: none !important;
-  }
-
-  .rail-track {
-    flex-wrap: wrap !important;
-    transform: none !important;
-    justify-content: center !important;
   }
 }

@@ -42,7 +42,7 @@ export default function BlogPage() {
                     <span>·</span>
                     <span>{post.readingTime}</span>
                   </div>
-                  <h2 className="mt-2 text-xl font-semibold tracking-tight group-hover:text-brand">
+                  <h2 className="mt-2 text-xl font-normal tracking-tight group-hover:text-brand">
                     {post.title}
                   </h2>
                   <p className="mt-1.5 text-muted-foreground">{post.description}</p>

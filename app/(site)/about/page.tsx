@@ -36,7 +36,7 @@ export default function AboutPage() {
 
           <Reveal>
             <div className="mt-10">
-              <h2 className="flex items-center gap-2 text-lg font-semibold">
+              <h2 className="flex items-center gap-2 text-lg font-normal">
                 <Sparkles className="size-4 text-brand" /> Philosophy
               </h2>
               <p className="mt-3 text-muted-foreground">
@@ -51,7 +51,7 @@ export default function AboutPage() {
 
           <Reveal>
             <div className="mt-10">
-              <h2 className="text-lg font-semibold">Signal</h2>
+              <h2 className="text-lg font-normal">Signal</h2>
               <ul className="mt-4 space-y-3">
                 {profile.highlights.map((h) => (
                   <li key={h} className="flex gap-3 text-foreground/90">
@@ -68,7 +68,7 @@ export default function AboutPage() {
         <aside className="space-y-8">
           <Reveal>
             <div className="rounded-2xl border border-border bg-card p-6">
-              <h2 className="flex items-center gap-2 text-sm font-semibold">
+              <h2 className="flex items-center gap-2 text-sm font-normal">
                 <GraduationCap className="size-4 text-brand" /> Education
               </h2>
               <p className="mt-3 font-medium">{profile.education.degree}</p>
@@ -83,7 +83,7 @@ export default function AboutPage() {
 
           <Reveal>
             <div className="rounded-2xl border border-border bg-card p-6">
-              <h2 className="flex items-center gap-2 text-sm font-semibold">
+              <h2 className="flex items-center gap-2 text-sm font-normal">
                 <Users className="size-4 text-brand" /> Communities
               </h2>
               <ul className="mt-3 space-y-3">
@@ -102,7 +102,7 @@ export default function AboutPage() {
       {/* Stack */}
       <Reveal>
         <div className="mt-20 border-t border-border/60 pt-12">
-          <h2 className="text-[length:var(--text-h3)] font-semibold tracking-tight">
+          <h2 className="text-[length:var(--text-h3)] font-normal tracking-tight">
             The toolbox
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

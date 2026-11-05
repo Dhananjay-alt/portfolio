@@ -13,7 +13,7 @@ export function ClosingCta() {
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
             Let&apos;s talk
           </p>
-          <h2 className="mt-5 text-[length:var(--text-display)] font-semibold leading-[0.95] tracking-tight">
+          <h2 className="mt-5 text-[length:var(--text-display)] font-normal leading-[0.95] tracking-tight">
             Let&apos;s build
             <span className="block text-brand-gradient">something great.</span>
           </h2>

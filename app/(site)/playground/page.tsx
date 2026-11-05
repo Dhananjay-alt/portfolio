@@ -60,7 +60,7 @@ function Experiment({
     <Reveal>
       <section>
         <div className="mb-4">
-          <h2 className="text-[length:var(--text-h3)] font-semibold tracking-tight">{title}</h2>
+          <h2 className="text-[length:var(--text-h3)] font-normal tracking-tight">{title}</h2>
           <p className="mt-1 text-sm text-muted-foreground">{blurb}</p>
         </div>
         {children}

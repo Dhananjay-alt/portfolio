@@ -59,7 +59,7 @@ export function HomeHero() {
             </span>
           </motion.div>
 
-          <h1 className="mt-8 text-[length:var(--text-display)] font-semibold leading-[0.95] tracking-tight">
+          <h1 className="mt-8 text-[length:var(--text-display)] font-normal leading-[0.95] tracking-tight">
             <MaskLine>{profile.name}</MaskLine>
             <MaskLine className="text-brand-gradient">builds things that ship.</MaskLine>
           </h1>

@@ -19,7 +19,7 @@ export function FeaturedShowcase() {
             Selected work
           </p>
         </div>
-        <h2 className="max-w-2xl text-[length:var(--text-h2)] font-semibold tracking-tight">
+        <h2 className="max-w-2xl text-[length:var(--text-h2)] font-normal tracking-tight">
           Four products, shipped end to end.
         </h2>
       </Reveal>
@@ -81,7 +81,7 @@ function ShowcaseItem({
               {project.award.replace(/^🏆\s*/, "")}
             </div>
           )}
-          <h3 className="text-[length:var(--text-h3)] font-semibold tracking-tight">
+          <h3 className="text-[length:var(--text-h3)] font-normal tracking-tight">
             {project.title}
           </h3>
           <p className="mt-3 text-[length:var(--text-lead)] text-muted-foreground">

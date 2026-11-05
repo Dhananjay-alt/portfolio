@@ -19,7 +19,7 @@ export function PortalClose() {
               </span>
             </div>
 
-            <h2 className="font-syne text-[clamp(30px,4.5vw,56px)] font-bold leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
+            <h2 className="font-syne text-[clamp(30px,4.5vw,56px)] font-normal leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
               AVAILABLE FOR PROTOCOLS & PRODUCTS.
             </h2>
 

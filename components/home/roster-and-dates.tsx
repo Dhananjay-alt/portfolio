@@ -101,7 +101,7 @@ export function RosterAndDates() {
             </span>
           </div>
 
-          <h2 className="mb-12 font-syne text-[clamp(28px,4vw,52px)] font-bold leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
+          <h2 className="mb-12 font-syne text-[clamp(28px,4vw,52px)] font-normal leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
             CORE CAPABILITIES & STACK
           </h2>
 
@@ -142,7 +142,7 @@ export function RosterAndDates() {
             </span>
           </div>
 
-          <h2 className="mb-12 font-syne text-[clamp(28px,4vw,52px)] font-bold leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
+          <h2 className="mb-12 font-syne text-[clamp(28px,4vw,52px)] font-normal leading-[1.05] tracking-[-0.025em] text-[#EDE7DC]">
             RECORD OF ENGAGEMENTS
           </h2>
 
