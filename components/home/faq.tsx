@@ -27,33 +27,33 @@ const FAQS = [
 
 export function Faq() {
   return (
-    <section className="py-[120px]">
-      <div className="void-container grid gap-16 md:grid-cols-12">
+    <section className="section-y">
+      <div className="container-page grid gap-10 md:grid-cols-12">
         <div className="md:col-span-5">
-          <h2 className="word-reveal text-heading-lg font-normal">
+          <h2 className="word-reveal text-heading-lg font-normal md:sticky md:top-[calc(var(--header-height)+32px)]">
             <WordSplit text="Questions, answered" />
           </h2>
         </div>
 
-        <div className="flex flex-col gap-10 md:col-span-7 md:pt-4">
+        <div className="border-t border-soft-mist md:col-span-7">
           {FAQS.map((faq, idx) => (
             <details
               key={faq.q}
               data-rev
               style={{ "--d": `${idx * 50}ms` } as React.CSSProperties}
-              className="group"
+              className="group border-b border-soft-mist"
             >
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-8 rounded-[24px] outline-none focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[#8052ff] [&::-webkit-details-marker]:hidden">
-                <h3 className="text-heading-2xs font-normal text-white transition-colors group-hover:text-[#bdbdbd]">
-                  {faq.q}
-                </h3>
-                <Plus
-                  aria-hidden="true"
-                  strokeWidth={1.5}
-                  className="mt-1 size-5 shrink-0 text-[#9a9a9a] transition-transform duration-300 group-open:rotate-45 group-open:text-white"
-                />
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-8 py-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="text-subheading font-normal">{faq.q}</h3>
+                <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full border border-soft-mist bg-white transition-colors group-open:bg-lilac-mist">
+                  <Plus
+                    aria-hidden="true"
+                    strokeWidth={1.75}
+                    className="size-4 transition-transform duration-300 group-open:rotate-45"
+                  />
+                </span>
               </summary>
-              <p className="body-light mt-4 max-w-[600px] text-[#bdbdbd]">{faq.a}</p>
+              <p className="max-w-[600px] pb-6 text-[16px] leading-[1.6] text-stone-gray">{faq.a}</p>
             </details>
           ))}
         </div>

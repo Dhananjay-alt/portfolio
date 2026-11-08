@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const kindColor: Record<string, string> = {
-  Hackathon: "var(--brand-2)",
-  Project: "var(--brand)",
-  Community: "oklch(0.78 0.15 155)",
-  Education: "oklch(0.8 0.15 85)",
+  Hackathon: "#421d24",
+  Project: "#292827",
+  Community: "#d4c7ff",
+  Education: "#666666",
 };
 
 export default function ExperiencePage() {

@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Caveat, Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Providers } from "@/providers";
 import { RegisterSW } from "@/components/pwa/register-sw";
 
+// Variable Inter stands in for Super Sans VF so the 460 / 540 cuts are real.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["200", "400", "600", "700"],
+  display: "swap",
+});
+
+// Handwritten overlay on the deep-lagoon collage only.
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
   display: "swap",
 });
 
@@ -45,7 +52,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#f2f0eb",
 };
 
 export default function RootLayout({
@@ -57,9 +64,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${caveat.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-black font-extralight text-white">
+      <body className="flex min-h-full flex-col bg-background text-foreground">
         <Providers>{children}</Providers>
         <RegisterSW />
       </body>

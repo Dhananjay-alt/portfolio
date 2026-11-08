@@ -52,7 +52,7 @@ export function ParticleCanvas() {
 
     const accent = getComputedStyle(document.documentElement)
       .getPropertyValue("--brand")
-      .trim() || "#6366f1";
+      .trim() || "#421d24";
 
     let raf = 0;
     function frame() {

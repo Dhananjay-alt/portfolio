@@ -15,7 +15,7 @@ export function WordSplit({
   className = "",
   baseDelayMs = 0,
   highlightWord,
-  highlightClass = "text-[#ffb829]",
+  highlightClass = "text-midnight-wine",
 }: WordSplitProps) {
   const words = text.split(/\s+/).filter(Boolean);
 

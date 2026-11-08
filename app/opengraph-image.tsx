@@ -16,7 +16,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0a0a0f",
+          background: "linear-gradient(180deg, #c3c6d4 0%, #e8d6cb 40%, #f1d2b0 62%, #e2a978 82%, #b98a6f 100%)",
           padding: 80,
           fontFamily: "sans-serif",
         }}
@@ -24,15 +24,15 @@ export default function OpengraphImage() {
         <div
           style={{
             position: "absolute",
-            top: -160,
-            left: -80,
+            top: 260,
+            left: 640,
             width: 640,
             height: 640,
             borderRadius: "9999px",
-            background: "radial-gradient(circle, rgba(10,132,255,0.35), transparent 70%)",
+            background: "radial-gradient(circle, rgba(255,241,214,0.9), transparent 70%)",
           }}
         />
-        <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#8b8fa3", fontSize: 26 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#292827", fontSize: 26 }}>
           <div
             style={{
               width: 44,
@@ -41,9 +41,9 @@ export default function OpengraphImage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(120deg,#0A84FF,#64D2FF)",
-              color: "#0a0a0f",
-              fontWeight: 800,
+              background: "#421d24",
+              color: "#ffffff",
+              fontWeight: 600,
               fontSize: 28,
             }}
           >
@@ -53,22 +53,20 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 96, fontWeight: 800, color: "#fafafa", letterSpacing: -2 }}>
+          <div style={{ fontSize: 96, fontWeight: 500, color: "#292827", letterSpacing: -3 }}>
             {profile.name}
           </div>
           <div
             style={{
               fontSize: 60,
-              fontWeight: 800,
-              letterSpacing: -1,
-              backgroundImage: "linear-gradient(120deg,#5AA9FF,#64D2FF)",
-              backgroundClip: "text",
-              color: "transparent",
+              fontWeight: 500,
+              letterSpacing: -1.5,
+              color: "#421d24",
             }}
           >
             {profile.role}
           </div>
-          <div style={{ marginTop: 24, fontSize: 30, color: "#b4b7c5", maxWidth: 900 }}>
+          <div style={{ marginTop: 24, fontSize: 30, color: "#3d3a38", maxWidth: 900 }}>
             {profile.tagline}
           </div>
         </div>

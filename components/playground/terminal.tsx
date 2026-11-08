@@ -148,33 +148,33 @@ export function Terminal() {
 
   return (
     <div
-      className="overflow-hidden rounded-xl border border-border bg-[oklch(0.12_0.008_265)] font-mono text-sm"
+      className="overflow-hidden rounded-[16px] border border-ink-charcoal bg-ink-charcoal font-mono text-sm"
       onClick={() => inputRef.current?.focus()}
     >
-      <div className="flex items-center gap-1.5 border-b border-border/60 px-4 py-2.5">
-        <span className="size-3 rounded-full bg-red-500/80" />
-        <span className="size-3 rounded-full bg-yellow-500/80" />
-        <span className="size-3 rounded-full bg-green-500/80" />
-        <span className="ml-2 text-xs text-muted-foreground">dhananjay@portfolio: ~</span>
+      <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-2.5">
+        <span className="size-3 rounded-full bg-white/25" />
+        <span className="size-3 rounded-full bg-white/25" />
+        <span className="size-3 rounded-full bg-white/25" />
+        <span className="ml-2 text-xs text-white/50">dhananjay@portfolio: ~</span>
       </div>
 
-      <div ref={scrollRef} className="h-80 overflow-y-auto p-4 text-[oklch(0.9_0.02_265)]">
+      <div ref={scrollRef} className="h-80 overflow-y-auto p-4 text-warm-parchment">
         {lines.map((l, i) => (
           <div key={i} className="whitespace-pre-wrap break-words leading-relaxed">
             {l.type === "in" ? (
               <span>
-                <span className="text-brand-2">➜</span>{" "}
-                <span className="text-brand">~</span> {l.text}
+                <span className="text-lilac-mist">➜</span>{" "}
+                <span className="text-white/50">~</span> {l.text}
               </span>
             ) : (
-              <span className={l.type === "err" ? "text-red-400" : ""}>{l.text}</span>
+              <span className={l.type === "err" ? "text-[#ffb4a8]" : ""}>{l.text}</span>
             )}
           </div>
         ))}
 
         <div className="flex items-center gap-2">
-          <span className="text-brand-2">➜</span>
-          <span className="text-brand">~</span>
+          <span className="text-lilac-mist">➜</span>
+          <span className="text-white/50">~</span>
           <input
             ref={inputRef}
             value={input}
@@ -183,7 +183,7 @@ export function Terminal() {
             aria-label="Terminal input"
             autoComplete="off"
             spellCheck={false}
-            className="flex-1 bg-transparent text-[oklch(0.9_0.02_265)] outline-none"
+            className="flex-1 bg-transparent text-warm-parchment caret-lilac-mist outline-none"
           />
         </div>
       </div>

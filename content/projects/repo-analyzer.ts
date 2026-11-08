@@ -122,5 +122,5 @@ export const repoAnalyzer: Project = {
     screenshots: [], // TODO
     video: "https://youtu.be/DRNv6aYk8lQ",
   },
-  accent: "oklch(0.78 0.15 155)",
+  accent: "#0c4243",
 };

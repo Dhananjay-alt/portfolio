@@ -52,7 +52,7 @@ export default async function BlogPostPage({
           rehypeSlug,
           [
             rehypePrettyCode,
-            { theme: "github-dark", keepBackground: true, defaultLang: "plaintext" },
+            { theme: "github-light", keepBackground: true, defaultLang: "plaintext" },
           ],
         ],
       },
@@ -73,7 +73,7 @@ export default async function BlogPostPage({
           ]),
         ]}
       />
-      <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-36 md:pt-44">
+      <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-16 md:pt-24">
         <div className="flex items-center justify-between gap-4">
           <Link
             href="/blog"

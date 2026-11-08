@@ -9,7 +9,7 @@ export function ProjectHero({ project }: { project: Project }) {
   const { liveDemo, github, caseStudy } = project.links;
 
   return (
-    <header className="mx-auto w-full max-w-5xl px-6 pt-36 md:pt-44">
+    <header className="mx-auto w-full max-w-5xl px-6 pt-16 md:pt-24">
       <div className="flex flex-wrap items-center gap-3">
         <span className="font-mono text-xs uppercase tracking-[0.2em] text-brand">
           {project.category}

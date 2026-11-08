@@ -32,7 +32,7 @@ export default async function ProjectOgImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0a0a0f",
+          background: "#f2f0eb",
           padding: 80,
           fontFamily: "sans-serif",
         }}
@@ -45,30 +45,30 @@ export default async function ProjectOgImage({
             width: 640,
             height: 640,
             borderRadius: "9999px",
-            background: "radial-gradient(circle, rgba(100,210,255,0.28), transparent 70%)",
+            background: "radial-gradient(circle, rgba(212,199,255,0.8), transparent 70%)",
           }}
         />
-        <div style={{ display: "flex", gap: 16, color: "#8b8fa3", fontSize: 28, fontFamily: "monospace" }}>
-          <span style={{ color: "#5AA9FF" }}>{category}</span>
+        <div style={{ display: "flex", gap: 16, color: "#666666", fontSize: 28 }}>
+          <span style={{ color: "#421d24" }}>{category}</span>
           <span>·</span>
           <span>{year}</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 104, fontWeight: 800, color: "#fafafa", letterSpacing: -2 }}>
+          <div style={{ fontSize: 104, fontWeight: 500, color: "#292827", letterSpacing: -3 }}>
             {title}
           </div>
-          <div style={{ marginTop: 20, fontSize: 38, color: "#b4b7c5", maxWidth: 960 }}>
+          <div style={{ marginTop: 20, fontSize: 38, color: "#3d3a38", maxWidth: 960 }}>
             {tagline}
           </div>
           {award && (
-            <div style={{ marginTop: 28, fontSize: 30, color: "#5AA9FF", fontWeight: 600 }}>
+            <div style={{ marginTop: 28, fontSize: 30, color: "#714cb6", fontWeight: 600 }}>
               {award}
             </div>
           )}
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 14, color: "#8b8fa3", fontSize: 28 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14, color: "#292827", fontSize: 28 }}>
           <div
             style={{
               width: 40,
@@ -77,9 +77,9 @@ export default async function ProjectOgImage({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(120deg,#0A84FF,#64D2FF)",
-              color: "#0a0a0f",
-              fontWeight: 800,
+              background: "#421d24",
+              color: "#ffffff",
+              fontWeight: 600,
             }}
           >
             D

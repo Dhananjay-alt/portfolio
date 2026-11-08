@@ -5,133 +5,155 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ------------------------------------------------------------------ *
- *  Void / Constellation design tokens (see PortfloioDesign.md)        *
- *  Pure black canvas, white type, one violet action colour,           *
- *  amber emphasis, teal only in the logo + particle field.            *
+ *  Golden-hour editorial design tokens (see DESIGN.md)                *
+ *  Warm parchment canvas, ink-charcoal type, one wine action colour,  *
+ *  violet reserved for links, lilac for secondary surfaces, deep      *
+ *  lagoon for the single dark feature band.                           *
  * ------------------------------------------------------------------ */
 @theme inline {
   /* Palette */
-  --color-void: #000000;
-  --color-bone-white: #ffffff;
-  --color-ash-gray: #9a9a9a;
-  --color-silver-mist: #bdbdbd;
-  --color-electric-iris: #8052ff;
-  --color-saffron-spark: #ffb829;
-  --color-deep-verdant: #15846e;
+  --color-midnight-wine: #421d24;
+  --color-royal-violet: #714cb6;
+  --color-lilac-mist: #d4c7ff;
+  --color-deep-lagoon: #0c4243;
+  --color-warm-parchment: #f2f0eb;
+  --color-soft-mist: #e3e3e2;
+  --color-ink-charcoal: #292827;
+  --color-stone-gray: #666666;
+  --color-paper-white: #ffffff;
 
-  /* Semantic (consumed by shadcn + inner pages) */
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-card: #000000;
-  --color-card-foreground: #ffffff;
-  --color-popover: #0a0a0a;
-  --color-popover-foreground: #ffffff;
-  --color-primary: #8052ff;
+  /* Semantic (consumed by shadcn + interior pages) */
+  --color-background: #f2f0eb;
+  --color-foreground: #292827;
+  --color-card: #ffffff;
+  --color-card-foreground: #292827;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #292827;
+  --color-primary: #421d24;
   --color-primary-foreground: #ffffff;
-  --color-secondary: rgba(255, 255, 255, 0.06);
-  --color-secondary-foreground: #ffffff;
-  --color-muted: rgba(255, 255, 255, 0.06);
-  --color-muted-foreground: #9a9a9a;
-  --color-accent: rgba(255, 255, 255, 0.06);
-  --color-accent-foreground: #ffffff;
-  --color-brand: #8052ff;
+  --color-secondary: #d4c7ff;
+  --color-secondary-foreground: #292827;
+  --color-muted: #ebe8e1;
+  --color-muted-foreground: #666666;
+  --color-accent: #d4c7ff;
+  --color-accent-foreground: #292827;
+  /* Brand marks (icons, bullets) are wine: violet is reserved for links. */
+  --color-brand: #421d24;
   --color-brand-foreground: #ffffff;
-  --color-destructive: #ff5c5c;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-input: rgba(255, 255, 255, 0.12);
-  --color-ring: #8052ff;
-  --color-hairline: rgba(255, 255, 255, 0.08);
-  --color-hairline-subtle: rgba(255, 255, 255, 0.04);
+  --color-link: #714cb6;
+  --color-destructive: #b42318;
+  --color-border: #e3e3e2;
+  --color-input: #e3e3e2;
+  --color-ring: #714cb6;
+  --color-hairline: #e3e3e2;
 
-  /* Type */
-  --font-sans: var(--font-inter), "PPNeueMontreal", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* Type — one variable sans, light-cut headlines */
+  --font-sans: var(--font-inter), "Super Sans VF", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-script: var(--font-caveat), "Caveat", cursive;
+
+  /* `font-normal` is the system's 460 voice; book/emphasis/bold fill the axis. */
+  --font-weight-normal: 460;
+  --font-weight-book: 460;
+  --font-weight-medium: 500;
+  --font-weight-emphasis: 540;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   --text-caption: 12px;
   --text-caption--line-height: 1.5;
-  --text-nav-label: 14px;
-  --text-nav-label--line-height: 1.2;
-  --text-nav-label--letter-spacing: 0.025em;
-  --text-body: 18px;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
+  --text-body: 16px;
   --text-body--line-height: 1.5;
-  --text-heading-2xs: 24px;
-  --text-heading-2xs--line-height: 1.25;
-  --text-heading-2xs--letter-spacing: -0.02em;
-  --text-heading-xs: 27px;
-  --text-heading-xs--line-height: 1;
-  --text-subheading: 36px;
-  --text-subheading--line-height: 1.2;
-  --text-heading-sm: clamp(32px, 4vw, 42px);
-  --text-heading-sm--line-height: 1.2;
-  --text-heading-sm--letter-spacing: -0.04em;
-  --text-heading: clamp(36px, 4.6vw, 48px);
-  --text-heading--line-height: 1.1;
-  --text-heading--letter-spacing: -0.035em;
-  --text-heading-lg: clamp(44px, 6.6vw, 78px);
-  --text-heading-lg--line-height: 1.1;
-  --text-heading-lg--letter-spacing: -0.04em;
-  --text-display: clamp(56px, 9vw, 113px);
-  --text-display--line-height: 1;
-  --text-display--letter-spacing: -0.04em;
+  --text-label-bold: 19px;
+  --text-label-bold--line-height: 1.5;
+  --text-subheading: 22px;
+  --text-subheading--line-height: 1.3;
+  --text-subheading--letter-spacing: -0.014em;
+  --text-heading-sm: 28px;
+  --text-heading-sm--line-height: 1.14;
+  --text-heading-sm--letter-spacing: -0.022em;
+  --text-heading-lg: clamp(34px, 4.4vw, 49px);
+  --text-heading-lg--line-height: 1.08;
+  --text-heading-lg--letter-spacing: -0.027em;
+  --text-display: clamp(42px, 6.2vw, 64px);
+  --text-display--line-height: 0.96;
+  --text-display--letter-spacing: -0.028em;
 
-  /* Radius — 24px everywhere, pills only at small sizes */
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 24px;
-  --radius-2xl: 24px;
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 16px;
+  --radius-2xl: 16px;
   --radius-3xl: 24px;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
-  --radius: 24px;
-  --page-max-width: 1280px;
+  --radius: 16px;
+  --page-max-width: 1200px;
+  --header-height: 64px;
+  /* Raw shadcn-style variables for inline styles, SVG fills and canvas. */
+  --background: #f2f0eb;
+  --foreground: #292827;
+  --card: #ffffff;
+  --card-foreground: #292827;
+  --popover: #ffffff;
+  --primary: #421d24;
+  --secondary: #d4c7ff;
+  --muted: #ebe8e1;
+  --muted-foreground: #666666;
+  --accent: #d4c7ff;
+  --border: #e3e3e2;
+  --input: #e3e3e2;
+  --ring: #714cb6;
+  --brand: #421d24;
+  --brand-2: #714cb6;
 
   /* Legacy size aliases used by interior pages */
-  --text-h1: clamp(44px, 6.6vw, 78px);
-  --text-h2: clamp(32px, 4.6vw, 48px);
-  --text-h3: 24px;
+  --text-h1: clamp(40px, 5.6vw, 64px);
+  --text-h2: clamp(30px, 4vw, 49px);
+  --text-h3: 22px;
   --text-lead: 18px;
 
-  /* Scroll-driven manifesto wipe */
-  --manifesto-wipe: 0%;
-
-  --ease-void: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-subtle: rgb(113, 76, 182) 0px 0px 0px 1px inset;
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
-  *, *::before, *::after {
-    box-shadow: none !important; /* the void has no elevation */
-  }
-
   html {
     font-family: var(--font-sans);
-    font-feature-settings: "ss01" on;
+    font-feature-settings: "ss01" on, "cv11" on;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background-color: #000000;
-    color: #ffffff;
-    color-scheme: dark;
+    background-color: #f2f0eb;
+    color: #292827;
+    color-scheme: light;
     scroll-behavior: auto;
   }
 
   body {
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: 200;
+    background-color: #f2f0eb;
+    color: #292827;
+    font-weight: 460;
+    font-size: 16px;
+    line-height: 1.5;
     overflow-x: hidden;
   }
 
   ::selection {
-    background: rgba(128, 82, 255, 0.45);
-    color: #ffffff;
+    background: #d4c7ff;
+    color: #292827;
   }
 
-  /* Hierarchy through scale, never weight */
+  /* Headlines whisper at 460 — hierarchy comes from scale and tracking. */
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
+    font-weight: 460;
+    letter-spacing: -0.014em;
+    line-height: 1.14;
     text-wrap: balance;
   }
 
@@ -143,45 +165,124 @@
     color: inherit;
   }
 
+  :focus-visible {
+    outline: 2px solid #714cb6;
+    outline-offset: 3px;
+  }
+
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: #f2f0eb;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: #d6d3cc;
     border-radius: 9999px;
   }
 }
 
 @layer components {
-  /* Electric Iris pill — the single primary action per view */
-  .btn-iris {
+  .container-page {
+    width: 100%;
+    max-width: calc(var(--page-max-width) + 80px);
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 24px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 40px;
+    }
+  }
+
+  /* Primary — the only chromatic button fill in the system. */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    padding-inline: 20px;
+    border-radius: 16px;
+    background: #421d24;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 460;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.2s var(--ease-editorial), transform 0.2s var(--ease-editorial);
+  }
+  .btn-primary:hover {
+    background: #5a2832;
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  /* Secondary — lilac fill, ink hairline. */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1px solid #292827;
+    background: #d4c7ff;
+    color: #292827;
+    font-size: 16px;
+    font-weight: 460;
+    line-height: 1.5;
+    white-space: nowrap;
+    transition: background-color 0.2s var(--ease-editorial);
+  }
+  .btn-secondary:hover {
+    background: #c7b7ff;
+  }
+
+  /* White outlined — the only button on the deep-lagoon band. */
+  .btn-outline-light {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #8052ff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
     color: #ffffff;
-    border-radius: 24px;
-    padding: 14.4px 22px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    transition: background-color 0.2s var(--ease-void), transform 0.2s var(--ease-void);
+    font-size: 16px;
+    font-weight: 460;
+    line-height: 1.5;
+    transition: background-color 0.2s var(--ease-editorial), color 0.2s var(--ease-editorial);
   }
-  .btn-iris:hover {
-    background: #9168ff;
+  .btn-outline-light:hover {
+    background: #ffffff;
+    color: #0c4243;
   }
-  .btn-iris:active {
-    transform: translateY(1px);
+
+  /* White fill — atmospheric gradient band only. */
+  .btn-paper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    padding-inline: 20px;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #292827;
+    font-size: 16px;
+    font-weight: 460;
+    white-space: nowrap;
+    transition: background-color 0.2s var(--ease-editorial);
   }
-  .btn-iris:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
+  .btn-paper:hover {
+    background: #f7f5f1;
   }
 
   /* Ghost text button / nav link */
@@ -189,57 +290,108 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: #9a9a9a;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    transition: color 0.2s var(--ease-void);
+    color: #292827;
+    font-size: 16px;
+    font-weight: 460;
+    line-height: 1.5;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.2s ease;
   }
   .btn-ghost:hover,
   .btn-ghost[aria-current="page"] {
-    color: #ffffff;
+    text-decoration-color: currentColor;
   }
 
-  /* Small uppercase label (amber by default) */
+  /* Violet link — the only chromatic text in the system. */
+  .link-violet {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #714cb6;
+    font-weight: 460;
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.2s ease;
+  }
+  .link-violet:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Small lilac tag that opens a section or page. */
   .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #d4c7ff;
+    color: #292827;
     font-size: 14px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    color: #ffb829;
-  }
-
-  .body-light {
-    font-size: 18px;
-    font-weight: 200;
+    font-weight: 540;
     line-height: 1.5;
   }
 
-  .void-container {
-    width: 100%;
-    max-width: var(--page-max-width);
-    margin-inline: auto;
-    padding-inline: 24px;
+  .text-secondary-copy {
+    color: #666666;
+  }
+
+  /* Paper card on parchment: border contrast only, never a drop shadow. */
+  .card-paper {
+    background: #ffffff;
+    border: 1px solid #e3e3e2;
+    border-radius: 16px;
+  }
+
+  /* Translucent product card composited over imagery. */
+  .card-glass {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .section-y {
+    padding-block: 64px;
   }
   @media (min-width: 768px) {
-    .void-container {
-      padding-inline: 48px;
+    .section-y {
+      padding-block: 96px;
     }
   }
 }
 
 @layer utilities {
-  /* Gradients are reserved for the logo mark only */
+  /* Kept for interior pages: now a wine → violet duo-tone. */
   .bg-brand-gradient {
-    background-image: linear-gradient(135deg, #8052ff 0%, #15846e 100%);
+    background-image: linear-gradient(135deg, #421d24 0%, #714cb6 100%);
   }
   .text-brand-gradient {
-    background-image: linear-gradient(135deg, #8052ff 0%, #15846e 100%);
+    background-image: linear-gradient(135deg, #421d24 0%, #714cb6 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Film grain for painted / photographic surfaces. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 }
 
@@ -248,9 +400,9 @@
  * ------------------------------------------------------------------ */
 .word-span {
   display: inline-block;
-  transform: translateY(0.42em);
+  transform: translateY(0.32em);
   opacity: 0;
-  transition: transform 0.7s var(--ease-void), opacity 0.7s var(--ease-void);
+  transition: transform 0.8s var(--ease-editorial), opacity 0.8s var(--ease-editorial);
   transition-delay: var(--word-d, 0ms);
   will-change: transform, opacity;
 }
@@ -263,8 +415,8 @@
 
 [data-rev] {
   opacity: 0;
-  transform: translateY(24px);
-  transition: transform 0.8s var(--ease-void), opacity 0.8s var(--ease-void);
+  transform: translateY(16px);
+  transition: transform 0.8s var(--ease-editorial), opacity 0.8s var(--ease-editorial);
   transition-delay: var(--d, 0ms);
   will-change: transform, opacity;
 }
@@ -272,6 +424,16 @@
 [data-rev].is-revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Hero cards drift in a slow, barely-there float. */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+  animation-delay: var(--float-d, 0s);
 }
 
 @media (prefers-reduced-motion: reduce) {

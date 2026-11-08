@@ -23,7 +23,7 @@ export function fireConfetti(options?: { count?: number; duration?: number }) {
   }
   ctx.scale(dpr, dpr);
 
-  const colors = ["#6366f1", "#22d3ee", "#a78bfa", "#f472b6", "#4ade80", "#fbbf24"];
+  const colors = ["#421d24", "#714cb6", "#d4c7ff", "#0c4243", "#efc08f", "#ffffff"];
   const W = window.innerWidth;
   const H = window.innerHeight;
 

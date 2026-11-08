@@ -91,5 +91,5 @@ export const paygent: Project = {
     hero: "", // TODO
     screenshots: [], // TODO
   },
-  accent: "oklch(0.8 0.13 200)",
+  accent: "#421d24",
 };

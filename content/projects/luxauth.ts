@@ -96,5 +96,5 @@ export const luxauth: Project = {
     hero: "", // TODO
     screenshots: [], // TODO
   },
-  accent: "oklch(0.78 0.15 85)",
+  accent: "#b07a45",
 };

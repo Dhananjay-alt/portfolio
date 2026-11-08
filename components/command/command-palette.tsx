@@ -50,7 +50,7 @@ export function CommandPalette() {
       open={open}
       onOpenChange={setOpen}
       label="Command menu"
-      overlayClassName="fixed inset-0 z-[190] bg-black/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in"
+      overlayClassName="fixed inset-0 z-[190] bg-ink-charcoal/30 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in"
       contentClassName="glass fixed left-1/2 top-[18vh] z-[200] w-[92vw] max-w-xl -translate-x-1/2 overflow-hidden rounded-2xl border border-border shadow-2xl data-[state=open]:animate-in data-[state=open]:fade-in data-[state=open]:zoom-in-95"
     >
       <div className="flex items-center gap-2 border-b border-border/60 px-4">

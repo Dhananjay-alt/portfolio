@@ -28,7 +28,6 @@ export const profile = {
     ai: ["LLM integration (Groq / Llama)", "Vision models", "Retrieval", "Agent workflows"],
   },
   communities: [
-    { name: "BlocSoc IIT Roorkee", role: "Blockchain society" },
     { name: "GDSC IIT Roorkee", role: "Google Developer Student Clubs" },
     { name: "Esports IITR", role: "Operations team" },
   ],

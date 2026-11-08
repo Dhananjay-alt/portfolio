@@ -1,12 +1,12 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { useIsTouch, usePrefersReducedMotion } from "@/hooks/use-media-query";
 
 /**
- * Editorial Warm Print Register Cursor:
- * Zero radius, sharp square crosshair indicator, responsive to interactive targets.
+ * Soft round cursor: a small inverted dot that swells over interactive targets.
+ * Difference blending keeps it legible on parchment, lagoon and wine alike.
  */
 export function CustomCursor() {
   const isTouch = useIsTouch();
@@ -67,7 +67,7 @@ export function CustomCursor() {
     >
       <motion.div
         className="bg-white"
-        style={{ borderRadius: 0 }}
+        style={{ borderRadius: 9999 }}
         animate={{
           width: hovering ? 36 : 10,
           height: hovering ? 36 : 10,

@@ -46,7 +46,7 @@ export function ShortcutsHelp() {
           role="dialog"
           aria-label="Keyboard shortcuts"
         >
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-ink-charcoal/30 backdrop-blur-sm" />
           <motion.div
             className="glass relative w-full max-w-sm rounded-2xl border border-border p-6 shadow-2xl"
             initial={{ scale: 0.96, y: 10 }}

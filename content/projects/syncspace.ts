@@ -101,5 +101,5 @@ export const syncspace: Project = {
     screenshots: [], // TODO
     video: "", // TODO
   },
-  accent: "oklch(0.72 0.15 265)",
+  accent: "#714cb6",
 };
