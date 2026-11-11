@@ -66,6 +66,8 @@ export function Reveal({ children, as, index = 0, className, style, id }: Reveal
       ref={ref}
       id={id}
       data-reveal=""
+      // An inline script may add data-revealed before hydration.
+      suppressHydrationWarning
       className={className}
       style={{ ...style, "--i": staggerIndex(index) } as CSSProperties}
     >

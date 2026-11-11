@@ -542,6 +542,8 @@ html.intro-repeat [data-intro="nav"] {
 }
 
 /* Scroll reveal: 16px fade-up, staggered by --i. */
+/* Blocks already inside the first viewport are marked revealed by an inline
+   script before first paint (see app/layout.tsx), so LCP never waits on JS. */
 .js [data-reveal] {
   opacity: 0;
   transform: translate3d(0, var(--reveal-y), 0);
@@ -555,9 +557,19 @@ html.intro-repeat [data-intro="nav"] {
   transition-delay: calc(var(--i, 0) * var(--stagger));
 }
 
+/* Revealed before first paint by the inline script: appear, don't animate.
+   (Measuring the element computes its hidden style, which would otherwise
+   start a transition and push LCP out by its duration.) */
+.js [data-reveal][data-revealed="instant"],
+.js [data-split][data-split-ready="instant"] {
+  transition: none !important;
+}
+
 /* SplitText headings stay hidden until their lines are ready to move. */
+/* Opacity, not visibility: a visibility-hidden heading drops out of the
+   accessibility tree and leaves a gap in the heading order. */
 .js [data-split]:not([data-split-ready]) {
-  visibility: hidden;
+  opacity: 0;
 }
 
 /* Header: slides away on scroll down, returns on scroll up. */
@@ -839,7 +851,6 @@ html.theme-vt::view-transition-new(root) {
   }
 
   .js [data-split]:not([data-split-ready]) {
-    visibility: visible;
     opacity: 0;
   }
   .js [data-split][data-split-ready] {

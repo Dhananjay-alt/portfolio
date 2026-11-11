@@ -28,7 +28,8 @@ export function SplitHeading({ children, as, className, id }: SplitHeadingProps)
 
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
+    // Already shown before first paint (it was above the fold).
+    if (!node || node.hasAttribute("data-split-ready")) return;
 
     const reduced = prefersReducedMotion();
     let cancelled = false;
@@ -88,7 +89,7 @@ export function SplitHeading({ children, as, className, id }: SplitHeadingProps)
   }, []);
 
   return (
-    <Tag ref={ref} id={id} data-split="" className={className}>
+    <Tag ref={ref} id={id} data-split="" suppressHydrationWarning className={className}>
       {children}
     </Tag>
   );

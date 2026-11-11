@@ -78,6 +78,13 @@ export const viewport: Viewport = {
  */
 const BOOT_SCRIPT = `(function(){var d=document.documentElement,c=d.classList;c.add("js");try{var k="dh:intro";if(sessionStorage.getItem(k)){c.add("intro-repeat")}else{c.add("intro-first");sessionStorage.setItem(k,"1")}}catch(e){c.add("intro-repeat")}setTimeout(function(){if(!window.__dhReady){c.remove("js")}},6000)})()`;
 
+/**
+ * Runs at the end of <body>, still before first paint. Anything meant to
+ * reveal on scroll that is already inside the first viewport is shown
+ * immediately, so above-the-fold content (and LCP) never waits for hydration.
+ */
+const ABOVE_FOLD_SCRIPT = `(function(){var h=window.innerHeight,n=document.querySelectorAll("[data-reveal],[data-split]");for(var i=0;i<n.length;i++){var r=n[i].getBoundingClientRect();if(r.top<h&&r.bottom>0){n[i].setAttribute(n[i].hasAttribute("data-split")?"data-split-ready":"data-revealed","instant")}}})()`;
+
 export default function RootLayout({
   children,
 }: {
@@ -94,6 +101,7 @@ export default function RootLayout({
         <InlineScript html={BOOT_SCRIPT} />
         <Providers>{children}</Providers>
         <RegisterSW />
+        <InlineScript html={ABOVE_FOLD_SCRIPT} />
       </body>
     </html>
   );
