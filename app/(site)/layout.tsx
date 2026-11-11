@@ -1,37 +1,27 @@
 import type { ReactNode } from "react";
 import { CustomCursor } from "@/components/site/custom-cursor";
-import { AnnouncementBar } from "@/components/site/announcement-bar";
-import { FloatingNav } from "@/components/site/floating-nav";
+import { SiteHeader } from "@/components/site/site-header";
 import { Footer } from "@/components/site/footer";
-import { CommandPalette } from "@/components/command/command-palette";
-import { AiAssistant } from "@/components/ai/ai-assistant";
-import { SoundManager } from "@/components/site/sound-manager";
-import { KonamiEasterEgg } from "@/components/site/konami-easter-egg";
-import { ShortcutsHelp } from "@/components/site/shortcuts-help";
-import { BackToTop } from "@/components/site/back-to-top";
+import { CommandPaletteLoader } from "@/components/command/command-palette-loader";
+import { IntroDone } from "@/components/motion/intro-done";
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[8px] focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+        className="btn btn-fill btn-sm sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]"
       >
         Skip to content
       </a>
-      <CustomCursor />
-      <SoundManager />
-      <KonamiEasterEgg />
-      <ShortcutsHelp />
-      <BackToTop />
-      <CommandPalette />
-      <AnnouncementBar />
-      <FloatingNav />
-      <main id="main" className="flex-1">
+      <SiteHeader />
+      <main id="main" className="flex-1 pt-[var(--header-h)]">
         {children}
       </main>
       <Footer />
-      <AiAssistant />
+      <IntroDone />
+      <CommandPaletteLoader />
+      <CustomCursor />
     </>
   );
 }

@@ -1,93 +1,82 @@
 import Link from "next/link";
+import { secondaryNav } from "@/config/nav";
 import { socials } from "@/config/socials";
 import { profile } from "@/content/profile";
-import { projects } from "@/content/projects";
-import { Logo } from "@/components/site/logo";
+import { Reveal } from "@/components/motion/reveal";
+import { SplitHeading } from "@/components/motion/split-heading";
+import { MagneticButton } from "@/components/motion/magnetic-button";
+import { ClosingCtaFrame } from "@/components/site/closing-cta";
+import { EmailCopy } from "@/components/site/email-copy";
+import { CommandPaletteButton } from "@/components/command/command-palette-loader";
 
-type Column = { heading: string; links: { label: string; href: string; external?: boolean }[] };
+const external = socials.filter((s) => s.href.startsWith("http"));
 
-const columns: Column[] = [
-  {
-    heading: "Work",
-    links: [
-      ...projects.map((p) => ({ label: p.title, href: `/projects/${p.slug}` })),
-      { label: "All projects", href: "/projects" },
-    ],
-  },
-  {
-    heading: "Writing",
-    links: [
-      { label: "Blog", href: "/blog" },
-      { label: "Playground", href: "/playground" },
-      { label: "Open source", href: "/open-source" },
-      { label: "RSS feed", href: "/feed.xml" },
-    ],
-  },
-  {
-    heading: "About",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Experience", href: "/experience" },
-      { label: "Skills", href: "/skills" },
-      { label: "Résumé", href: "/resume" },
-    ],
-  },
-  {
-    heading: "Contact",
-    links: [
-      { label: "Get in touch", href: "/contact" },
-      ...socials.map((s) => ({ label: s.label, href: s.href, external: true })),
-    ],
-  },
-];
-
+/** Closing call-to-action followed by the footer bar. */
 export function Footer() {
   return (
-    <footer className="select-none bg-midnight-wine text-white">
-      <div className="container-page py-16">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
-          <div className="max-w-xs">
-            <Logo tone="light" />
-            <p className="mt-5 text-[14px] leading-[1.5] text-white/70">{profile.tagline}</p>
-          </div>
+    <footer className="site-footer mt-auto">
+      <ClosingCtaFrame>
+        <div className="container-page section-y">
+          <p className="label">
+            <span className="closing-index tabular text-ink">05</span>
+            <span className="closing-index" aria-hidden="true">
+              {" — "}
+            </span>
+            Contact
+          </p>
 
-          <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
-            {columns.map((col) => (
-              <div key={col.heading}>
-                <h2 className="text-[14px] font-bold tracking-normal text-white">{col.heading}</h2>
-                <ul className="mt-4 flex flex-col gap-3">
-                  {col.links.map((link) => (
-                    <li key={link.href}>
-                      {link.external ? (
-                        <a
-                          href={link.href}
-                          target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-                          rel="noreferrer noopener"
-                          className="text-[14px] text-white/70 underline decoration-transparent underline-offset-4 transition-[color,text-decoration-color] duration-200 hover:text-white hover:decoration-white/60"
-                        >
-                          {link.label}
-                        </a>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          className="text-[14px] text-white/70 underline decoration-transparent underline-offset-4 transition-[color,text-decoration-color] duration-200 hover:text-white hover:decoration-white/60"
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+          <SplitHeading id="closing-heading" className="text-display mt-8 max-w-[14ch]">
+            Let&apos;s build what ships.
+          </SplitHeading>
+
+          <div className="grid-12 mt-12 gap-y-10">
+            <Reveal as="p" className="text-lead text-mute md:col-span-5">
+              Open to protocols, multiplayer engines and founding teams. Based at IIT Roorkee,
+              working across timezones.
+            </Reveal>
+
+            <Reveal index={1} className="flex flex-col items-start gap-8 md:col-span-6 md:col-start-7">
+              <EmailCopy email={profile.email} />
+
+              <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
+                <MagneticButton>
+                  <Link href="/contact" className="btn btn-fill">
+                    Start a conversation
+                    <span aria-hidden="true" className="arrow">
+                      →
+                    </span>
+                  </Link>
+                </MagneticButton>
+                {external.map((s) => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noreferrer noopener" className="link">
+                    {s.label}
+                  </a>
+                ))}
+                <Link href="/resume" className="link">
+                  Résumé
+                </Link>
               </div>
-            ))}
+            </Reveal>
           </div>
         </div>
+      </ClosingCtaFrame>
 
-        <div className="mt-16 flex flex-col gap-2 border-t border-white/15 pt-8 text-[12px] leading-[1.5] text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>
+      <div className="rule">
+        <div className="container-page flex flex-col gap-5 py-8 md:flex-row md:items-center md:justify-between">
+          <p className="label">
             © {new Date().getFullYear()} {profile.name} · {profile.education.school}
           </p>
-          <p>Built with Next.js, set in Inter.</p>
+          <nav aria-label="Secondary" className="label flex flex-wrap gap-x-6 gap-y-2">
+            {secondaryNav.map((item) => (
+              <Link key={item.href} href={item.href} className="link hover:text-ink">
+                {item.label}
+              </Link>
+            ))}
+            <a href="/feed.xml" className="link hover:text-ink">
+              RSS
+            </a>
+            <CommandPaletteButton className="link uppercase hover:text-ink" />
+          </nav>
         </div>
       </div>
     </footer>

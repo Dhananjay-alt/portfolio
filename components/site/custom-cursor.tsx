@@ -1,83 +1,66 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
-import { useIsTouch, usePrefersReducedMotion } from "@/hooks/use-media-query";
+import { useMotionValue, useSpring } from "motion/react";
+import * as m from "motion/react-m";
+import { spring } from "@/lib/motion";
+import { useFinePointer, usePrefersReducedMotion } from "@/hooks/use-media-query";
+
+const INTERACTIVE = 'a, button, [role="button"], input, textarea, select, summary, label[for]';
 
 /**
- * Soft round cursor: a small inverted dot that swells over interactive targets.
- * Difference blending keeps it legible on parchment, lagoon and wine alike.
+ * A small dot that trails the pointer and grows over interactive elements.
+ * The native cursor is left alone. Mouse/trackpad only; off on touch and
+ * under reduced motion. Size changes are a scale transform, never width/height.
  */
 export function CustomCursor() {
-  const isTouch = useIsTouch();
+  const fine = useFinePointer();
   const reduced = usePrefersReducedMotion();
-  const enabled = !isTouch && !reduced;
+  const enabled = fine && !reduced;
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const springX = useSpring(x, { stiffness: 550, damping: 38, mass: 0.35 });
-  const springY = useSpring(y, { stiffness: 550, damping: 38, mass: 0.35 });
+  const sx = useSpring(x, { ...spring, stiffness: 500, damping: 40 });
+  const sy = useSpring(y, { ...spring, stiffness: 500, damping: 40 });
 
   const [hovering, setHovering] = useState(false);
-  const [pressed, setPressed] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (!enabled) return;
 
-    document.documentElement.classList.add("has-custom-cursor");
-
     const move = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
       x.set(e.clientX);
       y.set(e.clientY);
       setVisible(true);
-
-      const target = e.target as HTMLElement | null;
-      const interactive = target?.closest(
-        'a, button, [role="button"], input, textarea, select, [data-cursor="hover"]',
-      );
-      setHovering(Boolean(interactive));
+      setHovering(Boolean((e.target as Element | null)?.closest?.(INTERACTIVE)));
     };
-
-    const down = () => setPressed(true);
-    const up = () => setPressed(false);
     const leave = () => setVisible(false);
 
-    window.addEventListener("pointermove", move);
-    window.addEventListener("pointerdown", down);
-    window.addEventListener("pointerup", up);
-    document.addEventListener("pointerleave", leave);
-
+    window.addEventListener("pointermove", move, { passive: true });
+    document.documentElement.addEventListener("pointerleave", leave);
     return () => {
-      document.documentElement.classList.remove("has-custom-cursor");
       window.removeEventListener("pointermove", move);
-      window.removeEventListener("pointerdown", down);
-      window.removeEventListener("pointerup", up);
-      document.removeEventListener("pointerleave", leave);
+      document.documentElement.removeEventListener("pointerleave", leave);
     };
   }, [enabled, x, y]);
 
-  if (!enabled || !visible) return null;
+  if (!enabled) return null;
 
   return (
-    <motion.div
-      aria-hidden
+    <m.div
+      aria-hidden="true"
+      data-chrome
       className="pointer-events-none fixed left-0 top-0 z-[9999] mix-blend-difference"
-      style={{ x: springX, y: springY }}
+      style={{ x: sx, y: sy }}
     >
-      <motion.div
-        className="bg-white"
-        style={{ borderRadius: 9999 }}
-        animate={{
-          width: hovering ? 36 : 10,
-          height: hovering ? 36 : 10,
-          x: hovering ? -18 : -5,
-          y: hovering ? -18 : -5,
-          scale: pressed ? 0.8 : 1,
-          opacity: hovering ? 0.3 : 1,
-        }}
-        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      <m.div
+        className="-ml-1 -mt-1 size-2 rounded-full bg-white"
+        initial={false}
+        animate={{ scale: hovering ? 4 : 1, opacity: visible ? (hovering ? 0.35 : 1) : 0 }}
+        transition={spring}
       />
-    </motion.div>
+    </m.div>
   );
 }
