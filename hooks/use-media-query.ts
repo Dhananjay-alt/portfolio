@@ -1,23 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+import { FINE_POINTER_QUERY, REDUCED_MOTION_QUERY } from "@/lib/motion";
 
-/** SSR-safe media-query hook. Returns `false` on the server. */
+/** SSR-safe media-query hook. Returns `false` on the server and first render. */
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const mql = window.matchMedia(query);
-    const onChange = () => setMatches(mql.matches);
-    onChange();
-    mql.addEventListener("change", onChange);
-    return () => mql.removeEventListener("change", onChange);
-  }, [query]);
-
-  return matches;
+  return useSyncExternalStore(
+    (onChange) => {
+      const mql = window.matchMedia(query);
+      mql.addEventListener("change", onChange);
+      return () => mql.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(query).matches,
+    () => false,
+  );
 }
 
-export const usePrefersReducedMotion = () =>
-  useMediaQuery("(prefers-reduced-motion: reduce)");
+export const usePrefersReducedMotion = () => useMediaQuery(REDUCED_MOTION_QUERY);
 
 export const useIsTouch = () => useMediaQuery("(pointer: coarse)");
+
+/** True only where hover is real: a mouse or trackpad. */
+export const useFinePointer = () => useMediaQuery(FINE_POINTER_QUERY);
