@@ -6,21 +6,12 @@ export function SkillsFallback() {
     <div className="grid gap-8 sm:grid-cols-2">
       {skillGroups.map((group) => (
         <div key={group.category}>
-          <div className="flex items-center gap-2">
-            <span
-              className="size-2 rounded-full"
-              style={{ background: group.accent }}
-              aria-hidden
-            />
-            <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              {group.category}
-            </h2>
-          </div>
-          <ul className="mt-3 space-y-2">
+          <h2 className="label !font-mono">{group.category}</h2>
+          <ul className="mt-3 border-b border-line">
             {group.skills.map((skill) => (
-              <li key={skill.name} className="rounded-lg border border-border bg-card p-3">
-                <p className="text-sm font-medium">{skill.name}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">{skill.note}</p>
+              <li key={skill.name} className="border-t border-line py-3">
+                <p className="text-[0.9375rem] font-medium">{skill.name}</p>
+                <p className="mt-0.5 text-[0.875rem] text-mute">{skill.note}</p>
               </li>
             ))}
           </ul>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { PageShell } from "@/components/site/page-shell";
-import { Reveal } from "@/components/site/reveal";
+import { Reveal } from "@/components/motion/reveal";
 import { ParticleCanvas } from "@/components/playground/particle-canvas";
 import { SortingVisualizer } from "@/components/playground/sorting-visualizer";
 import { Terminal } from "@/components/playground/terminal";
@@ -60,8 +60,8 @@ function Experiment({
     <Reveal>
       <section>
         <div className="mb-4">
-          <h2 className="text-[length:var(--text-h3)] font-normal tracking-tight">{title}</h2>
-          <p className="mt-1 text-sm text-muted-foreground">{blurb}</p>
+          <h2 className="text-h3">{title}</h2>
+          <p className="mt-2 text-[0.9375rem] text-mute">{blurb}</p>
         </div>
         {children}
       </section>

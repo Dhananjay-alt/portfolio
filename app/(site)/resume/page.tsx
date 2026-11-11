@@ -5,7 +5,7 @@ import { profile } from "@/content/profile";
 import { getAllProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Resume",
+  title: "Résumé",
   description: `Resume of ${profile.name} — ${profile.role}.`,
 };
 
@@ -20,16 +20,16 @@ export default function ResumePage() {
   ];
 
   return (
-    <PageShell eyebrow="Resume" title="The one-page version.">
+    <PageShell eyebrow="Résumé" title="The one-page version.">
       <div className="mt-8">
         <ResumeActions />
       </div>
 
       {/* Printable resume sheet */}
-      <div className="mt-10 rounded-2xl border border-border bg-card p-8 md:p-10 print:border-0 print:p-0">
-        <header className="border-b border-border pb-6">
-          <h2 className="text-2xl font-normal tracking-tight">{profile.name}</h2>
-          <p className="mt-1 text-brand">{profile.role}</p>
+      <div className="rule mt-12 pt-10 print:border-0 print:pt-0">
+        <header className="border-b border-line pb-6">
+          <h2 className="text-h2">{profile.name}</h2>
+          <p className="mt-2">{profile.role}</p>
           <p className="mt-2 text-sm text-muted-foreground">
             {profile.email} · {profile.location}
           </p>
@@ -55,7 +55,7 @@ export default function ResumePage() {
                   <p className="text-sm font-semibold">
                     {p.title}
                     {p.award && (
-                      <span className="ml-2 font-normal text-brand">
+                      <span className="ml-2 font-normal text-mute">
                         {p.award.replace(/^🏆\s*/, "· ")}
                       </span>
                     )}
@@ -96,7 +96,7 @@ export default function ResumePage() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mt-6">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+      <h3 className="label !font-mono">
         {title}
       </h3>
       <div className="mt-2">{children}</div>

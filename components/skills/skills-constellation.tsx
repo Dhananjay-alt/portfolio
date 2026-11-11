@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { useMotionValue, useSpring } from "motion/react";
+import * as m from "motion/react-m";
 import { skillGroups } from "@/content/skills";
 import { usePrefersReducedMotion } from "@/hooks/use-media-query";
 import { SkillsFallback } from "@/components/skills/skills-fallback";
@@ -99,7 +100,7 @@ export function SkillsConstellation() {
           role="img"
           aria-label="Interactive constellation of skills grouped by category"
         >
-          <motion.g style={{ x: tx, y: ty }}>
+          <m.g style={{ x: tx, y: ty }}>
             {/* hub → cluster links */}
             {clusters.map((c) => (
               <line
@@ -192,14 +193,14 @@ export function SkillsConstellation() {
                 </g>
               );
             })}
-          </motion.g>
+          </m.g>
         </svg>
 
         {/* Info panel */}
-        <div className="pointer-events-none absolute bottom-2 left-1/2 min-h-[3.5rem] w-full max-w-md -translate-x-1/2 rounded-xl border border-border bg-card/80 p-4 text-center backdrop-blur">
+        <div className="pointer-events-none absolute bottom-2 left-1/2 min-h-[3.5rem] w-full max-w-md -translate-x-1/2 rounded-md border border-line bg-paper p-4 text-center">
           {active ? (
             <>
-              <p className="text-sm font-semibold" style={{ color: active.accent }}>
+              <p className="text-sm font-semibold">
                 {active.name}
               </p>
               <p className="mt-0.5 text-sm text-muted-foreground">{active.note}</p>

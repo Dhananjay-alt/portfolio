@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { CalendarClock } from "lucide-react";
 import { PageShell } from "@/components/site/page-shell";
 import { ContactForm } from "@/components/contact/contact-form";
+import { EmailCopy } from "@/components/site/email-copy";
 import { socials } from "@/config/socials";
 import { profile } from "@/content/profile";
 import { siteConfig } from "@/config/site";
@@ -18,60 +18,47 @@ export default function ContactPage() {
       title="Let's build something."
       description="Recruiters, founders, and collaborators — drop a message and I'll get back to you. Or reach me directly through any of the links."
     >
-      <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_320px]">
+      <div className="mt-[clamp(40px,6vw,80px)] grid gap-14 lg:grid-cols-[minmax(0,1fr)_360px]">
         <div className="max-w-xl">
           <ContactForm />
         </div>
 
-        <aside className="space-y-6">
-          <div className="rounded-2xl border border-border bg-card p-6">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Direct
-            </p>
-            <ul className="mt-4 space-y-1">
-              {socials.map((s) => {
-                const Icon = s.icon;
-                return (
+        <aside className="space-y-8">
+          <div className="rule pt-5">
+            <p className="label">Email</p>
+            <div className="mt-3">
+              <EmailCopy email={profile.email} />
+            </div>
+          </div>
+
+          <div className="rule pt-5">
+            <p className="label">Elsewhere</p>
+            <ul className="mt-3 space-y-2">
+              {socials
+                .filter((s) => s.href.startsWith("http"))
+                .map((s) => (
                   <li key={s.label}>
-                    <a
-                      href={s.href}
-                      target={s.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noreferrer noopener"
-                      className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-                    >
-                      <Icon className="size-4" />
-                      {s.label}
+                    <a href={s.href} target="_blank" rel="noreferrer noopener" className="link">
+                      {s.label}{" "}
+                      <span aria-hidden="true" className="arrow arrow-up">
+                        ↗
+                      </span>
                     </a>
                   </li>
-                );
-              })}
+                ))}
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-6">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Email
-            </p>
-            <a
-              href={`mailto:${profile.email}`}
-              className="mt-3 block break-all text-sm font-medium transition-colors hover:text-brand"
-            >
-              {profile.email}
-            </a>
-          </div>
-
           {siteConfig.calendlyUrl && (
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                Book a call
-              </p>
+            <div className="rule pt-5">
+              <p className="label">Book a call</p>
               <a
                 href={siteConfig.calendlyUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
+                className="link mt-3"
               >
-                <CalendarClock className="size-4" /> Find a time
+                Find a time
               </a>
             </div>
           )}

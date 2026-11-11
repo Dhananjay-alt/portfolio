@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Play, Shuffle } from "lucide-react";
 
 type Frame = { array: number[]; compare: [number, number] | null; sorted: number };
 
@@ -108,17 +107,17 @@ export function SortingVisualizer() {
           type="button"
           onClick={run}
           disabled={running}
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03] disabled:opacity-50"
+          className="btn btn-fill btn-sm disabled:opacity-50"
         >
-          <Play className="size-4" /> {running ? "Sorting…" : "Bubble sort"}
+          {running ? "Sorting…" : "Bubble sort"}
         </button>
         <button
           type="button"
           onClick={shuffle}
           disabled={running}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium transition-colors hover:bg-accent disabled:opacity-50"
+          className="link text-[0.875rem] disabled:opacity-50"
         >
-          <Shuffle className="size-4" /> Shuffle
+          Shuffle
         </button>
       </div>
     </div>

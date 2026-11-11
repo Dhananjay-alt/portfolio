@@ -7,7 +7,6 @@ import { profile } from "@/content/profile";
 import { skillGroups } from "@/content/skills";
 import { getAllProjects } from "@/lib/projects";
 import { fireConfetti } from "@/lib/confetti";
-import { fireMatrix } from "@/lib/matrix";
 
 type Line = { type: "in" | "out" | "err"; text: string };
 
@@ -23,7 +22,6 @@ const HELP = [
   "  resume        — download the resume",
   "  theme <name>  — set theme (dark|light|system)",
   "  confetti      — 🎉",
-  "  matrix        — enter the matrix",
   "  clear         — clear the screen",
 ];
 
@@ -79,7 +77,7 @@ export function Terminal() {
         else if (!found) print(`No project '${slug}'. Try 'projects'.`, "err");
         else {
           print(`Opening ${found.title}…`);
-          router.push(`/projects/${found.slug}`);
+          router.push(`/work/${found.slug}`);
         }
         break;
       }
@@ -105,14 +103,10 @@ export function Terminal() {
       }
       case "confetti":
         fireConfetti();
-        print("🎉");
-        break;
-      case "matrix":
-        fireMatrix();
-        print("Wake up, Neo…");
+        print("Done.");
         break;
       case "sudo":
-        print("Nice try. You already have root here. 😉");
+        print("Nice try. You already have root here.");
         break;
       case "clear":
         setLines([]);
@@ -148,7 +142,7 @@ export function Terminal() {
 
   return (
     <div
-      className="overflow-hidden rounded-[16px] border border-ink-charcoal bg-ink-charcoal font-mono text-sm"
+      className="overflow-hidden rounded-md border border-line bg-surface font-mono text-sm"
       onClick={() => inputRef.current?.focus()}
     >
       <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-2.5">
@@ -158,12 +152,12 @@ export function Terminal() {
         <span className="ml-2 text-xs text-white/50">dhananjay@portfolio: ~</span>
       </div>
 
-      <div ref={scrollRef} className="h-80 overflow-y-auto p-4 text-warm-parchment">
+      <div ref={scrollRef} className="h-80 overflow-y-auto p-4 text-ink">
         {lines.map((l, i) => (
           <div key={i} className="whitespace-pre-wrap break-words leading-relaxed">
             {l.type === "in" ? (
               <span>
-                <span className="text-lilac-mist">➜</span>{" "}
+                <span className="text-accent">➜</span>{" "}
                 <span className="text-white/50">~</span> {l.text}
               </span>
             ) : (
@@ -173,7 +167,7 @@ export function Terminal() {
         ))}
 
         <div className="flex items-center gap-2">
-          <span className="text-lilac-mist">➜</span>
+          <span className="text-accent">➜</span>
           <span className="text-white/50">~</span>
           <input
             ref={inputRef}
@@ -183,7 +177,7 @@ export function Terminal() {
             aria-label="Terminal input"
             autoComplete="off"
             spellCheck={false}
-            className="flex-1 bg-transparent text-warm-parchment caret-lilac-mist outline-none"
+            className="flex-1 bg-transparent text-ink caret-accent outline-none"
           />
         </div>
       </div>

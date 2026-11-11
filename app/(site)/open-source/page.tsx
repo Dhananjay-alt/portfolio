@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { GitFork, Star } from "lucide-react";
 import { PageShell, ComingSoon } from "@/components/site/page-shell";
-import { GithubIcon } from "@/components/site/brand-icons";
 import { getGitHubData } from "@/lib/github";
 import { profile } from "@/content/profile";
 
@@ -23,7 +21,7 @@ export default async function OpenSourcePage() {
       description="Live from the GitHub API — pinned repos, stars, and the languages I work in most, refreshed hourly."
     >
       {!data ? (
-        <div className="mt-10 rounded-2xl border border-border bg-card p-8">
+        <div className="rule mt-12 pt-8">
           <p className="text-muted-foreground">
             {profile.name}&apos;s GitHub isn&apos;t connected yet. Once the handle is
             set, this page will show live repositories, stars, forks, and top languages.
@@ -43,14 +41,14 @@ export default async function OpenSourcePage() {
           {/* Languages */}
           {data.topLanguages.length > 0 && (
             <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="label">
                 Languages
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {data.topLanguages.map((l) => (
                   <span
                     key={l.name}
-                    className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-sm"
+                    className="tag"
                   >
                     {l.name}
                   </span>
@@ -61,7 +59,7 @@ export default async function OpenSourcePage() {
 
           {/* Repos */}
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <p className="label">
               Top repositories
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -71,25 +69,18 @@ export default async function OpenSourcePage() {
                   href={repo.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="group rounded-2xl border border-border bg-card p-5 transition-colors hover:border-brand/40"
+                  className="group rounded-md border border-line p-5"
                 >
-                  <div className="flex items-center gap-2">
-                    <GithubIcon className="size-4 text-muted-foreground" />
-                    <span className="font-medium group-hover:text-brand">{repo.name}</span>
-                  </div>
+                  <span className="link link-group font-medium">{repo.name}</span>
                   {repo.description && (
                     <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
                       {repo.description}
                     </p>
                   )}
-                  <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
+                  <div className="label tabular mt-4 flex items-center gap-4">
                     {repo.language && <span>{repo.language}</span>}
-                    <span className="inline-flex items-center gap-1">
-                      <Star className="size-3.5" /> {repo.stars}
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <GitFork className="size-3.5" /> {repo.forks}
-                    </span>
+                    <span>{repo.stars} stars</span>
+                    <span>{repo.forks} forks</span>
                   </div>
                 </a>
               ))}
@@ -100,9 +91,12 @@ export default async function OpenSourcePage() {
             href={`https://github.com/${data.username}`}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium transition-colors hover:bg-accent"
+            className="link"
           >
-            <GithubIcon className="size-4" /> View full profile
+            View full profile{" "}
+            <span aria-hidden="true" className="arrow arrow-up">
+              ↗
+            </span>
           </a>
         </div>
       )}
@@ -112,11 +106,9 @@ export default async function OpenSourcePage() {
 
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-5">
-      <p className="text-2xl font-semibold tracking-tight">{value}</p>
-      <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-        {label}
-      </p>
+    <div className="rule pt-4">
+      <p className="tabular font-display text-[2rem] leading-none">{value}</p>
+      <p className="label mt-2">{label}</p>
     </div>
   );
 }

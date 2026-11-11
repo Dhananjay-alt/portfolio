@@ -16,58 +16,47 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(180deg, #c3c6d4 0%, #e8d6cb 40%, #f1d2b0 62%, #e2a978 82%, #b98a6f 100%)",
+          background: "#f2f0eb",
           padding: 80,
           fontFamily: "sans-serif",
         }}
       >
         <div
           style={{
-            position: "absolute",
-            top: 260,
-            left: 640,
-            width: 640,
-            height: 640,
-            borderRadius: "9999px",
-            background: "radial-gradient(circle, rgba(255,241,214,0.9), transparent 70%)",
+            display: "flex",
+            color: "#66635d",
+            fontSize: 24,
+            letterSpacing: 2,
+            textTransform: "uppercase",
           }}
-        />
-        <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#292827", fontSize: 26 }}>
-          <div
-            style={{
-              width: 44,
-              height: 44,
-              borderRadius: 12,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "#421d24",
-              color: "#ffffff",
-              fontWeight: 600,
-              fontSize: 28,
-            }}
-          >
-            D
-          </div>
-          {profile.education.school} · Class of {profile.education.graduationYear}
+        >
+          {profile.role} · {profile.education.school}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 96, fontWeight: 500, color: "#292827", letterSpacing: -3 }}>
-            {profile.name}
+          <div style={{ fontSize: 104, color: "#111111", letterSpacing: -4, lineHeight: 1 }}>
+            Complete systems,
           </div>
-          <div
-            style={{
-              fontSize: 60,
-              fontWeight: 500,
-              letterSpacing: -1.5,
-              color: "#421d24",
-            }}
-          >
-            {profile.role}
+          <div style={{ fontSize: 104, color: "#111111", letterSpacing: -4, lineHeight: 1.05 }}>
+            shipped end to end.
           </div>
-          <div style={{ marginTop: 24, fontSize: 30, color: "#3d3a38", maxWidth: 900 }}>
-            {profile.tagline}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderTop: "1px solid #d9d5cc",
+            paddingTop: 28,
+            fontSize: 28,
+            color: "#111111",
+          }}
+        >
+          <span>{profile.name}</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 14, color: "#66635d" }}>
+            <div style={{ width: 12, height: 12, borderRadius: 12, background: "#b93a15" }} />
+            Realtime · Web3 · AI tooling
           </div>
         </div>
       </div>

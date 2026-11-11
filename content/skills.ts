@@ -12,7 +12,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     category: "Frontend",
-    accent: "#714cb6",
+    accent: "var(--ink)",
     skills: [
       { name: "TypeScript", note: "Primary language across the stack." },
       { name: "React", note: "Component architecture, hooks, RSC." },
@@ -22,7 +22,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "Backend",
-    accent: "#0c4243",
+    accent: "var(--ink)",
     skills: [
       { name: "FastAPI", note: "Python APIs — used in Repo Analyzer." },
       { name: "Node", note: "JS/TS services and tooling." },
@@ -31,12 +31,12 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "Systems",
-    accent: "#421d24",
+    accent: "var(--ink)",
     skills: [{ name: "Rust", note: "Open-source Ethereum tooling contributions." }],
   },
   {
     category: "Web3",
-    accent: "#5c6f4e",
+    accent: "var(--ink)",
     skills: [
       { name: "Solidity", note: "Smart contracts for Paygent & LuxAuth." },
       { name: "Foundry", note: "Contract testing and deployment." },
@@ -47,7 +47,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "AI",
-    accent: "#b07a45",
+    accent: "var(--ink)",
     skills: [
       { name: "LLM integration", note: "Groq / Llama — grounded generation." },
       { name: "Retrieval", note: "RAG over structured content." },
