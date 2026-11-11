@@ -1,22 +1,14 @@
-"use client";
-
 import type { Heading } from "@/lib/blog";
-import { cn } from "@/lib/utils";
 
 export function TableOfContents({ headings }: { headings: Heading[] }) {
   if (headings.length === 0) return null;
   return (
-    <nav aria-label="Table of contents" className="text-sm">
-      <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-        On this page
-      </p>
-      <ul className="space-y-2 border-l border-border">
+    <nav aria-label="Table of contents" className="text-[0.875rem]">
+      <p className="label mb-4">On this page</p>
+      <ul className="space-y-2.5 border-l border-line">
         {headings.map((h) => (
-          <li key={h.slug} className={cn(h.depth === 3 && "ml-3")}>
-            <a
-              href={`#${h.slug}`}
-              className="-ml-px block border-l border-transparent pl-3 text-muted-foreground transition-colors hover:border-brand hover:text-foreground"
-            >
+          <li key={h.slug} className={h.depth === 3 ? "pl-3" : undefined}>
+            <a href={`#${h.slug}`} className="-ml-px block border-l border-transparent pl-4 text-mute hover:border-ink hover:text-ink">
               {h.text}
             </a>
           </li>

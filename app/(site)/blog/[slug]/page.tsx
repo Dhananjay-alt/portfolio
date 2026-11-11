@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -14,6 +13,8 @@ import { blogPostingSchema, breadcrumbSchema } from "@/lib/structured-data";
 import { ShareButton } from "@/components/site/share-button";
 import { ReadingMode } from "@/components/blog/reading-mode";
 import { CopyCode } from "@/components/blog/copy-code";
+import { PageTransition } from "@/components/motion/page-transition";
+import { codeTheme } from "@/lib/code";
 
 export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
@@ -52,7 +53,7 @@ export default async function BlogPostPage({
           rehypeSlug,
           [
             rehypePrettyCode,
-            { theme: "github-light", keepBackground: true, defaultLang: "plaintext" },
+            { theme: codeTheme, keepBackground: false, defaultLang: "plaintext" },
           ],
         ],
       },
@@ -60,7 +61,8 @@ export default async function BlogPostPage({
   });
 
   return (
-    <>
+    <PageTransition>
+      <div>
       <ReadingProgress />
       <CopyCode />
       <JsonLd
@@ -73,24 +75,27 @@ export default async function BlogPostPage({
           ]),
         ]}
       />
-      <div className="mx-auto w-full max-w-6xl px-6 pb-24 pt-16 md:pt-24">
+      <div className="container-page pb-[var(--section-y)] pt-[clamp(40px,7vw,96px)]">
         <div className="flex items-center justify-between gap-4">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="group label inline-flex items-center gap-2 hover:text-ink"
           >
-            <ArrowLeft className="size-4" /> All posts
+            <span aria-hidden="true" className="arrow arrow-back">
+              ←
+            </span>
+            All writing
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-6" data-reading-hide>
             <ReadingMode />
             <ShareButton title={post.meta.title} />
           </div>
         </div>
 
-        <div className="mt-8 grid gap-12 lg:grid-cols-[1fr_220px]">
+        <div className="mt-[clamp(40px,7vw,96px)] grid gap-12 lg:grid-cols-[minmax(0,1fr)_220px]">
           <article className="min-w-0 max-w-2xl">
             <header>
-              <div className="flex items-center gap-3 font-mono text-xs text-muted-foreground">
+              <div className="label tabular flex items-center gap-3">
                 <time dateTime={post.meta.date}>
                   {new Date(post.meta.date).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -101,10 +106,10 @@ export default async function BlogPostPage({
                 <span>·</span>
                 <span>{post.meta.readingTime}</span>
               </div>
-              <h1 className="mt-4 text-[length:var(--text-h2)] font-normal leading-tight tracking-tight">
+              <h1 className="text-h1 mt-5">
                 {post.meta.title}
               </h1>
-              <p className="mt-4 text-[length:var(--text-lead)] text-muted-foreground">
+              <p className="text-lead mt-5 text-mute">
                 {post.meta.description}
               </p>
               {post.meta.tags.length > 0 && (
@@ -112,7 +117,7 @@ export default async function BlogPostPage({
                   {post.meta.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full border border-border bg-secondary/60 px-2.5 py-1 font-mono text-xs text-muted-foreground"
+                      className="tag"
                     >
                       {t}
                     </span>
@@ -121,18 +126,19 @@ export default async function BlogPostPage({
               )}
             </header>
 
-            <hr className="my-10 border-border/60" />
+            <hr className="my-10 border-line" />
 
             <div className="prose">{content}</div>
           </article>
 
           <aside className="hidden lg:block" data-reading-hide>
-            <div className="sticky top-28">
+            <div className="sticky top-[calc(var(--header-h)+32px)]">
               <TableOfContents headings={post.headings} />
             </div>
           </aside>
         </div>
       </div>
-    </>
+      </div>
+    </PageTransition>
   );
 }
