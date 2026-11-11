@@ -149,7 +149,7 @@ export function Terminal() {
         <span className="size-3 rounded-full bg-white/25" />
         <span className="size-3 rounded-full bg-white/25" />
         <span className="size-3 rounded-full bg-white/25" />
-        <span className="ml-2 text-xs text-white/50">dhananjay@portfolio: ~</span>
+        <span className="ml-2 text-xs text-mute">dhananjay@portfolio: ~</span>
       </div>
 
       <div ref={scrollRef} className="h-80 overflow-y-auto p-4 text-ink">
@@ -158,7 +158,7 @@ export function Terminal() {
             {l.type === "in" ? (
               <span>
                 <span className="text-accent">➜</span>{" "}
-                <span className="text-white/50">~</span> {l.text}
+                <span className="text-mute">~</span> {l.text}
               </span>
             ) : (
               <span className={l.type === "err" ? "text-[#ffb4a8]" : ""}>{l.text}</span>
@@ -168,7 +168,7 @@ export function Terminal() {
 
         <div className="flex items-center gap-2">
           <span className="text-accent">➜</span>
-          <span className="text-white/50">~</span>
+          <span className="text-mute">~</span>
           <input
             ref={inputRef}
             value={input}

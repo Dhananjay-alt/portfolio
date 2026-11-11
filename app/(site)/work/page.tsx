@@ -18,7 +18,7 @@ export default function WorkPage() {
       description="Each of these has a case study covering the problem, the architecture, the engineering decisions, and the result."
     >
       <div className="mt-[clamp(40px,6vw,80px)]">
-        <WorkList items={getWorkItems()} />
+        <WorkList items={getWorkItems()} headingLevel="h2" />
       </div>
     </PageShell>
   );

@@ -36,7 +36,8 @@ function previewTransition(slug: string): CSSProperties {
  * Without hover (touch), without JS, or under reduced motion: the same
  * preview sits inline under each row instead — nothing depends on hover.
  */
-export function WorkList({ items }: { items: WorkItem[] }) {
+export function WorkList({ items, headingLevel = "h3" }: { items: WorkItem[]; headingLevel?: "h2" | "h3" }) {
+  const Heading = headingLevel;
   const fine = useFinePointer();
   const reduced = usePrefersReducedMotion();
   const follow = fine && !reduced;
@@ -90,11 +91,11 @@ export function WorkList({ items }: { items: WorkItem[] }) {
               <span className="label tabular md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
 
               <div className="md:col-span-5">
-                <h3 className="work-title text-h2">
+                <Heading className="work-title text-h2">
                   <SharedElement name={`work-title-${item.slug}`}>
                     <span className="inline-block">{item.title}</span>
                   </SharedElement>
-                </h3>
+                </Heading>
                 {item.badge && (
                   <p className="tag mt-4 gap-2 !text-ink">
                     <span aria-hidden="true" className="size-[6px] rounded-full bg-accent" />
