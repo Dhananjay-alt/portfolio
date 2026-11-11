@@ -5,7 +5,7 @@ date: "2025-08-01"
 tags: ["AI", "Developer Tools", "RAG"]
 ---
 
-When I built [Repo Analyzer](/projects/repo-analyzer), the AI summaries were the feature everyone noticed — but the first version was almost useless. The lesson that fixed it is the same one behind the assistant on this very site: **an LLM is only as good as the context you hand it.**
+When I built [Repo Analyzer](/work/repo-analyzer), the AI summaries were the feature everyone noticed — but the first version was almost useless. The lesson that fixed it is the same one behind the assistant on this very site: **an LLM is only as good as the context you hand it.**
 
 ## The vague-summary problem
 
@@ -45,7 +45,7 @@ This generalizes into a rule I keep coming back to:
 
 - **Retrieval beats parametric memory** for anything specific. Don't ask the model what it "knows" about your data — put the data in the prompt.
 - **Structure is the highest-signal context.** Edges, types, and relationships tell the model more per token than prose does.
-- **Stay provider-agnostic.** When Gemini's API access blocked development, swapping to [Groq's Llama 3.3 70B](/projects/repo-analyzer) was a one-file change because the AI layer never leaked into the rest of the system.
+- **Stay provider-agnostic.** When Gemini's API access blocked development, swapping to [Groq's Llama 3.3 70B](/work/repo-analyzer) was a one-file change because the AI layer never leaked into the rest of the system.
 
 The AI assistant on this site works the same way: it retrieves the most relevant chunks of my actual project and profile content, then hands them to the model with strict instructions to answer only from that context. No hallucinated credentials, no invented projects — just grounded answers.
 

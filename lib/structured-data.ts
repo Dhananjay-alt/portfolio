@@ -47,7 +47,7 @@ export function projectSchema(project: Project) {
     "@type": isSoftware ? "SoftwareApplication" : "CreativeWork",
     name: project.title,
     description: project.tagline,
-    url: `${url}/projects/${project.slug}`,
+    url: `${url}/work/${project.slug}`,
     applicationCategory: project.category,
     datePublished: String(project.year),
     author: { "@type": "Person", name: profile.name },

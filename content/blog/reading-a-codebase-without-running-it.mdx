@@ -5,7 +5,7 @@ date: "2025-07-10"
 tags: ["Developer Tools", "Python", "Static Analysis"]
 ---
 
-To draw a dependency graph, you first have to answer a deceptively hard question: when a file says `import foo`, *which file* does that actually resolve to? [Repo Analyzer](/projects/repo-analyzer) answers it **statically** — without ever running the code — using Python's standard-library `ast` module.
+To draw a dependency graph, you first have to answer a deceptively hard question: when a file says `import foo`, *which file* does that actually resolve to? [Repo Analyzer](/work/repo-analyzer) answers it **statically** — without ever running the code — using Python's standard-library `ast` module.
 
 ## Why not just run it?
 
@@ -50,9 +50,9 @@ And crucially, **excluding what isn't yours**: standard-library and third-party 
 
 Once every edge is resolved, the interesting analysis falls out for free:
 
-- **Circular dependencies** — [networkx](/projects/repo-analyzer) finds strongly-connected components, i.e. clusters of files that mutually depend on each other. These are the tangles a file explorer can never show you.
+- **Circular dependencies** — [networkx](/work/repo-analyzer) finds strongly-connected components, i.e. clusters of files that mutually depend on each other. These are the tangles a file explorer can never show you.
 - **Hubs and coupling** — a file imported by dozens of others is a load-bearing wall; changing it is risky.
-- **Complexity** — [radon](/projects/repo-analyzer) adds cyclomatic complexity per file, so bloated modules stand out.
+- **Complexity** — [radon](/work/repo-analyzer) adds cyclomatic complexity per file, so bloated modules stand out.
 
 Feeding those same edges into an LLM is what makes the AI summaries useful — but that's [a separate post](/blog/grounding-llms-in-real-structure).
 

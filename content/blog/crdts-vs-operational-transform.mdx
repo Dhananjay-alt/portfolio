@@ -5,7 +5,7 @@ date: "2025-08-04"
 tags: ["Realtime", "Distributed Systems", "CRDTs"]
 ---
 
-Every collaborative editor has to answer one question: when two people edit the same spot at the same time, what happens? For [SyncSpace](/projects/syncspace) — a realtime study and coding workspace — getting this wrong means dropped keystrokes and cursors that jump around. Getting it right is the whole product.
+Every collaborative editor has to answer one question: when two people edit the same spot at the same time, what happens? For [SyncSpace](/work/syncspace) — a realtime study and coding workspace — getting this wrong means dropped keystrokes and cursors that jump around. Getting it right is the whole product.
 
 There are two well-trodden answers: **operational transform (OT)** and **conflict-free replicated data types (CRDTs)**. I chose CRDTs. Here's the reasoning.
 
@@ -50,7 +50,7 @@ For a small team shipping under a deadline, three properties decided it:
 
 - **No central transform authority.** Convergence is a property of the data structure, so there's no server-side transform to implement or get subtly wrong.
 - **Offline and late-join just work.** A client that was disconnected can merge its edits back in whenever it reconnects — the merge is always well-defined.
-- **The client stays simple.** I sync Yjs updates over [Supabase](/projects/syncspace) channels and let the CRDT handle correctness. That freed my time for the parts users actually see: live cursors, presence, and the sandboxed code runner.
+- **The client stays simple.** I sync Yjs updates over [Supabase](/work/syncspace) channels and let the CRDT handle correctness. That freed my time for the parts users actually see: live cursors, presence, and the sandboxed code runner.
 
 ## The trade-off
 

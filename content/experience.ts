@@ -27,7 +27,7 @@ export const experience: ExperienceEntry[] = [
     description:
       "Solo build: static dependency mapping via Python's ast, circular-dependency detection (networkx), complexity metrics (radon), and cached, context-aware LLM file summaries.",
     highlights: ["FastAPI", "React Flow", "networkx", "Groq"],
-    href: "/projects/repo-analyzer",
+    href: "/work/repo-analyzer",
   },
   {
     title: "SyncSpace — realtime collaborative workspace",
@@ -37,7 +37,7 @@ export const experience: ExperienceEntry[] = [
     description:
       "Real-time notes + code editor using Yjs CRDTs over a custom Hocuspocus WebSocket server with Postgres snapshots and row-level security; per-run Docker sandbox for untrusted Python.",
     highlights: ["Yjs CRDTs", "Hocuspocus", "Postgres RLS", "Docker"],
-    href: "/projects/syncspace",
+    href: "/work/syncspace",
   },
   {
     title: "Vision-powered score & leaderboard tracker",
@@ -64,7 +64,7 @@ export const experience: ExperienceEntry[] = [
     description:
       "Agent-driven orchestration of liquidity allocation and on-chain settlement, with ENS-based strategy management and Solidity vault/payment/settlement contracts. Won the Integrate ENS prize.",
     highlights: ["🏆 Integrate ENS Prize", "Solidity + Foundry", "Agents", "ENS"],
-    href: "/projects/paygent",
+    href: "/work/paygent",
   },
   {
     title: "LuxuryAuthNFT — on-chain luxury authentication",
@@ -74,7 +74,7 @@ export const experience: ExperienceEntry[] = [
     description:
       "NFT provenance pairing physical goods with ERC-721 certificates — brand-gated minting, IPFS metadata, and public QR/hash verification. Foundry-tested Solidity, Next.js frontend.",
     highlights: ["ERC-721", "Foundry", "IPFS", "Next.js"],
-    href: "/projects/luxauth",
+    href: "/work/luxauth",
   },
   {
     title: "Volunteer — Navodaya Cell",

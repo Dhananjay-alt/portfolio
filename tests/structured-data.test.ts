@@ -27,7 +27,7 @@ describe("structured data (JSON-LD)", () => {
     const s = projectSchema(paygent);
     expect(s["@type"]).toBe("SoftwareApplication");
     expect(s.name).toBe("Paygent");
-    expect(s.url).toMatch(/\/projects\/paygent$/);
+    expect(s.url).toMatch(/\/work\/paygent$/);
     expect(s.award).toMatch(/ENS/);
   });
 
@@ -42,7 +42,7 @@ describe("structured data (JSON-LD)", () => {
   it("breadcrumb schema numbers items in order", () => {
     const s = breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Projects", path: "/projects" },
+      { name: "Work", path: "/work" },
     ]);
     expect(s["@type"]).toBe("BreadcrumbList");
     expect(s.itemListElement.map((i) => i.position)).toEqual([1, 2]);
