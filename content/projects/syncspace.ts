@@ -4,6 +4,8 @@ export const syncspace: Project = {
   slug: "syncspace",
   title: "SyncSpace",
   tagline: "Real-time collaborative study & coding workspace.",
+  outcome: "Conflict-free multiplayer editing, with untrusted code run in per-run sandboxes.",
+  tags: ["Yjs CRDTs", "Hocuspocus", "Docker"],
   category: "Realtime",
   secondaryCategory: "Full-Stack",
   year: 2026,
@@ -33,6 +35,20 @@ export const syncspace: Project = {
     { layer: "Persistence", detail: "Postgres snapshots + row-level security for multi-tenant isolation" },
     { layer: "Execution", detail: "Per-run Docker sandbox: network isolation, read-only FS, memory/PID limits, wall-clock timeout" },
   ],
+  code: {
+    language: "ts",
+    filename: "editor.ts",
+    caption:
+      "The client barely knows collaboration is happening: edits from anywhere merge automatically, with no transform step and no central authority deciding order.",
+    source: `import * as Y from "yjs";
+
+const doc = new Y.Doc();
+const text = doc.getText("editor");
+
+// Edits from anywhere merge automatically — no transform step,
+// no central authority deciding order.
+text.insert(3, "s");`,
+  },
   features: [
     {
       title: "Conflict-free realtime editing",

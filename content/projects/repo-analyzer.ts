@@ -4,6 +4,8 @@ export const repoAnalyzer: Project = {
   slug: "repo-analyzer",
   title: "Repo Analyzer",
   tagline: "Repository dependency visualizer with AI summaries.",
+  outcome: "Maps a Python repo's real dependency graph and explains each file, without running it.",
+  tags: ["FastAPI", "networkx", "React Flow"],
   category: "Developer Tools",
   secondaryCategory: "AI",
   year: 2026,

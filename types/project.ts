@@ -45,10 +45,24 @@ const architectureStepSchema = z.object({
   detail: z.string(),
 });
 
+const codeSampleSchema = z.object({
+  /** Shiki language id, e.g. "ts". */
+  language: z.string(),
+  filename: z.string().optional(),
+  caption: z.string().optional(),
+  source: z.string(),
+});
+
 export const projectSchema = z.object({
   slug: z.string(),
   title: z.string(),
   tagline: z.string(),
+  /** One line on what the project achieved — shown in the work list. */
+  outcome: z.string(),
+  /** Exactly three tech tags for the work list. */
+  tags: z.tuple([z.string(), z.string(), z.string()]),
+  /** Short recognition line shown as a small badge (e.g. a prize). */
+  badge: z.string().optional(),
   category: z.enum(projectCategories),
   secondaryCategory: z.enum(projectCategories).optional(),
   year: z.number(),
@@ -67,6 +81,8 @@ export const projectSchema = z.object({
   problem: z.string(),
   approach: z.string(),
   architecture: z.array(architectureStepSchema),
+  /** Optional snippet shown in the case study's architecture section. */
+  code: codeSampleSchema.optional(),
   features: z.array(titledEntry),
   challenges: z.array(titledEntry),
   decisions: z.array(decisionSchema),

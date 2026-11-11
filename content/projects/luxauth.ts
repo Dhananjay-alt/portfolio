@@ -4,6 +4,8 @@ export const luxauth: Project = {
   slug: "luxauth",
   title: "LuxAuth",
   tagline: "NFT-based authentication & provenance for luxury goods.",
+  outcome: "Any buyer can verify a luxury item on-chain, with no trusted database.",
+  tags: ["ERC-721", "Foundry", "IPFS"],
   category: "Web3",
   secondaryCategory: "Full-Stack",
   year: 2025,
