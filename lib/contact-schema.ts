@@ -17,4 +17,6 @@ export type ContactState = {
   status: "idle" | "success" | "error";
   message?: string;
   fieldErrors?: Partial<Record<keyof ContactInput, string>>;
+  /** What the visitor typed, echoed back on error so the form keeps it. */
+  values?: { name: string; email: string; message: string };
 };

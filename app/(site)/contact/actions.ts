@@ -14,13 +14,19 @@ export async function submitContact(
     company: formData.get("company") ?? "",
   });
 
+  const values = {
+    name: String(formData.get("name") ?? ""),
+    email: String(formData.get("email") ?? ""),
+    message: String(formData.get("message") ?? ""),
+  };
+
   if (!parsed.success) {
     const fieldErrors: ContactState["fieldErrors"] = {};
     for (const issue of parsed.error.issues) {
       const key = issue.path[0] as keyof typeof fieldErrors;
       if (key && !fieldErrors[key]) fieldErrors[key] = issue.message;
     }
-    return { status: "error", message: "Please fix the highlighted fields.", fieldErrors };
+    return { status: "error", message: "Please fix the highlighted fields.", fieldErrors, values };
   }
 
   // Honeypot tripped — pretend success, drop silently.
@@ -50,11 +56,11 @@ export async function submitContact(
 
     if (error) {
       console.error("[contact] resend error:", error);
-      return { status: "error", message: "Something went wrong sending your message. Try email instead." };
+      return { status: "error", message: "Something went wrong sending your message. Try email instead.", values };
     }
     return { status: "success" };
   } catch (err) {
     console.error("[contact] unexpected error:", err);
-    return { status: "error", message: "Something went wrong. Try email instead." };
+    return { status: "error", message: "Something went wrong. Try email instead.", values };
   }
 }
