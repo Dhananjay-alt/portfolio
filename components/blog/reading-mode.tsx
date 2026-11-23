@@ -25,7 +25,7 @@ export function ReadingMode() {
       type="button"
       onClick={() => setOn((v) => !v)}
       aria-pressed={on}
-      className="label link hover:text-ink"
+      className="tap label link hover:text-ink"
     >
       {on ? "Exit reading mode" : "Reading mode"}
     </button>

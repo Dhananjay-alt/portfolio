@@ -25,7 +25,7 @@ export function SelectedWork() {
         </div>
 
         <Reveal className="mt-8 flex justify-end">
-          <Link href="/work" className="link">
+          <Link href="/work" className="tap link">
             All work{" "}
             <span aria-hidden="true" className="arrow">
               →

@@ -10,8 +10,8 @@ export function SkillsFallback() {
           <ul className="mt-3 border-b border-line">
             {group.skills.map((skill) => (
               <li key={skill.name} className="border-t border-line py-3">
-                <p className="text-[0.9375rem] font-medium">{skill.name}</p>
-                <p className="mt-0.5 text-[0.875rem] text-mute">{skill.note}</p>
+                <p className="text-[length:var(--text-small)] font-medium">{skill.name}</p>
+                <p className="mt-1 text-[length:var(--text-small)] text-mute">{skill.note}</p>
               </li>
             ))}
           </ul>

@@ -26,7 +26,7 @@ export function ShareButton({ title }: { title: string }) {
   }
 
   return (
-    <button type="button" onClick={onShare} className="label link hover:text-ink">
+    <button type="button" onClick={onShare} className="tap label link hover:text-ink">
       <span aria-live="polite">{copied ? "Link copied" : "Share"}</span>
     </button>
   );

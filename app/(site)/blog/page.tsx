@@ -50,7 +50,7 @@ export default function BlogPage() {
       )}
 
       <p className="mt-8">
-        <a href="/feed.xml" className="label link hover:text-ink">
+        <a href="/feed.xml" className="tap label link hover:text-ink">
           RSS feed
         </a>
       </p>

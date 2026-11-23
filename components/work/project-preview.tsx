@@ -60,14 +60,14 @@ export function ProjectPreview({
                 <span aria-hidden="true" className="relative block md:h-3 md:w-full">
                   <span className="absolute left-0 top-1/2 hidden h-px w-full bg-line md:block" />
                   <span
-                    className={`relative block size-[9px] rounded-full border md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 ${
+                    className={`relative block size-2 rounded-full border md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 ${
                       i === 0 ? "border-accent bg-accent" : "border-ink bg-surface"
                     }`}
                   />
                 </span>
                 <span className="label tabular md:mt-5 md:block">{String(i + 1).padStart(2, "0")}</span>
               </div>
-              <p className="mt-2 font-display text-[1.5rem] leading-[1.1] md:text-[1.75rem]">{step.layer}</p>
+              <p className="mt-2 text-h3 font-display">{step.layer}</p>
             </li>
           ))}
         </ol>
@@ -83,12 +83,12 @@ export function ProjectPreview({
       </p>
       <ol className="mt-auto">
         {steps.map((step, i) => (
-          <li key={step.layer} className="flex items-baseline gap-3 border-t border-line py-[7px] first:border-t-0">
+          <li key={step.layer} className="flex items-baseline gap-3 border-t border-line py-2 first:border-t-0">
             <span className="label tabular">{String(i + 1).padStart(2, "0")}</span>
-            <span className="truncate text-[0.875rem] font-medium">{step.layer}</span>
+            <span className="truncate text-[length:var(--text-small)] font-medium">{step.layer}</span>
             <span
               aria-hidden="true"
-              className={`ml-auto size-[7px] shrink-0 self-center rounded-full border ${
+              className={`ml-auto size-2 shrink-0 self-center rounded-full border ${
                 i === 0 ? "border-accent bg-accent" : "border-ink"
               }`}
             />

@@ -57,10 +57,10 @@ export default function AboutPage() {
           <Reveal className="rule pt-5">
             <h2 className="label !font-mono">Education</h2>
             <p className="mt-3 font-medium">{profile.education.degree}</p>
-            <p className="text-[0.9375rem] text-mute">
+            <p className="text-[length:var(--text-small)] text-mute">
               {profile.education.school} · Class of {profile.education.graduationYear}
             </p>
-            <p className="mt-3 text-[0.9375rem] text-mute">{profile.education.note}</p>
+            <p className="mt-3 text-[length:var(--text-small)] text-mute">{profile.education.note}</p>
           </Reveal>
 
           <Reveal index={1} className="rule mt-8 pt-5">
@@ -69,7 +69,7 @@ export default function AboutPage() {
               {profile.communities.map((c) => (
                 <li key={c.name}>
                   <p className="font-medium">{c.name}</p>
-                  <p className="text-[0.9375rem] text-mute">{c.role}</p>
+                  <p className="text-[length:var(--text-small)] text-mute">{c.role}</p>
                 </li>
               ))}
             </ul>
@@ -142,7 +142,7 @@ export default function AboutPage() {
             <Reveal key={faq.q} index={idx}>
               <details className="group border-t border-line">
                 <summary className="flex list-none items-baseline justify-between gap-8 py-5 [&::-webkit-details-marker]:hidden">
-                  <h3 className="font-sans text-[1.0625rem] font-medium leading-snug tracking-normal">{faq.q}</h3>
+                  <h3 className="font-sans text-base font-medium leading-snug tracking-normal">{faq.q}</h3>
                   <span
                     aria-hidden="true"
                     className="label !text-ink transition-transform duration-[var(--dur-small)] ease-[var(--ease-out)] group-open:rotate-45"

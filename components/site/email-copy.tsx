@@ -32,7 +32,7 @@ export function EmailCopy({ email, className }: { email: string; className?: str
 
   return (
     <>
-      <a href={`mailto:${email}`} onClick={onClick} className={`group inline-flex flex-wrap items-baseline gap-x-4 gap-y-1 ${className ?? ""}`}>
+      <a href={`mailto:${email}`} onClick={onClick} className={`tap group inline-flex flex-wrap items-baseline gap-x-4 gap-y-1 ${className ?? ""}`}>
         <span className="link link-group break-all font-display text-h3">{email}</span>
         <span aria-hidden="true" className="label relative inline-grid min-w-[7ch] overflow-hidden">
           <AnimatePresence mode="popLayout" initial={false}>
@@ -40,7 +40,7 @@ export function EmailCopy({ email, className }: { email: string; className?: str
               key={copied ? "copied" : "copy"}
               initial={{ y: 10, opacity: 0, filter: "blur(4px)" }}
               animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-              exit={{ y: -10, opacity: 0, filter: "blur(4px)" }}
+              exit={{ y: -10, opacity: 0, filter: "blur(4px)", transition: { duration: duration.micro, ease: ease.out } }}
               transition={{ duration: duration.small, ease: ease.out }}
               className={copied ? "text-accent" : undefined}
             >

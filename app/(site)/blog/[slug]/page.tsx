@@ -79,7 +79,7 @@ export default async function BlogPostPage({
         <div className="flex items-center justify-between gap-4">
           <Link
             href="/blog"
-            className="group label inline-flex items-center gap-2 hover:text-ink"
+            className="tap group label inline-flex items-center gap-2 hover:text-ink"
           >
             <span aria-hidden="true" className="arrow arrow-back">
               ←

@@ -27,15 +27,15 @@ export default function CommandPalette() {
       open={open}
       onOpenChange={setOpen}
       label="Command menu"
-      overlayClassName="fixed inset-0 z-[190] bg-ink/30 data-[state=open]:animate-in data-[state=open]:fade-in"
-      contentClassName="fixed left-1/2 top-[18vh] z-[200] w-[92vw] max-w-xl -translate-x-1/2 overflow-hidden rounded-lg border border-line bg-paper data-[state=open]:animate-in data-[state=open]:fade-in"
+      overlayClassName="fixed inset-0 z-[190] bg-ink/30"
+      contentClassName="fixed left-1/2 top-[18vh] z-[200] w-[92vw] max-w-xl -translate-x-1/2 overflow-hidden rounded-lg border border-line bg-paper"
     >
       <div className="flex items-center gap-3 border-b border-line px-4">
         <Command.Input
           placeholder="Type a command or search…"
           className="w-full bg-transparent py-4 text-sm outline-none placeholder:text-mute"
         />
-        <kbd className="label hidden rounded border border-line px-1.5 py-0.5 sm:block">Esc</kbd>
+        <kbd className="label hidden rounded border border-line px-2 py-0.5 sm:block">Esc</kbd>
       </div>
 
       <Command.List className="max-h-[50vh] overflow-y-auto p-2" data-lenis-prevent>
@@ -94,7 +94,7 @@ function Group({ heading, children }: { heading: string; children: React.ReactNo
   return (
     <Command.Group
       heading={heading}
-      className="[&_[cmdk-group-heading]]:px-2.5 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[0.6875rem] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[0.06em] [&_[cmdk-group-heading]]:text-mute"
+      className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[0.75rem] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[0.06em] [&_[cmdk-group-heading]]:text-mute"
     >
       {children}
     </Command.Group>
@@ -114,7 +114,7 @@ function Item({
     <Command.Item
       value={value}
       onSelect={onSelect}
-      className="flex cursor-pointer items-center gap-2.5 rounded px-2.5 py-2 text-sm outline-none data-[selected=true]:bg-surface"
+      className="flex cursor-pointer items-center gap-3 rounded px-3 py-2 text-sm outline-none data-[selected=true]:bg-surface"
     >
       {children}
     </Command.Item>

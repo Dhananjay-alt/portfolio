@@ -32,14 +32,14 @@ export default function ExperiencePage() {
             <div className="md:col-span-8">
               <h2 className="text-h3">
                 {entry.href ? (
-                  <Link href={entry.href} className="link">
+                  <Link href={entry.href} className="tap link">
                     {entry.title}
                   </Link>
                 ) : (
                   entry.title
                 )}
               </h2>
-              <p className="mt-1 text-[0.9375rem] text-mute">{entry.org}</p>
+              <p className="mt-1 text-[length:var(--text-small)] text-mute">{entry.org}</p>
               <p className="mt-3 max-w-[64ch]">{entry.description}</p>
               {entry.highlights && (
                 <ul className="mt-4 flex flex-wrap gap-2">

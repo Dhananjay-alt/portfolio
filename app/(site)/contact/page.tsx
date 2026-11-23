@@ -38,7 +38,7 @@ export default function ContactPage() {
                 .filter((s) => s.href.startsWith("http"))
                 .map((s) => (
                   <li key={s.label}>
-                    <a href={s.href} target="_blank" rel="noreferrer noopener" className="link">
+                    <a href={s.href} target="_blank" rel="noreferrer noopener" className="tap link">
                       {s.label}{" "}
                       <span aria-hidden="true" className="arrow arrow-up">
                         ↗
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 href={siteConfig.calendlyUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="link mt-3"
+                className="tap link mt-3"
               >
                 Find a time
               </a>

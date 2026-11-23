@@ -48,11 +48,11 @@ export function Footer() {
                   </Link>
                 </MagneticButton>
                 {external.map((s) => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noreferrer noopener" className="link">
+                  <a key={s.label} href={s.href} target="_blank" rel="noreferrer noopener" className="tap link">
                     {s.label}
                   </a>
                 ))}
-                <Link href="/resume" className="link">
+                <Link href="/resume" className="tap link">
                   Résumé
                 </Link>
               </div>
@@ -68,14 +68,14 @@ export function Footer() {
           </p>
           <nav aria-label="Secondary" className="label flex flex-wrap gap-x-6 gap-y-2">
             {secondaryNav.map((item) => (
-              <Link key={item.href} href={item.href} className="link hover:text-ink">
+              <Link key={item.href} href={item.href} className="tap link hover:text-ink">
                 {item.label}
               </Link>
             ))}
-            <a href="/feed.xml" className="link hover:text-ink">
+            <a href="/feed.xml" className="tap link hover:text-ink">
               RSS
             </a>
-            <CommandPaletteButton className="link uppercase hover:text-ink" />
+            <CommandPaletteButton className="tap link uppercase hover:text-ink" />
           </nav>
         </div>
       </div>

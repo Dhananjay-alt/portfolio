@@ -61,7 +61,7 @@ function Experiment({
       <section>
         <div className="mb-4">
           <h2 className="text-h3">{title}</h2>
-          <p className="mt-2 text-[0.9375rem] text-mute">{blurb}</p>
+          <p className="mt-2 text-[length:var(--text-small)] text-mute">{blurb}</p>
         </div>
         {children}
       </section>

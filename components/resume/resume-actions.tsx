@@ -11,7 +11,7 @@ export function ResumeActions() {
           ↓
         </span>
       </a>
-      <button type="button" onClick={() => window.print()} className="link">
+      <button type="button" onClick={() => window.print()} className="tap link">
         Print
       </button>
     </div>

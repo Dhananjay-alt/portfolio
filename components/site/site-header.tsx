@@ -94,7 +94,7 @@ export function SiteHeader() {
       style={{ viewTransitionName: "site-header" }}
     >
       <div className="container-page flex h-[var(--header-h)] items-center justify-between gap-6">
-        <Link href="/" className="py-2.5 text-[0.9375rem] font-medium tracking-[-0.01em]">
+        <Link href="/" className="tap text-[length:var(--text-small)] font-medium tracking-[-0.01em]">
           {profile.name}
         </Link>
 
@@ -107,14 +107,14 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`relative py-2.5 text-[0.9375rem] ${active ? "text-ink" : "text-mute hover:text-ink"}`}
+                  className={`tap relative text-[length:var(--text-small)] ${active ? "text-ink" : "text-mute hover:text-ink"}`}
                 >
                   {item.label}
                   {active && (
                     <m.span
                       layoutId="nav-underline"
                       transition={spring}
-                      className="absolute inset-x-0 bottom-1.5 h-px bg-accent"
+                      className="absolute inset-x-0 bottom-[calc(var(--tap-pad)-4px)] h-px bg-accent"
                     />
                   )}
                 </Link>
@@ -133,7 +133,7 @@ export function SiteHeader() {
             onClick={() => setMenuFor(menuOpen ? null : pathname)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="label -mr-2 px-2 py-2 !text-ink md:hidden"
+            className="label tap -mr-2 px-2 !text-ink md:hidden"
           >
             {menuOpen ? "Close" : "Menu"}
           </button>
@@ -146,7 +146,7 @@ export function SiteHeader() {
             id="mobile-menu"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            exit={{ opacity: 0, y: -8, transition: { duration: duration.micro, ease: ease.out } }}
             transition={{ duration: duration.small, ease: ease.out }}
             className="absolute inset-x-0 top-full border-b border-line bg-paper md:hidden"
           >
@@ -157,7 +157,7 @@ export function SiteHeader() {
                     key={item.href}
                     href={item.href}
                     aria-current={isActive(pathname, item.href) ? "page" : undefined}
-                    className="border-t border-line py-4 font-display text-[1.75rem] leading-none first:border-t-0"
+                    className="border-t border-line py-4 text-h3 font-display first:border-t-0"
                   >
                     {item.label}
                   </Link>

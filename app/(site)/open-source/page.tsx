@@ -71,7 +71,7 @@ export default async function OpenSourcePage() {
                   rel="noreferrer noopener"
                   className="group rounded-md border border-line p-5"
                 >
-                  <span className="link link-group font-medium">{repo.name}</span>
+                  <span className="tap link link-group font-medium">{repo.name}</span>
                   {repo.description && (
                     <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
                       {repo.description}
@@ -91,7 +91,7 @@ export default async function OpenSourcePage() {
             href={`https://github.com/${data.username}`}
             target="_blank"
             rel="noreferrer noopener"
-            className="link"
+            className="tap link"
           >
             View full profile{" "}
             <span aria-hidden="true" className="arrow arrow-up">
@@ -107,7 +107,7 @@ export default async function OpenSourcePage() {
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="rule pt-4">
-      <p className="tabular font-display text-[2rem] leading-none">{value}</p>
+      <p className="text-h3 tabular font-display">{value}</p>
       <p className="label mt-2">{label}</p>
     </div>
   );

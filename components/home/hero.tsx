@@ -45,7 +45,7 @@ export function Hero() {
             </span>
           </Link>
         </MagneticButton>
-        <Link href="/resume" className="link">
+        <Link href="/resume" className="tap link">
           Read the résumé
         </Link>
       </div>

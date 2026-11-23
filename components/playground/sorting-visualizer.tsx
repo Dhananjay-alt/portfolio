@@ -77,7 +77,7 @@ export function SortingVisualizer() {
   return (
     <div>
       <div
-        className="flex h-72 items-end justify-center gap-[3px] rounded-xl bg-secondary/30 p-4"
+        className="flex h-72 items-end justify-center gap-1 rounded-xl bg-secondary/30 p-4"
         role="img"
         aria-label="Bubble sort visualization"
       >
@@ -115,7 +115,7 @@ export function SortingVisualizer() {
           type="button"
           onClick={shuffle}
           disabled={running}
-          className="link text-[0.875rem] disabled:opacity-50"
+          className="tap link text-[length:var(--text-small)] disabled:opacity-50"
         >
           Shuffle
         </button>

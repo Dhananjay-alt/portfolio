@@ -19,7 +19,7 @@ export function Philosophy() {
               interface gets to stay simple.
             </Reveal>
             <Reveal index={1} className="mt-8">
-              <Link href="/blog" className="link link-accent">
+              <Link href="/blog" className="tap link link-accent">
                 Read the writing{" "}
                 <span aria-hidden="true" className="arrow">
                   →

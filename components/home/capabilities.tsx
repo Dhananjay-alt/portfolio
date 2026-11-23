@@ -76,7 +76,7 @@ export function Capabilities() {
               <p className="md:col-span-4">{item.body}</p>
               <div className="md:col-span-3 md:text-right">
                 <p className="label !normal-case !tracking-normal">{item.stack}</p>
-                <Link href={item.href} className="link mt-3 text-[0.875rem]">
+                <Link href={item.href} className="tap link mt-3 text-[length:var(--text-small)]">
                   {item.proof}{" "}
                   <span aria-hidden="true" className="arrow">
                     →

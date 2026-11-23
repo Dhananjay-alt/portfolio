@@ -23,7 +23,7 @@ export async function CodeSample({
         aria-label={filename ? `Code: ${filename}` : "Code sample"}
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      {caption && <figcaption className="mt-4 text-[0.9375rem] text-mute">{caption}</figcaption>}
+      {caption && <figcaption className="mt-4 text-[length:var(--text-small)] text-mute">{caption}</figcaption>}
     </figure>
   );
 }

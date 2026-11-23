@@ -62,7 +62,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Toggle colour theme"
-      className="grid size-9 place-items-center rounded-full text-ink"
+      className="-mx-1 grid size-11 place-items-center rounded-full text-ink"
     >
       {/* Half-filled disc: reads the same in both themes, so no hydration swap. */}
       <svg viewBox="0 0 20 20" aria-hidden="true" className="size-[18px]">

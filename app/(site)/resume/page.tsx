@@ -64,7 +64,7 @@ export default function ResumePage() {
                     {p.category} · {p.year}
                   </p>
                 </div>
-                <p className="mt-0.5 text-sm text-muted-foreground">{p.tagline}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
                 <p className="mt-1 text-xs text-muted-foreground">
                   {(p.allTech ?? []).slice(0, 6).join(" · ")}
                 </p>

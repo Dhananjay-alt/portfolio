@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { useMotionValue, useSpring } from "motion/react";
 import * as m from "motion/react-m";
-import { duration, ease, spring } from "@/lib/motion";
+import { ease, spring } from "@/lib/motion";
 import { useFinePointer, usePrefersReducedMotion } from "@/hooks/use-media-query";
 import { Reveal } from "@/components/motion/reveal";
 import { SharedElement } from "@/components/motion/page-transition";
@@ -98,7 +98,7 @@ export function WorkList({ items, headingLevel = "h3" }: { items: WorkItem[]; he
                 </Heading>
                 {item.badge && (
                   <p className="tag mt-4 gap-2 !text-ink">
-                    <span aria-hidden="true" className="size-[6px] rounded-full bg-accent" />
+                    <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
                     {item.badge}
                   </p>
                 )}
@@ -140,7 +140,7 @@ export function WorkList({ items, headingLevel = "h3" }: { items: WorkItem[]; he
             className="relative size-full"
             initial={false}
             animate={{ clipPath: active !== null ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)" }}
-            transition={{ duration: duration.medium, ease: ease.out }}
+            transition={{ duration: active !== null ? 0.35 : 0.2, ease: ease.out }}
             style={active !== null ? previewTransition(items[active].slug) : undefined}
           >
             {items.map((item, i) => (

@@ -23,12 +23,10 @@ export function CopyCode() {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.setAttribute("aria-label", "Copy code");
-      btn.className =
-        "absolute right-2 top-2 rounded-md border border-border bg-card/80 px-2 py-1 text-xs text-muted-foreground opacity-0 backdrop-blur transition-opacity hover:text-foreground focus-visible:opacity-100 group-hover/code:opacity-100";
+      // Always visible: nothing on the page depends on hover.
+      btn.className = "label absolute right-1 top-1 grid h-11 min-w-11 place-items-center px-3 hover:text-ink";
       btn.textContent = "Copy";
-
-      // Reveal on hover of the code block.
-      parent.classList.add("group/code");
+      btn.setAttribute("aria-live", "polite");
 
       btn.addEventListener("click", () => {
         const code = pre.querySelector("code")?.innerText ?? pre.innerText;
@@ -46,7 +44,6 @@ export function CopyCode() {
       added.forEach((b) => b.remove());
       touched.forEach((p) => {
         delete p.dataset.copyReady;
-        p.classList.remove("group/code");
       });
     };
   }, []);

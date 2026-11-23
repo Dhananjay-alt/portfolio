@@ -138,7 +138,7 @@ export function SkillsConstellation() {
               textAnchor="middle"
               dominantBaseline="central"
               className="fill-foreground"
-              style={{ fontSize: 22, fontWeight: 700 }}
+              style={{ fontSize: 24, fontWeight: 400, fontFamily: "var(--font-display)" }}
             >
               D
             </text>
@@ -152,7 +152,7 @@ export function SkillsConstellation() {
                   y={c.y - 16}
                   textAnchor="middle"
                   className="fill-muted-foreground"
-                  style={{ fontSize: 15, fontWeight: 600, fontFamily: "var(--font-mono)" }}
+                  style={{ fontSize: 14, fontWeight: 400, fontFamily: "var(--font-mono)", letterSpacing: "0.06em", textTransform: "uppercase" }}
                 >
                   {c.category}
                 </text>
@@ -169,24 +169,31 @@ export function SkillsConstellation() {
                   tabIndex={0}
                   role="button"
                   aria-label={`${n.name}: ${n.note}`}
-                  className="cursor-pointer outline-none"
+                  className="cursor-pointer"
                   onPointerEnter={() => setActive(n)}
                   onFocus={() => setActive(n)}
-                  style={{ opacity: dim ? 0.35 : 1, transition: "opacity 0.2s" }}
+                  style={{ opacity: dim ? 0.35 : 1, transition: "opacity 150ms ease" }}
                 >
+                  {/* Invisible 44px-tall hit area around the dot and its label. */}
+                  <rect x={n.x - 56} y={n.y - 16} width={112} height={48} fill="transparent" />
                   <circle
                     cx={n.x}
                     cy={n.y}
-                    r={isActive ? 9 : 5}
-                    fill={isActive ? n.accent : "var(--foreground)"}
-                    style={{ transition: "r 0.15s" }}
+                    r={5}
+                    fill={isActive ? "var(--accent)" : "var(--foreground)"}
+                    style={{
+                      transform: `scale(${isActive ? 1.8 : 1})`,
+                      transformBox: "fill-box",
+                      transformOrigin: "center",
+                      transition: "transform 150ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
                   />
                   <text
                     x={n.x}
                     y={n.y + 22}
                     textAnchor="middle"
                     className="fill-foreground"
-                    style={{ fontSize: 14, fontWeight: isActive ? 600 : 400 }}
+                    style={{ fontSize: 16, fontWeight: isActive ? 500 : 400 }}
                   >
                     {n.name}
                   </text>
@@ -203,7 +210,7 @@ export function SkillsConstellation() {
               <p className="text-sm font-semibold">
                 {active.name}
               </p>
-              <p className="mt-0.5 text-sm text-muted-foreground">{active.note}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{active.note}</p>
             </>
           ) : (
             <p className="text-sm text-muted-foreground">

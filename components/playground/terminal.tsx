@@ -145,7 +145,7 @@ export function Terminal() {
       className="overflow-hidden rounded-md border border-line bg-surface font-mono text-sm"
       onClick={() => inputRef.current?.focus()}
     >
-      <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-2.5">
+      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         <span className="size-3 rounded-full bg-white/25" />
         <span className="size-3 rounded-full bg-white/25" />
         <span className="size-3 rounded-full bg-white/25" />

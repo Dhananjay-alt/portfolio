@@ -82,7 +82,7 @@ export default async function CaseStudyPage({
         />
 
         <header className="container-page pt-[clamp(40px,7vw,96px)]">
-          <Link href="/work" className="group label inline-flex items-center gap-2 hover:text-ink">
+          <Link href="/work" className="tap group label inline-flex items-center gap-2 hover:text-ink">
             <span aria-hidden="true" className="arrow arrow-back">
               ←
             </span>
@@ -110,7 +110,7 @@ export default async function CaseStudyPage({
 
           {project.badge && (
             <p data-intro="fade" style={i(2)} className="tag mt-6 gap-2 !text-ink">
-              <span aria-hidden="true" className="size-[6px] rounded-full bg-accent" />
+              <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
               {project.badge}
             </p>
           )}
@@ -125,10 +125,10 @@ export default async function CaseStudyPage({
             <Meta term="Status" value={project.status} />
             <div>
               <dt className="label">Links</dt>
-              <dd className="mt-2 flex flex-col items-start gap-1 text-[0.9375rem]">
+              <dd className="mt-2 flex flex-col items-start gap-1 text-[length:var(--text-small)]">
                 {links.length > 0 ? (
                   links.map((link) => (
-                    <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener" className="link">
+                    <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener" className="tap link">
                       {link.label}{" "}
                       <span aria-hidden="true" className="arrow arrow-up">
                         ↗
@@ -240,7 +240,7 @@ export default async function CaseStudyPage({
               {project.metrics.map((metric, idx) => (
                 <Reveal key={metric.label} index={idx} className="flex flex-col-reverse justify-end gap-2">
                   <dt className="label">{metric.label}</dt>
-                  <dd className="font-display text-[1.75rem] leading-[1.1]">{metric.value}</dd>
+                  <dd className="text-h3 font-display">{metric.value}</dd>
                 </Reveal>
               ))}
             </dl>
@@ -299,7 +299,7 @@ function Meta({ term, value }: { term: string; value: string }) {
   return (
     <div>
       <dt className="label">{term}</dt>
-      <dd className="mt-2 text-[0.9375rem]">{value}</dd>
+      <dd className="mt-2 text-[length:var(--text-small)]">{value}</dd>
     </div>
   );
 }
