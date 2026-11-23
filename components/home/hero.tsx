@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="container-page flex min-h-[calc(100svh-var(--header-h))] flex-col justify-end pb-[clamp(40px,9vh,112px)] pt-16"
+      className="container-page flex flex-col pb-4 pt-12 md:min-h-[calc(100svh-var(--header-h))] md:justify-end md:pb-[clamp(40px,9vh,112px)] md:pt-16"
     >
       <p data-intro="fade" style={i(0)} className="label">
         {profile.role} <span aria-hidden="true">·</span> {profile.education.school}
