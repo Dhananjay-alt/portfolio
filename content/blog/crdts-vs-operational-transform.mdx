@@ -50,7 +50,7 @@ For a small team shipping under a deadline, three properties decided it:
 
 - **No central transform authority.** Convergence is a property of the data structure, so there's no server-side transform to implement or get subtly wrong.
 - **Offline and late-join just work.** A client that was disconnected can merge its edits back in whenever it reconnects — the merge is always well-defined.
-- **The client stays simple.** I sync Yjs updates over [Supabase](/work/syncspace) channels and let the CRDT handle correctness. That freed my time for the parts users actually see: live cursors, presence, and the sandboxed code runner.
+- **The client stays simple.** I sync Yjs updates through a custom [Hocuspocus](/work/syncspace) WebSocket server and let the CRDT handle correctness. That freed my time for the parts users actually see: live cursors, presence, and the sandboxed code runner.
 
 ## The trade-off
 

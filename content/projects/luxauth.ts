@@ -18,7 +18,7 @@ export const luxauth: Project = {
     "Built at ETHOnline 2025 (project name: LuxuryAuthNFT) — on-chain certificates of authenticity so buyers can verify provenance and brands can prove their products are genuine.",
   links: {
     liveDemo: "", // TODO
-    github: "", // TODO
+    github: "https://github.com/Dhananjay-alt/LuxuryAuth-nft",
   },
   award: "ETHGlobal ETHOnline 2025",
   techStack: {

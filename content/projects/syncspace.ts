@@ -17,8 +17,8 @@ export const syncspace: Project = {
   context:
     "Built with MDG Space at IIT Roorkee — a multiplayer workspace where people study and code together in real time, with in-browser execution of untrusted code.",
   links: {
-    liveDemo: "", // TODO: add live demo URL
-    github: "", // TODO: add GitHub URL
+    liveDemo: "https://syncspace-weld.vercel.app",
+    github: "https://github.com/Dhananjay-alt/syncspace",
   },
   techStack: {
     frontend: ["Next.js", "React", "Monaco Editor"],

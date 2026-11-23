@@ -19,7 +19,7 @@ export const paygent: Project = {
     "Built at ETHGlobal HackMoney 2026 and awarded the Integrate ENS partner prize (Paygent V2) — an agent-driven platform that automates liquidity allocation and on-chain settlement, with ENS as the human-readable control surface.",
   links: {
     liveDemo: "", // TODO
-    github: "", // TODO
+    github: "https://github.com/Dhananjay-alt/paygent-v2",
   },
   award: "🏆 ETHGlobal HackMoney 2026 — Integrate ENS Prize",
   techStack: {

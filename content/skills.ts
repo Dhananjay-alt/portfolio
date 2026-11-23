@@ -26,7 +26,7 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "FastAPI", note: "Python APIs — used in Repo Analyzer." },
       { name: "Node", note: "JS/TS services and tooling." },
-      { name: "Supabase", note: "Realtime + Postgres — used in SyncSpace." },
+      { name: "Postgres", note: "Snapshots + row-level security — used in SyncSpace." },
     ],
   },
   {
