@@ -1,403 +1,300 @@
-# Superhuman — Style Reference
-> golden hour editorial dashboard
+---
+name: Dhananjay Hire — Portfolio
+description: Complete systems, shipped end to end.
+colors:
+  paper: "#f2f0eb"
+  surface: "#e9e6df"
+  ink: "#111111"
+  mute: "#66635d"
+  line: "#d9d5cc"
+  field: "#85807a"
+  signal-vermilion: "#b93a15"
+  danger: "#a3271b"
+  paper-dark: "#121211"
+  surface-dark: "#1b1b19"
+  ink-dark: "#eceae4"
+  mute-dark: "#9b978f"
+  line-dark: "#2b2a27"
+  field-dark: "#6e6a63"
+  signal-vermilion-dark: "#ff7a4d"
+  danger-dark: "#ff8a7a"
+typography:
+  display:
+    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontSize: "clamp(2.75rem, 1.254rem + 6.385vw, 7rem)"
+    fontWeight: 400
+    lineHeight: 0.96
+    letterSpacing: "-0.025em"
+  headline-1:
+    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontSize: "clamp(2.25rem, 1.37rem + 3.756vw, 4.75rem)"
+    fontWeight: 400
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+  headline-2:
+    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontSize: "clamp(1.875rem, 1.303rem + 2.441vw, 3.5rem)"
+    fontWeight: 400
+    lineHeight: 1.04
+    letterSpacing: "-0.018em"
+  title:
+    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontSize: "clamp(1.5rem, 1.324rem + 0.751vw, 2rem)"
+    fontWeight: 400
+    lineHeight: 1.12
+    letterSpacing: "-0.015em"
+  lead:
+    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.125rem, 1.081rem + 0.188vw, 1.25rem)"
+    fontWeight: 400
+    lineHeight: 1.5
+  body:
+    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.6
+  small:
+    fontFamily: "Geist, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 400
+    lineHeight: 1.5
+  label:
+    fontFamily: "Geist Mono, ui-monospace, Menlo, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: "0.06em"
+rounded:
+  sm: "4px"
+  md: "6px"
+  lg: "8px"
+spacing:
+  "1": "4px"
+  "2": "8px"
+  "3": "12px"
+  "4": "16px"
+  "5": "20px"
+  "6": "24px"
+  "8": "32px"
+  "10": "40px"
+  "12": "48px"
+  "16": "64px"
+  "24": "96px"
+  section: "clamp(72px, 11vw, 152px)"
+  gutter: "clamp(20px, 4vw, 40px)"
+components:
+  button-primary:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.small}"
+    rounded: "{rounded.md}"
+    padding: "0 20px"
+    height: "44px"
+  button-primary-small:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    typography: "{typography.small}"
+    rounded: "{rounded.md}"
+    padding: "0 16px"
+    height: "36px"
+  tag:
+    textColor: "{colors.mute}"
+    typography: "{typography.label}"
+    rounded: "{rounded.sm}"
+    padding: "4px 8px"
+  input:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body}"
+    rounded: "{rounded.md}"
+    padding: "12px 16px"
+  preview-panel:
+    backgroundColor: "{colors.surface}"
+    rounded: "{rounded.md}"
+    padding: "16px"
+---
 
-**Theme:** light
+# Design System: Dhananjay Hire — Portfolio
 
-Source measurements are normalized; roles and recommendations are interpreted. Font summary lists are independent, not paired by position. HTML examples are reconstructions, not source components.
+## Overview
 
-Superhuman sits at the intersection of editorial photography and software UI — a warm parchment canvas (never pure white) frames deep-maroon brand moments and vivid violet accents. Headlines whisper at weight 460 rather than shout, letting the cinematic full-bleed hero photograph do the emotional heavy lifting while translucent product UI cards float like glass over the image. The palette stays quiet and editorial most of the time: cream surfaces, charcoal text, hairline warm-gray borders, and generous spacing, with color reserved for deliberate brand punctuation — a single maroon CTA, violet links, a light-lilac secondary button. The system deliberately avoids heavy shadows and gradients on UI surfaces; depth comes from layered photography and subtle backdrop blur on the header, not from elevation stacks.
+**Creative North Star: "The Engineer's Notebook"**
 
-## Tokens — Colors
+A working document, not a brochure. Warm paper, near-black ink, ruled hairlines and mono notes in
+the margin: the page looks like the place where a system was reasoned out, and every mark on it is
+there because it carries information. Precision is the ornament. The one splash of colour is the
+pen you'd circle a finding with.
 
-| Name | Value | Token | Role |
-|------|-------|-------|------|
-| Midnight Wine | `#421d24` | `--color-midnight-wine` | Primary action buttons, announcement banner, footer — a warm near-black maroon that reads as ink rather than red, anchoring the palette without screaming |
-| Royal Violet | `#714cb6` | `--color-royal-violet` | Violet text accent for links, tags, and emphasized short phrases. Do not promote it to the primary CTA color |
-| Lilac Mist | `#d4c7ff` | `--color-lilac-mist` | Secondary surface fills, light-tinted badges, ghost button backgrounds — desaturated violet that hints at the brand accent without claiming focus |
-| Deep Lagoon | `#0c4243` | `--color-deep-lagoon` | Dark band section background for feature storytelling — the only dark surface in the system, paired with overlaid geometric art |
-| Warm Parchment | `#f2f0eb` | `--color-warm-parchment` | Page canvas — the dominant surface; warm cream that replaces white as the base, giving the whole system an editorial warmth |
-| Soft Mist | `#e3e3e2` | `--color-soft-mist` | Hairline borders, card outlines, divider lines — warm light gray that disappears against parchment but defines edges crisply |
-| Ink Charcoal | `#292827` | `--color-ink-charcoal` | Primary text, headings, icon strokes — warm near-black with just enough brown to feel like ink on paper, never a cold #000 |
-| Stone Gray | `#666666` | `--color-stone-gray` | Secondary body text, helper copy, muted descriptions — the only mid-gray, used sparingly so it never competes with primary text |
-| Paper White | `#ffffff` | `--color-paper-white` | Elevated card surfaces, floating UI overlays, text on dark backgrounds — reserved for cards that must lift off the parchment canvas |
+The page is quiet and dense in the right places. Large serif headings set the rhythm; everything
+else is a disciplined sans and a small mono label. Structure comes from a 12-column grid and 1px
+rules, never from boxes, cards or shadows. Motion is part of the craft and held to the same
+restraint: it explains where something came from or where it went, and is removed when it doesn't.
 
-## Tokens — Typography
+**Key Characteristics:**
+- Paper and ink, one accent used like a red pen.
+- Hairline rules instead of containers; the grid does the grouping.
+- Serif for headings, sans for reading, mono for metadata.
+- Numbered sections (`01 — Work`) and tabular figures, like a spec.
+- Every motion has a reason, and all of it degrades to stillness.
 
-### Super Sans VF — Sole typeface across the entire system. Variable axes span 460 (the signature light-cut voice for all large display text) through 540 (body emphasis) to 700 (small bold labels). The custom VF is what makes weight 460 headlines feel intentional rather than accidental — at 48-64px with tight tracking the light cut reads as confidence, not thinness. · `--font-super-sans-vf`
-- **Substitute:** Inter (closest open equivalent for variable weight range), with Söhne or General Sans as premium substitutes
-- **Weights:** 460, 500, 540, 600, 700
-- **Sizes:** 12, 14, 16, 18, 19, 20, 22, 26, 28, 48, 49, 64
-- **Line height:** 0.76, 0.90, 0.96, 1.00, 1.10, 1.14, 1.20, 1.29, 1.30, 1.50
-- **Letter spacing:** -0.028em at 64px, -0.027em at 49px, -0.022em at 28px, -0.014em at 22px, -0.008em at 18px, -0.007em at 20px, 0 at 16px and below
-- **OpenType features:** `"ss01" on (if supported by VF build), tabular numerals for data-heavy UI cards`
-- **Role:** Sole typeface across the entire system. Variable axes span 460 (the signature light-cut voice for all large display text) through 540 (body emphasis) to 700 (small bold labels). The custom VF is what makes weight 460 headlines feel intentional rather than accidental — at 48-64px with tight tracking the light cut reads as confidence, not thinness.
+## Colors
 
-### Type Scale
+A near-monochrome paper-and-ink palette with a single warm signal colour; dark mode is the same
+system with the lights off, not a different palette.
 
-| Role | Family | Weight | Size | Line Height | Letter Spacing | Token |
-|------|--------|--------|------|-------------|----------------|-------|
-| caption | — | — | 12px | 1.5 | — | `--text-caption` |
-| body-sm | — | — | 14px | 1.5 | — | `--text-body-sm` |
-| body | — | — | 16px | 1.2 | — | `--text-body` |
-| label-bold | — | — | 19px | 1.5 | — | `--text-label-bold` |
-| subheading | — | — | 26px | 1.3 | — | `--text-subheading` |
-| heading-sm | — | — | 28px | 1.14 | -0.62px | `--text-heading-sm` |
-| heading-lg | — | — | 49px | 1.2 | -1.32px | `--text-heading-lg` |
-| display | — | — | 64px | 0.96 | -1.8px | `--text-display` |
+### Primary
+- **Signal Vermilion**: the only chromatic colour. Links that need emphasis, the active-nav
+  underline, focus rings, the first node of an architecture schematic, the prize badge dot, string
+  tokens in code. Lightened in dark mode to keep 7:1.
 
-## Tokens — Spacing & Shapes
+### Neutral
+- **Notebook Paper**: page background. Never pure white.
+- **Pressed Paper (surface)**: one step down from paper, for code blocks, previews and the command
+  palette's selected row. The only "filled" area besides the primary button.
+- **Ink**: all body text and headings, and the fill of the one primary button. Near-black, never
+  #000.
+- **Pencil Grey (mute)**: secondary copy, metadata, labels. 5.3:1 on paper, 4.8:1 on surface.
+- **Rule Line**: 1px dividers between rows and sections. Decorative only; never the sole edge of a
+  control.
+- **Field Edge**: the border of inputs and textareas. Exists so a form field's outline clears the
+  3:1 non-text contrast minimum, which Rule Line does not.
+- **Danger**: form errors only.
 
-**Base unit:** 4px
+### Named Rules
+**The Red Pen Rule.** Signal Vermilion covers well under 5% of any screen. It marks, it never
+fills: no backgrounds, no large type, no gradients.
 
-**Density:** comfortable
+**The No-Violet Rule.** No violet, lavender or lilac anywhere in the system's own design.
 
-### Spacing Scale
+**The Field Edge Rule.** Anything a visitor types into is outlined in Field Edge, never Rule Line.
 
-| Name | Value | Token |
-|------|-------|-------|
-| 4 | 4px | `--spacing-4` |
-| 8 | 8px | `--spacing-8` |
-| 12 | 12px | `--spacing-12` |
-| 16 | 16px | `--spacing-16` |
-| 20 | 20px | `--spacing-20` |
-| 24 | 24px | `--spacing-24` |
-| 28 | 28px | `--spacing-28` |
-| 32 | 32px | `--spacing-32` |
-| 36 | 36px | `--spacing-36` |
-| 40 | 40px | `--spacing-40` |
-| 48 | 48px | `--spacing-48` |
-| 64 | 64px | `--spacing-64` |
-| 80 | 80px | `--spacing-80` |
-| 96 | 96px | `--spacing-96` |
+## Typography
 
-### Border Radius
+**Display Font:** Instrument Serif (with Iowan Old Style, Georgia)
+**Body Font:** Geist (with system-ui)
+**Label/Mono Font:** Geist Mono (with ui-monospace)
 
-| Element | Value |
-|---------|-------|
-| tabs | 8px |
-| cards | 16px |
-| pills | 999px |
-| buttons | 16px |
-| small-buttons | 8px |
-| floating-cards | 16px |
+**Character:** A narrow, characterful serif with editorial authority over a neutral, engineered
+sans; the mono carries the "notebook margin" voice for years, tags and section numbers.
 
-### Shadows
+### Hierarchy
+- **Display** (400, 44px → 112px fluid, 0.96): the home hero, the case-study title, the closing
+  "Let's build what ships." and the Philosophy line.
+- **Headline 1** (400, 36px → 76px, 1.0): interior page titles and home section headings.
+- **Headline 2** (400, 30px → 56px, 1.04): case-study chapters, About sections, project titles in
+  the work list.
+- **Title** (400 serif, 24px → 32px, 1.12): row titles (capabilities, decisions, architecture
+  layers, posts).
+- **Lead** (400, 18px → 20px, 1.5): the one paragraph that introduces a section. 46–56ch.
+- **Body** (400, 16px, 1.6): everything else. Long-form posts use 18px at 1.7.
+- **Small** (400, 14px, 1.5): nav, buttons, meta values, code.
+- **Label** (400 mono, 12px, 0.06em, uppercase): section indices, years, tags, field names.
 
-| Name | Value | Token |
-|------|-------|-------|
-| subtle | `rgb(113, 76, 182) 0px 0px 0px 1px inset` | `--shadow-subtle` |
+### Named Rules
+**The 1.2 Rule.** Adjacent heading levels differ by at least 1.2× at every viewport width,
+including 375px. No size exists between two steps of the scale.
 
-### Layout
-
-- **Page max-width:** 1200px
-- **Section gap:** 64-96px
-- **Card padding:** 16px
-- **Element gap:** 8px
-
-## Components
-
-### Primary Action Button
-**Role:** Filled CTA — sign-up, suite purchase, top-level conversion
-
-Background #421d24 (Midnight Wine), text #ffffff at 16px/weight 460, border none. Radius 16px. Padding 12px horizontal, height ~48px. Often paired with a small arrow icon at 8px gap to the right of the label. The maroon fill is the ONLY chromatic button fill in the system — everything else is ghost, outlined, or lilac.
-
-### Ghost Text Button
-**Role:** Inline links and tertiary actions within paragraphs and nav
-
-Background transparent, text #292827 (Ink Charcoal), no border, no radius. Underline may appear on hover. Padding 0. Used for nav items, inline learn-more links, and low-emphasis actions that should not compete with primary buttons.
-
-### Outlined Light Button
-**Role:** Secondary action — "Get the suite", download app
-
-Background #d4c7ff (Lilac Mist), text #292827, border 1px #292827. Radius 8px. Padding 6px 16px. Lighter weight alternative to the wine filled button; the lilac fill signals secondary rather than tertiary because it still carries brand hue.
-
-### Pill Announcement Banner
-**Role:** Top-of-page promotional strip
-
-Background #421d24, text #ffffff, radius 999px on left and right but clipped to page edges. Padding 12px 16px. Contains a small icon left, inline copy, and a bordered learn-more link. Sits flush at the very top of the viewport above the header.
-
-### Floating Product Card
-**Role:** Translucent UI mockup floating over the hero photograph
-
-Background #ffffff at ~85% opacity, radius 16px, padding 16px, border 1px solid rgba(255,255,255,0.2). No drop shadow — depth comes from being composited over the photo. Hosts a small avatar/icon row, body text, and a subtle action affordance. These cards are the system's signature compositional move.
-
-### Trust Logo Card
-**Role:** Customer logo grid cell in social-proof band
-
-Background #ffffff, border 1px #e3e3e2, radius 0 (square cell in a grid row, no individual rounding). Padding 24px vertical. Logo centered, rendered in #292827 monochrome. Arranged in a single horizontal row of 6 cells.
-
-### Suite Tab Strip
-**Role:** Product suite navigation — Mail, Grammarly, Coda, Go
-
-Four equal-width tabs in a horizontal row, background #ffffff, radius 8px on outer container, no individual tab radius. Padding 16px per tab. Active tab gets #d4c7ff (Lilac Mist) fill with a small chromatic icon; inactive tabs are white with #292827 monochrome icons.
-
-### Suite Product Card
-**Role:** Vertical product feature card in the suite detail sections
-
-Background #ffffff, radius 16px, padding 16px. Contains a colored icon top-left, product name, body text, and a violet ("Learn more") link at #714cb6. No shadow — sits on parchment so the card edge is defined by the border contrast alone.
-
-### Navigation Header
-**Role:** Sticky top navigation
-
-Background transparent with backdrop-filter blur(12px) and a 1px #e3e3e2 bottom border that fades in on scroll. Logo left, nav links center (weight 460, 16px), auth controls right ("Contact sales", "Log in" as ghost, "Sign up" as lavender outlined). Height ~64px.
-
-### Dark Feature Band
-**Role:** Mid-page section with overlaid geometric art
-
-Background #0c4243 (Deep Lagoon). Full-bleed. Left half hosts layered translucent geometric rectangles with handwritten script overlays. Right half hosts white headline (64px/460), white body text at #ffffff, and a white-outlined "Read our announcement" button. The only dark surface in the system, used sparingly for tonal contrast.
-
-### Gradient Banner
-**Role:** Mid-page atmospheric section with code-text overlay
-
-Background uses a layered composition of radial gradients: violet glow at 68%/50%, blue glow at 93%/50%, pink glow at 50%/98%, cyan glow at 50%/75%, all at 50-60% opacity. Headline #292827 at 48px/460 left-aligned. White "Get Superhuman" button right-aligned. The gradients are decorative atmosphere, not interactive surfaces.
-
-### Footer
-**Role:** Site-wide footer with link columns
-
-Background #421d24 (Midnight Wine), text #ffffff for headings and #ffffff at ~70% opacity for body. Radius none. Padding 64px top/bottom. Multi-column link layout (Products, Resources, Company, Legal). No social icons row visible in data but footer nav depth suggests 25 interactive elements across columns.
-
-### Link with Underline
-**Role:** All inline "Learn more" links across product cards and suite tabs
-
-Color #714cb6 (Royal Violet), no underline by default, underline appears on hover with 0.2s ease transition. Font weight 460, same size as surrounding body (16px). The violet is the only chromatic text in the system and is reserved exclusively for links.
-
-### Section Heading
-**Role:** Display-level headlines for major sections ("Your Superhuman suite", "The most productive…")
-
-Font Super Sans VF weight 460, size 48px, line-height 0.96, letter-spacing 0, color #292827. Anti-convention: weight 460 at 48px reads as confident rather than thin because the warm parchment canvas provides enough contrast for the light cut to remain legible. No text-transform, no italic, no decorative flourishes.
-
-## Do's and Don'ts
-
-### Do
-- Use weight 460 for all headlines at 28px and above — it is the system's signature voice, not a default
-- Set body text to #292827 on #f2f0eb canvas, never on pure #ffffff for full-page backgrounds
-- Use #421d24 as the single primary action fill; do not introduce a second chromatic button color
-- Reserve #714cb6 exclusively for inline links — never use violet as a button fill, badge, or icon stroke
-- Float product UI cards at 16px radius over photographic backgrounds with no drop shadow; let the photo provide depth
-- Apply backdrop-filter blur(12px) to the header when content scrolls underneath; reveal a 1px #e3e3e2 border on scroll
-- Keep letter-spacing tight on display sizes (-0.028em at 64px, -0.027em at 49px) and zero on body text 16px and below
-
-### Don't
-- Do not use weight 700 or higher for headlines — the system speaks at weight 460, not 700
-- Do not place white surfaces directly on white; the canvas is parchment (#f2f0eb), cards are white (#ffffff) only when they need to lift
-- Do not add drop shadows to cards — depth comes from layering, not elevation stacks
-- Do not introduce a blue, green, or red accent color; the accent palette is maroon + violet + lilac only
-- Do not center body copy longer than two lines — left-align headlines and descriptions for editorial rhythm
-- Do not use pure #000000 for text — Ink Charcoal (#292827) keeps the system warm
-- Do not apply the dark teal (#0c4243) to anything other than full-bleed feature bands; it is not a card or component background
-
-## Surfaces
-
-| Level | Name | Value | Purpose |
-|-------|------|-------|---------|
-| 0 | Parchment Canvas | `#f2f0eb` | Base page background, dominant surface |
-| 1 | Paper Card | `#ffffff` | Elevated product cards, floating UI elements, suite tabs |
-| 2 | Lilac Wash | `#d4c7ff` | Accent surface for secondary buttons and selected states |
-| 3 | Deep Lagoon Band | `#0c4243` | Dark feature section with overlaid art |
-| 4 | Wine Ground | `#421d24` | Footer and announcement banner ground |
-
-## Imagery
-
-Cinematic photography is the primary visual asset — a full-bleed portrait shot against an open sky anchors the hero, with a second atmospheric band lower in the page. Treatment is warm, golden-hour, slightly desaturated, shot at profile angle to feel editorial rather than corporate. The dark feature band layers translucent geometric rectangles and handwritten script overlays over a photo of a person in thought — a collage of surfaces, not a single image. Product UI is presented as floating glass cards composited directly over photography rather than as isolated screenshots. No stock illustration, no 3D renders, no abstract decorative shapes outside of the gradient atmospheric band. Icons throughout are minimal monochrome line icons at ~16-20px, single-weight stroke matching the 460 text weight.
+**The Two-Faces-Per-Line Rule.** A line is serif or sans or mono — never mixed except the label's
+index digit in ink.
 
 ## Layout
 
-Hero is full-bleed photograph with overlaid centered headline (48-64px/460) and a single wine-filled CTA, with floating translucent product UI cards composited over the photo on left and right margins. Below the hero: a white-band logo strip (6 cells in a single row, max-width contained), then a suite-tabs section with white card surface on parchment canvas. A dark teal band breaks the rhythm roughly two-thirds down the page — full-bleed, two-column (art left, text right), creating the only tonal contrast in the scroll. A gradient atmospheric band follows. Section spacing runs 64-96px vertically. Content max-width is ~1200px centered, with hero and dark band breaking out to full viewport width. Navigation is a single sticky header with backdrop blur; no sidebar, no mega-menu. The footer is full-bleed maroon with multi-column link layout. Overall rhythm: photographic hero → quiet white/cream content → dark feature band → atmospheric gradient → maroon footer, alternating light and dark bands to create editorial pacing.
+A 12-column grid (24px gutters) inside a 1200px content width, with fluid side gutters of
+20–40px. Sections are separated by a 1px rule and generous vertical space (72–152px, fluid). Rows
+inside a section are ruled list items on the grid: index in column 1, title in columns 2–6,
+description in 7–10, metadata right-aligned in 11–12. Under 768px everything collapses to one
+column in reading order; nothing hides.
 
-## Agent Prompt Guide
+Spacing is on a **4px base**: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 96, plus the fluid section and
+gutter values. Icon-sized marks (status dots) use 8px.
 
-**Quick Color Reference**
-- canvas: #f2f0eb
-- text: #292827
-- secondary text: #666666
-- border: #e3e3e2
-- card surface: #ffffff
-- accent/link: #714cb6
-- primary action: #d4c7ff (filled action)
-- lilac accent surface: #d4c7ff
-- dark band: #0c4243
+### Named Rules
+**The Hairline Rule.** Group with space and a 1px rule. If you are about to draw a box, use a rule
+instead.
 
-**Example Component Prompts**
+**The Same-Edges Rule.** Every block starts on the container edge or a grid column; nothing is
+nudged off-grid for effect.
 
-1. Create a Primary Action Button: #d4c7ff background, #292827 text, 9999px radius, compact pill padding. Use this filled treatment for the main CTA.
+## Elevation & Depth
 
-2. *Suite product card*: White surface (#ffffff) on parchment canvas (#f2f0eb), radius 16px, padding 16px. Colored icon top-left (16px). Product name at 19px weight 700 #292827. Body text at 16px weight 460 #292827, two lines max. "Learn more" link at 16px weight 460 #714cb6, underline appears on hover at 0.2s ease. No drop shadow.
+Flat. There are no shadows anywhere in the system. Depth is tonal: Pressed Paper sits one step
+below Notebook Paper. The header gains a translucent paper fill and a hairline only after the page
+scrolls 40px, so it reads as lifted only when something passes under it.
 
-3. *Primary nav header*: Sticky top bar, height 64px, background transparent with backdrop-filter blur(12px). Logo at left in #292827. Center nav links at 16px weight 460 #292827 with 32px horizontal gap. Right side: "Contact sales" as ghost text button, "Log in" as ghost, "Sign up" as lilac outlined button (background #d4c7ff, text #292827, border 1px #292827, radius 8px, padding 6px 16px). 1px #e3e3e2 bottom border fades in on scroll.
+### Named Rules
+**The Flat-By-Default Rule.** No `box-shadow`. If something must sit above the page (command
+palette, mobile menu), it gets a paper fill and a hairline, not a shadow.
 
-4. *Dark feature band*: Full-bleed background #0c4243. Two-column layout: left half contains layered translucent geometric rectangles (lavender, blue, pink at 50% opacity) with handwritten script overlay. Right half: 64px Super Sans VF weight 460 #ffffff headline, body text at 16px weight 460 #ffffff at 80% opacity, and a white-outlined ghost button below (border 1px #ffffff, text #ffffff, radius 8px, padding 8px 20px).
+## Shapes
 
-5. *Footer*: Full-bleed background #421d24, padding 64px top and bottom, max-width 1200px content centered. Four-column link layout with white column headings at 14px weight 700, link items at 14px weight 460 #ffffff at 70% opacity with 12px vertical spacing. No dividers between columns.
+Small, consistent radii: 4px for tags and inline code, 6px for buttons, inputs, code blocks and
+preview panels, 8px for the command palette. Status marks are circles. No pills, no blobs, no
+rotated or skewed shapes.
 
-## Similar Brands
+## Components
 
-- **Notion** — Same editorial-meets-product aesthetic with restrained typography, generous spacing, and a single neutral canvas that lets content breathe
-- **Arc Browser** — Shared playful-but-premium tone with violet accent on warm neutral, full-bleed cinematic imagery, and floating translucent UI cards over photography
-- **Linear** — Same weight-460-at-large-sizes headline approach and preference for hairline borders over heavy shadows, though Linear is dark-first and Superhuman is light-first
-- **Stripe** — Similar editorial gradient atmospheric bands and the pattern of compositing floating UI mockups over gradient backgrounds rather than flat color
-- **Causal** — Shared warm cream canvas + maroon brand moment pairing, with color reserved for deliberate punctuation rather than applied across the UI
+### Buttons
+- **Shape:** gently squared (6px).
+- **Primary:** ink fill, paper text, 44px tall, 20px side padding, Small type at weight 500. It is
+  the only filled button in the system; "Get in touch" in the header is its 36px variant, which
+  keeps a 44px hit area through an invisible 4px extension above and below.
+- **Hover / Press:** opacity to 0.86 on hover (150ms); scale 0.98 on press. The primary CTA in the
+  hero and closing section adds a magnetic pull of up to 6px.
+- **Secondary:** not a button — a text link with the drawn underline.
 
-## Quick Start
+### Links
+- **Default:** inherits colour; a 1px underline draws in from the left on hover and retracts to the
+  right on leave (250ms).
+- **Emphasis:** Signal Vermilion for the single most important link in a section.
+- **Arrows:** a trailing glyph (→ ↗ ↓ ←) nudges 3px in its direction on hover.
 
-### CSS Custom Properties
+### Tags
+- **Style:** transparent background, 1px Rule Line border, 4px radius, Label type in Pencil Grey,
+  4px × 8px padding. Never interactive.
+- **Prize badge:** a tag in Ink with an 8px Signal Vermilion dot.
 
-```css
-:root {
-  /* Colors */
-  --color-midnight-wine: #421d24;
-  --color-royal-violet: #714cb6;
-  --color-lilac-mist: #d4c7ff;
-  --color-deep-lagoon: #0c4243;
-  --color-warm-parchment: #f2f0eb;
-  --color-soft-mist: #e3e3e2;
-  --color-ink-charcoal: #292827;
-  --color-stone-gray: #666666;
-  --color-paper-white: #ffffff;
+### Inputs / Fields
+- **Style:** transparent on paper, 1px Field Edge border, 6px radius, 12px × 16px padding, Body type.
+- **Focus:** border turns Signal Vermilion plus the global 2px focus ring.
+- **Error:** Danger border and a Small message directly under the field.
 
-  /* Typography — Font Families */
-  --font-super-sans-vf: 'Super Sans VF', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+### Navigation
+- **Header:** name left; Work, About, Writing and the theme toggle right; "Get in touch" the only
+  filled button. Small type. The active link carries a 1px vermilion underline that slides between
+  items. Hides on scroll down, returns on scroll up.
+- **Mobile:** a "Menu" text control opens a full-width panel of Headline-sized links separated by
+  rules.
 
-  /* Typography — Scale */
-  --text-caption: 12px;
-  --leading-caption: 1.5;
-  --text-body-sm: 14px;
-  --leading-body-sm: 1.5;
-  --text-body: 16px;
-  --leading-body: 1.2;
-  --text-label-bold: 19px;
-  --leading-label-bold: 1.5;
-  --text-subheading: 26px;
-  --leading-subheading: 1.3;
-  --text-heading-sm: 28px;
-  --leading-heading-sm: 1.14;
-  --tracking-heading-sm: -0.62px;
-  --text-heading-lg: 49px;
-  --leading-heading-lg: 1.2;
-  --tracking-heading-lg: -1.32px;
-  --text-display: 64px;
-  --leading-display: 0.96;
-  --tracking-display: -1.8px;
+### Work Row (signature)
+A full-width ruled row: index, project title in Headline 2, one-line outcome, three tags, year and
+↗. On hover with a mouse the title shifts 12px and a preview follows the cursor; on touch the
+preview sits inline under the row.
 
-  /* Typography — Weights */
-  --font-weight-w460: 460;
-  --font-weight-medium: 500;
-  --font-weight-w540: 540;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+### Journey Year (signature)
+The one oversized number in the system: on desktop the Journey section pins and shows the current
+year at 7rem → 19rem fluid (Instrument Serif, tabular lining figures, 0.82 line height) while its
+last digit rolls 4 → 5 → 6 with the scroll. It is a decorative, `aria-hidden` echo of the real
+year headings and is exempt from the type scale; nothing else may use it.
 
-  /* Spacing */
-  --spacing-unit: 4px;
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-28: 28px;
-  --spacing-32: 32px;
-  --spacing-36: 36px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-96: 96px;
+### Architecture Schematic (signature)
+The project preview until real screenshots exist: the project's layers drawn as nodes on a hairline
+rail on Pressed Paper, the first node in Signal Vermilion. Replaced by `media.hero` when present.
 
-  /* Layout */
-  --page-max-width: 1200px;
-  --section-gap: 64-96px;
-  --card-padding: 16px;
-  --element-gap: 8px;
+## Do's and Don'ts
 
-  /* Border Radius */
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
-  --radius-full: 999px;
+### Do:
+- **Do** use Ink (#111111) on Notebook Paper (#f2f0eb) for all reading text.
+- **Do** separate rows and sections with a 1px Rule Line and space on the 4px scale.
+- **Do** set years, indices and tags in Label (Geist Mono 12px, uppercase, 0.06em).
+- **Do** keep every interactive target at least 44px tall outside running text.
+- **Do** outline form fields in Field Edge (#85807a light, #6e6a63 dark).
+- **Do** give every animation a reason, use the tokens in `lib/motion.ts`, and provide the reduced-motion fallback.
 
-  /* Named Radii */
-  --radius-tabs: 8px;
-  --radius-cards: 16px;
-  --radius-pills: 999px;
-  --radius-buttons: 16px;
-  --radius-small-buttons: 8px;
-  --radius-floating-cards: 16px;
-
-  /* Shadows */
-  --shadow-subtle: rgb(113, 76, 182) 0px 0px 0px 1px inset;
-
-  /* Surfaces */
-  --surface-parchment-canvas: #f2f0eb;
-  --surface-paper-card: #ffffff;
-  --surface-lilac-wash: #d4c7ff;
-  --surface-deep-lagoon-band: #0c4243;
-  --surface-wine-ground: #421d24;
-}
-```
-
-### Tailwind v4
-
-```css
-@theme {
-  /* Colors */
-  --color-midnight-wine: #421d24;
-  --color-royal-violet: #714cb6;
-  --color-lilac-mist: #d4c7ff;
-  --color-deep-lagoon: #0c4243;
-  --color-warm-parchment: #f2f0eb;
-  --color-soft-mist: #e3e3e2;
-  --color-ink-charcoal: #292827;
-  --color-stone-gray: #666666;
-  --color-paper-white: #ffffff;
-
-  /* Typography */
-  --font-super-sans-vf: 'Super Sans VF', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-  /* Typography — Scale */
-  --text-caption: 12px;
-  --leading-caption: 1.5;
-  --text-body-sm: 14px;
-  --leading-body-sm: 1.5;
-  --text-body: 16px;
-  --leading-body: 1.2;
-  --text-label-bold: 19px;
-  --leading-label-bold: 1.5;
-  --text-subheading: 26px;
-  --leading-subheading: 1.3;
-  --text-heading-sm: 28px;
-  --leading-heading-sm: 1.14;
-  --tracking-heading-sm: -0.62px;
-  --text-heading-lg: 49px;
-  --leading-heading-lg: 1.2;
-  --tracking-heading-lg: -1.32px;
-  --text-display: 64px;
-  --leading-display: 0.96;
-  --tracking-display: -1.8px;
-
-  /* Spacing */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-28: 28px;
-  --spacing-32: 32px;
-  --spacing-36: 36px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-96: 96px;
-
-  /* Border Radius */
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
-  --radius-full: 999px;
-
-  /* Shadows */
-  --shadow-subtle: rgb(113, 76, 182) 0px 0px 0px 1px inset;
-}
-```
+### Don't:
+- **Don't** use shadows, gradients, glassmorphism or blur except the scrolled header's 12px backdrop.
+- **Don't** use emoji, stock icons or icon fonts; arrows are typographic glyphs.
+- **Don't** introduce a second accent or any violet/lavender tone.
+- **Don't** add a type size between two steps of the scale, or one that breaks the 1.2 Rule.
+- **Don't** put spacing off the 4px base (no 6, 7, 10, 14 or 18px gaps).
+- **Don't** fill a background with Signal Vermilion or set large type in it.
+- **Don't** box content in cards; use rows on the grid.

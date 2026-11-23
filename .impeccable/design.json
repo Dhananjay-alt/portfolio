@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-23T15:18:28.227989+00:00",
+  "title": "Design System: Dhananjay Hire — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Notebook Paper",
+        "canonical": "#f2f0eb",
+        "tonalRamp": [
+          "#2a2925",
+          "#47453f",
+          "#66635d",
+          "#8c877d",
+          "#b3ada2",
+          "#d9d5cc",
+          "#e9e6df",
+          "#f7f6f2"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Pressed Paper",
+        "canonical": "#e9e6df"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#111111"
+      },
+      "mute": {
+        "role": "neutral",
+        "displayName": "Pencil Grey",
+        "canonical": "#66635d"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Rule Line",
+        "canonical": "#d9d5cc"
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Field Edge",
+        "canonical": "#85807a"
+      },
+      "signal-vermilion": {
+        "role": "primary",
+        "displayName": "Signal Vermilion",
+        "canonical": "#b93a15",
+        "tonalRamp": [
+          "#3d1307",
+          "#62200d",
+          "#8a2d12",
+          "#b93a15",
+          "#e0582d",
+          "#ff7a4d",
+          "#ffb196",
+          "#ffe3d8"
+        ]
+      },
+      "danger": {
+        "role": "error",
+        "displayName": "Danger",
+        "canonical": "#a3271b"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero, case-study title, closing line, philosophy line."
+      },
+      "headline-1": {
+        "displayName": "Headline 1",
+        "purpose": "Interior page titles and home section headings."
+      },
+      "headline-2": {
+        "displayName": "Headline 2",
+        "purpose": "Case-study chapters, About sections, work-row titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Row titles: capabilities, decisions, layers, posts."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The one paragraph introducing a section."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Nav, buttons, meta values, code."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Section indices, years, tags, field names."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Anything entering or settling."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Moves between two resting states: underlines, header hide, morphs, theme reveal."
+      },
+      {
+        "name": "dur-micro",
+        "value": "150ms",
+        "purpose": "Hover and press feedback."
+      },
+      {
+        "name": "dur-small",
+        "value": "250ms",
+        "purpose": "Underline draw, nav hide, label swaps, menu."
+      },
+      {
+        "name": "dur-medium",
+        "value": "450ms",
+        "purpose": "Reveals, clip-path wipes, row hover shift."
+      },
+      {
+        "name": "dur-large",
+        "value": "800ms",
+        "purpose": "Hero and page-level moments only."
+      },
+      {
+        "name": "stagger",
+        "value": "50ms",
+        "purpose": "Between siblings; at most 8 per group."
+      },
+      {
+        "name": "reveal-distance",
+        "value": "16px",
+        "purpose": "Fade-up travel. Never rotate, never bounce."
+      },
+      {
+        "name": "spring",
+        "value": "stiffness 300, damping 30",
+        "purpose": "Pointer-driven motion: preview follow, magnetic CTA, nav underline."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The only filled button. Ink fill, 44px.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Start a conversation <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:6px;background:var(--ink,#111);color:var(--paper,#f2f0eb);font:500 0.875rem/1 var(--font-sans,system-ui);text-decoration:none;transition:opacity 150ms cubic-bezier(.22,1,.36,1),transform 150ms cubic-bezier(.22,1,.36,1)}.ds-btn:hover{opacity:.86}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:2px solid var(--accent,#b93a15);outline-offset:3px}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Underline draws in from the left, retracts to the right.",
+      "html": "<a class=\"ds-link\" href=\"#\">Read the résumé</a>",
+      "css": ".ds-link{position:relative;color:var(--ink,#111);text-decoration:none;font:400 1rem/1.6 var(--font-sans,system-ui)}.ds-link::after{content:\"\";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform 250ms cubic-bezier(.65,0,.35,1)}.ds-link:hover::after,.ds-link:focus-visible::after{transform:scaleX(1);transform-origin:left}.ds-link:focus-visible{outline:2px solid var(--accent,#b93a15);outline-offset:3px}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Non-interactive metadata chip.",
+      "html": "<span class=\"ds-tag\">Yjs CRDTs</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid var(--line,#d9d5cc);border-radius:4px;color:var(--mute,#66635d);font:400 0.75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;text-transform:uppercase}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Field Edge outline, vermilion on focus.",
+      "html": "<label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"you@company.com\"></label>",
+      "css": ".ds-field{display:grid;gap:8px;font:500 0.875rem/1.5 var(--font-sans,system-ui);color:var(--ink,#111)}.ds-field input{padding:12px 16px;border:1px solid var(--field,#85807a);border-radius:6px;background:transparent;font:400 1rem/1.5 var(--font-sans,system-ui);color:inherit}.ds-field input::placeholder{color:var(--mute,#66635d)}.ds-field input:focus-visible{border-color:var(--accent,#b93a15);outline:2px solid var(--accent,#b93a15);outline-offset:3px}"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Mono index + section name.",
+      "html": "<p class=\"ds-label\"><b>01</b> — Work</p>",
+      "css": ".ds-label{margin:0;font:400 0.75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--mute,#66635d)}.ds-label b{font-weight:400;color:var(--ink,#111)}"
+    },
+    {
+      "name": "Work Row",
+      "kind": "custom",
+      "refersTo": "work-row",
+      "description": "Ruled project row; title shifts on hover.",
+      "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-i\">01</span><span class=\"ds-t\">SyncSpace</span><span class=\"ds-y\">2026 ↗</span></a>",
+      "css": ".ds-row{display:grid;grid-template-columns:3ch 1fr auto;gap:24px;align-items:baseline;padding:32px 0;border-top:1px solid var(--line,#d9d5cc);border-bottom:1px solid var(--line,#d9d5cc);color:var(--ink,#111);text-decoration:none}.ds-i,.ds-y{font:400 .75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;color:var(--mute,#66635d)}.ds-t{font:400 clamp(1.875rem,1.303rem + 2.441vw,3.5rem)/1.04 var(--font-display,Georgia,serif);transition:transform 450ms cubic-bezier(.22,1,.36,1)}.ds-row:hover .ds-t{transform:translateX(12px)}"
+    },
+    {
+      "name": "Header Nav",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Name left, three links + one filled button right.",
+      "html": "<nav class=\"ds-nav\"><b>Dhananjay Hire</b><span><a aria-current=\"page\" href=\"#\">Work</a><a href=\"#\">About</a><a href=\"#\">Writing</a><a class=\"ds-cta\" href=\"#\">Get in touch</a></span></nav>",
+      "css": ".ds-nav{display:flex;justify-content:space-between;align-items:center;height:64px;font:400 .875rem/1 var(--font-sans,system-ui);color:var(--ink,#111)}.ds-nav b{font-weight:500}.ds-nav span{display:flex;gap:28px;align-items:center}.ds-nav a{color:var(--mute,#66635d);text-decoration:none;padding:14px 0;position:relative}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--ink,#111)}.ds-nav a[aria-current]::after{content:\"\";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--accent,#b93a15)}.ds-nav .ds-cta{color:var(--paper,#f2f0eb);background:var(--ink,#111);padding:0 16px;height:36px;display:inline-flex;align-items:center;border-radius:6px}.ds-nav .ds-cta::after{display:none}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Engineer's Notebook",
+    "overview": "A working document, not a brochure. Warm paper, near-black ink, ruled hairlines and mono notes in\nthe margin: the page looks like the place where a system was reasoned out, and every mark on it is\nthere because it carries information. Precision is the ornament. The one splash of colour is the\npen you'd circle a finding with.\n\nThe page is quiet and dense in the right places. Large serif headings set the rhythm; everything\nelse is a disciplined sans and a small mono label. Structure comes from a 12-column grid and 1px\nrules, never from boxes, cards or shadows. Motion is part of the craft and held to the same\nrestraint: it explains where something came from or where it went, and is removed when it doesn't.",
+    "keyCharacteristics": [
+      "Paper and ink, one accent used like a red pen.",
+      "Hairline rules instead of containers; the grid does the grouping.",
+      "Serif for headings, sans for reading, mono for metadata.",
+      "Numbered sections (`01 — Work`) and tabular figures, like a spec.",
+      "Every motion has a reason, and all of it degrades to stillness."
+    ],
+    "rules": [
+      {
+        "name": "The Red Pen Rule",
+        "body": "Signal Vermilion covers well under 5% of any screen. It marks, it never",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Violet Rule",
+        "body": "No violet, lavender or lilac anywhere in the system's own design.",
+        "section": "colors"
+      },
+      {
+        "name": "The Field Edge Rule",
+        "body": "Anything a visitor types into is outlined in Field Edge, never Rule Line.",
+        "section": "colors"
+      },
+      {
+        "name": "The 1.2 Rule",
+        "body": "Adjacent heading levels differ by at least 1.2× at every viewport width,",
+        "section": "typography"
+      },
+      {
+        "name": "The Two-Faces-Per-Line Rule",
+        "body": "A line is serif or sans or mono — never mixed except the label's",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Group with space and a 1px rule. If you are about to draw a box, use a rule",
+        "section": "layout"
+      },
+      {
+        "name": "The Same-Edges Rule",
+        "body": "Every block starts on the container edge or a grid column; nothing is",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "No `box-shadow`. If something must sit above the page (command",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use Ink (#111111) on Notebook Paper (#f2f0eb) for all reading text.",
+      "**Do** separate rows and sections with a 1px Rule Line and space on the 4px scale.",
+      "**Do** set years, indices and tags in Label (Geist Mono 12px, uppercase, 0.06em).",
+      "**Do** keep every interactive target at least 44px tall outside running text.",
+      "**Do** outline form fields in Field Edge (#85807a light, #6e6a63 dark).",
+      "**Do** give every animation a reason, use the tokens in `lib/motion.ts`, and provide the reduced-motion fallback."
+    ],
+    "donts": [
+      "**Don't** use shadows, gradients, glassmorphism or blur except the scrolled header's 12px backdrop.",
+      "**Don't** use emoji, stock icons or icon fonts; arrows are typographic glyphs.",
+      "**Don't** introduce a second accent or any violet/lavender tone.",
+      "**Don't** add a type size between two steps of the scale, or one that breaks the 1.2 Rule.",
+      "**Don't** put spacing off the 4px base (no 6, 7, 10, 14 or 18px gaps).",
+      "**Don't** fill a background with Signal Vermilion or set large type in it.",
+      "**Don't** box content in cards; use rows on the grid."
+    ]
+  }
+}
