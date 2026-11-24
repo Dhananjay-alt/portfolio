@@ -25,7 +25,7 @@ Apply both naively and you get `"cats!"` on one client and `"cat!s"` on another.
 
 OT fixes this by *transforming* each operation against the ones it didn't know about. If A's insert arrives at B's client, B transforms it to account for edits B already applied. It's the classic approach — Google Docs famously uses it.
 
-The catch is that OT is **hard to implement correctly**. The transform functions have to satisfy tricky mathematical properties, and most real systems lean on a **central server** to order and transform every operation. That server is both complexity and a single point of failure.
+The catch is that OT is **hard to implement correctly**. The transform functions have to satisfy tricky mathematical properties, and most production systems lean on a **central server** to order and transform every operation. That server is both complexity and a single point of failure.
 
 ## Conflict-free replicated data types
 

@@ -31,7 +31,7 @@ and one `--accent`, each with a `.dark` counterpart. Tailwind exposes them as `b
 `text-ink`, `text-mute`, `border-line`, `text-accent`. To change the accent, change `--accent`
 in both blocks and keep it at or above 4.5:1 against `--paper` and `--surface`.
 
-Type: Instrument Serif (display, `h1`–`h3`), Geist (body), Geist Mono (`.label`, `.tag`).
+Type: Geist (headings at 600 with tight tracking, and body), Geist Mono (`.label`, `.tag`).
 The scale is fluid: `.text-display`, `.text-h1`, `.text-h2`, `.text-h3`, `.text-lead`.
 
 ## Motion system
@@ -59,8 +59,8 @@ never rotate, never bounce. If removing an animation loses nothing, remove it.
 
 ### Primitives (`components/motion/`)
 
-- **`<Reveal>`** — 16px fade-up when 30% in view, once. `index` staggers siblings; `as` picks the element.
-- **`<SplitHeading>`** — section heading whose lines slide up out of masks (GSAP SplitText), once, on enter.
+- **`<Reveal>`** — plain wrapper kept for call sites; sections no longer fade in on scroll.
+- **`<SplitHeading>`** — plain heading wrapper; headings no longer animate on scroll.
 - **`<MagneticButton>`** — wraps the primary CTA; leans up to 6px toward the pointer.
 - **`<PageTransition>`** — wrap the content of each `page.tsx` for the route-change transition. `PageShell` already does this.
 - **`<SharedElement name>`** — the same `name` on two routes morphs the element between them.
@@ -70,12 +70,11 @@ never rotate, never bounce. If removing an animation loses nothing, remove it.
 - **No JS, no hidden content.** Hidden initial states exist only under `html.js`, a class an
   inline script adds before first paint. With JavaScript disabled the page is fully readable.
 - **LCP never waits for JS.** The hero and page-title reveals are CSS animations that start
-  on first paint. A second inline script marks reveal blocks already in the first viewport as
-  shown, without animating them.
-- **GSAP is lazy.** `lib/gsap.ts` loads GSAP, ScrollTrigger and SplitText on idle, only on pages
-  that use them. Motion's engine is loaded on demand through `LazyMotion`; use `m.*` from
+  on first paint. Nothing below the fold animates in on scroll, so content is never hidden.
+- **GSAP is lazy.** `lib/gsap.ts` loads GSAP and ScrollTrigger on idle, only for the pinned Journey
+  section. Motion's engine is loaded on demand through `LazyMotion`; use `m.*` from
   `motion/react-m`, not `motion.*`.
-- **Reduced motion.** Lenis, the pinned Journey, SplitText, the cursor, the cursor-follow
+- **Reduced motion.** Lenis, the pinned Journey, the cursor, the cursor-follow
   preview and the circular theme reveal are all off. What remains is opacity fades of 180ms or less.
 - **Touch.** Nothing depends on hover: the work previews sit inline under each row, and the
   Journey is a vertical list under 768px.
@@ -85,13 +84,11 @@ never rotate, never bounce. If removing an animation loses nothing, remove it.
 | Animation | Trigger | Duration | Easing |
 | --- | --- | --- | --- |
 | Hero headline line-mask reveal | First page load of the session | 800ms, 70ms between lines | `ease.out` |
-| Hero eyebrow, subtext, CTAs fade-up | After the headline starts (350ms) | 450ms, 60ms stagger | `ease.out` |
+| Hero subtext and CTAs fade up | After the headline starts (350ms) | 450ms, 60ms stagger | `ease.out` |
 | Header fade-in | Last in the intro (650ms) | 450ms | `ease.out` |
 | Intro on later loads in the session | Page load | 300ms fade | `ease.out` |
 | Interior page title line-mask | Hard load of that page | 800ms | `ease.out` |
-| Section heading line reveal (SplitText) | 30% in view, once | 800ms, 70ms between lines | `power4.out` (= `ease.out`) |
-| Body block fade-up (`Reveal`) | 30% in view, once | 450ms, 50ms stagger, max 8 | `ease.out` |
-| Work row: title shifts 12px, arrow nudges 4px | Hover / focus | 450ms | `ease.out` |
+| Work row: title shifts 12px | Hover / focus | 450ms | `ease.out` |
 | Work preview follows cursor | Pointer move over a row | Spring | stiffness 300, damping 30 |
 | Work preview clip-path wipe | Enter / leave the list | 450ms | `ease.out` |
 | Title and preview morph into case study | Click a work row (also "Next project") | 550ms | `ease.inOut` |

@@ -32,34 +32,20 @@ export default async function ProjectOgImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f2f0eb",
+          background: "#ffffff",
           padding: 80,
           fontFamily: "sans-serif",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            gap: 16,
-            color: "#66635d",
-            fontSize: 24,
-            letterSpacing: 2,
-            textTransform: "uppercase",
-          }}
-        >
-          <span>Case study</span>
-          <span>·</span>
-          <span>{category}</span>
-          <span>·</span>
-          <span>{year}</span>
+        <div style={{ display: "flex", color: "#5c5c5c", fontSize: 28 }}>
+          {category}, {year}
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 120, color: "#111111", letterSpacing: -4, lineHeight: 1 }}>{title}</div>
-          <div style={{ marginTop: 28, fontSize: 38, color: "#66635d", maxWidth: 960 }}>{tagline}</div>
+          <div style={{ fontSize: 120, color: "#111111", letterSpacing: -5, lineHeight: 1, fontWeight: 600 }}>{title}</div>
+          <div style={{ marginTop: 28, fontSize: 38, color: "#5c5c5c", maxWidth: 960 }}>{tagline}</div>
           {badge && (
-            <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 32, fontSize: 28, color: "#111111" }}>
-              <div style={{ width: 12, height: 12, borderRadius: 12, background: "#b93a15" }} />
+            <div style={{ display: "flex", marginTop: 32, fontSize: 28, color: "#111111" }}>
               {badge}
             </div>
           )}
@@ -69,14 +55,14 @@ export default async function ProjectOgImage({
           style={{
             display: "flex",
             justifyContent: "space-between",
-            borderTop: "1px solid #d9d5cc",
+            borderTop: "1px solid #e5e5e5",
             paddingTop: 28,
             color: "#111111",
             fontSize: 28,
           }}
         >
           <span>{profile.name}</span>
-          <span style={{ color: "#66635d" }}>{profile.role}</span>
+          <span style={{ color: "#5c5c5c" }}>{profile.role}</span>
         </div>
       </div>
     ),

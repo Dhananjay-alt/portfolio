@@ -65,7 +65,6 @@ export function ProjectPreview({
                     }`}
                   />
                 </span>
-                <span className="label tabular md:mt-5 md:block">{String(i + 1).padStart(2, "0")}</span>
               </div>
               <p className="mt-2 text-h3 font-display">{step.layer}</p>
             </li>
@@ -84,7 +83,6 @@ export function ProjectPreview({
       <ol className="mt-auto">
         {steps.map((step, i) => (
           <li key={step.layer} className="flex items-baseline gap-3 border-t border-line py-2 first:border-t-0">
-            <span className="label tabular">{String(i + 1).padStart(2, "0")}</span>
             <span className="truncate text-[length:var(--text-small)] font-medium">{step.layer}</span>
             <span
               aria-hidden="true"

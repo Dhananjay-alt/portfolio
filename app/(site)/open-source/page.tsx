@@ -16,7 +16,6 @@ export default async function OpenSourcePage() {
 
   return (
     <PageShell
-      eyebrow="Open Source"
       title="Contributions, in public."
       description="Live from the GitHub API — pinned repos, stars, and the languages I work in most, refreshed hourly."
     >
@@ -62,14 +61,14 @@ export default async function OpenSourcePage() {
             <p className="label">
               Top repositories
             </p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="mt-4 border-b border-line">
               {data.repos.map((repo) => (
                 <a
                   key={repo.name}
                   href={repo.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="group rounded-md border border-line p-5"
+                  className="group block border-t border-line py-5"
                 >
                   <span className="tap link link-group font-medium">{repo.name}</span>
                   {repo.description && (
@@ -93,10 +92,7 @@ export default async function OpenSourcePage() {
             rel="noreferrer noopener"
             className="tap link"
           >
-            View full profile{" "}
-            <span aria-hidden="true" className="arrow arrow-up">
-              ↗
-            </span>
+            View full profile
           </a>
         </div>
       )}

@@ -89,9 +89,6 @@ function SubmitButton() {
   return (
     <button type="submit" disabled={pending} className="btn btn-fill disabled:cursor-not-allowed disabled:opacity-60">
       {pending ? "Sending…" : "Send message"}
-      <span aria-hidden="true" className="arrow">
-        →
-      </span>
     </button>
   );
 }

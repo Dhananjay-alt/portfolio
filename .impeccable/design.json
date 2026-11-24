@@ -7,22 +7,22 @@
       "paper": {
         "role": "neutral",
         "displayName": "Notebook Paper",
-        "canonical": "#f2f0eb",
+        "canonical": "#ffffff",
         "tonalRamp": [
           "#2a2925",
           "#47453f",
-          "#66635d",
+          "#5c5c5c",
           "#8c877d",
           "#b3ada2",
-          "#d9d5cc",
-          "#e9e6df",
+          "#e5e5e5",
+          "#f4f4f4",
           "#f7f6f2"
         ]
       },
       "surface": {
         "role": "neutral",
         "displayName": "Pressed Paper",
-        "canonical": "#e9e6df"
+        "canonical": "#f4f4f4"
       },
       "ink": {
         "role": "neutral",
@@ -32,17 +32,17 @@
       "mute": {
         "role": "neutral",
         "displayName": "Pencil Grey",
-        "canonical": "#66635d"
+        "canonical": "#5c5c5c"
       },
       "line": {
         "role": "neutral",
         "displayName": "Rule Line",
-        "canonical": "#d9d5cc"
+        "canonical": "#e5e5e5"
       },
       "field": {
         "role": "neutral",
         "displayName": "Field Edge",
-        "canonical": "#85807a"
+        "canonical": "#8a8a8a"
       },
       "signal-vermilion": {
         "role": "primary",
@@ -164,8 +164,8 @@
       "kind": "button",
       "refersTo": "button-primary",
       "description": "The only filled button. Ink fill, 44px.",
-      "html": "<a class=\"ds-btn\" href=\"#\">Start a conversation <span aria-hidden=\"true\">→</span></a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:6px;background:var(--ink,#111);color:var(--paper,#f2f0eb);font:500 0.875rem/1 var(--font-sans,system-ui);text-decoration:none;transition:opacity 150ms cubic-bezier(.22,1,.36,1),transform 150ms cubic-bezier(.22,1,.36,1)}.ds-btn:hover{opacity:.86}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:2px solid var(--accent,#b93a15);outline-offset:3px}"
+      "html": "<a class=\"ds-btn\" href=\"#\">Start a conversation</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:6px;background:var(--ink,#111);color:var(--paper,#ffffff);font:500 0.875rem/1 var(--font-sans,system-ui);text-decoration:none;transition:opacity 150ms cubic-bezier(.22,1,.36,1),transform 150ms cubic-bezier(.22,1,.36,1)}.ds-btn:hover{opacity:.86}.ds-btn:active{transform:scale(.98)}.ds-btn:focus-visible{outline:2px solid var(--accent,#b93a15);outline-offset:3px}"
     },
     {
       "name": "Text Link",
@@ -181,7 +181,7 @@
       "refersTo": "tag",
       "description": "Non-interactive metadata chip.",
       "html": "<span class=\"ds-tag\">Yjs CRDTs</span>",
-      "css": ".ds-tag{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid var(--line,#d9d5cc);border-radius:4px;color:var(--mute,#66635d);font:400 0.75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;text-transform:uppercase}"
+      "css": ".ds-tag{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid var(--line,#e5e5e5);border-radius:4px;color:var(--mute,#5c5c5c);font:400 0.75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;text-transform:uppercase}"
     },
     {
       "name": "Text Field",
@@ -189,7 +189,7 @@
       "refersTo": "input",
       "description": "Field Edge outline, vermilion on focus.",
       "html": "<label class=\"ds-field\"><span>Email</span><input type=\"email\" placeholder=\"you@company.com\"></label>",
-      "css": ".ds-field{display:grid;gap:8px;font:500 0.875rem/1.5 var(--font-sans,system-ui);color:var(--ink,#111)}.ds-field input{padding:12px 16px;border:1px solid var(--field,#85807a);border-radius:6px;background:transparent;font:400 1rem/1.5 var(--font-sans,system-ui);color:inherit}.ds-field input::placeholder{color:var(--mute,#66635d)}.ds-field input:focus-visible{border-color:var(--accent,#b93a15);outline:2px solid var(--accent,#b93a15);outline-offset:3px}"
+      "css": ".ds-field{display:grid;gap:8px;font:500 0.875rem/1.5 var(--font-sans,system-ui);color:var(--ink,#111)}.ds-field input{padding:12px 16px;border:1px solid var(--field,#8a8a8a);border-radius:6px;background:transparent;font:400 1rem/1.5 var(--font-sans,system-ui);color:inherit}.ds-field input::placeholder{color:var(--mute,#5c5c5c)}.ds-field input:focus-visible{border-color:var(--accent,#b93a15);outline:2px solid var(--accent,#b93a15);outline-offset:3px}"
     },
     {
       "name": "Section Label",
@@ -197,7 +197,7 @@
       "refersTo": "label",
       "description": "Mono index + section name.",
       "html": "<p class=\"ds-label\"><b>01</b> — Work</p>",
-      "css": ".ds-label{margin:0;font:400 0.75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--mute,#66635d)}.ds-label b{font-weight:400;color:var(--ink,#111)}"
+      "css": ".ds-label{margin:0;font:400 0.75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--mute,#5c5c5c)}.ds-label b{font-weight:400;color:var(--ink,#111)}"
     },
     {
       "name": "Work Row",
@@ -205,7 +205,7 @@
       "refersTo": "work-row",
       "description": "Ruled project row; title shifts on hover.",
       "html": "<a class=\"ds-row\" href=\"#\"><span class=\"ds-i\">01</span><span class=\"ds-t\">SyncSpace</span><span class=\"ds-y\">2026 ↗</span></a>",
-      "css": ".ds-row{display:grid;grid-template-columns:3ch 1fr auto;gap:24px;align-items:baseline;padding:32px 0;border-top:1px solid var(--line,#d9d5cc);border-bottom:1px solid var(--line,#d9d5cc);color:var(--ink,#111);text-decoration:none}.ds-i,.ds-y{font:400 .75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;color:var(--mute,#66635d)}.ds-t{font:400 clamp(1.875rem,1.303rem + 2.441vw,3.5rem)/1.04 var(--font-display,Georgia,serif);transition:transform 450ms cubic-bezier(.22,1,.36,1)}.ds-row:hover .ds-t{transform:translateX(12px)}"
+      "css": ".ds-row{display:grid;grid-template-columns:3ch 1fr auto;gap:24px;align-items:baseline;padding:32px 0;border-top:1px solid var(--line,#e5e5e5);border-bottom:1px solid var(--line,#e5e5e5);color:var(--ink,#111);text-decoration:none}.ds-i,.ds-y{font:400 .75rem/1.4 var(--font-mono,ui-monospace);letter-spacing:.06em;color:var(--mute,#5c5c5c)}.ds-t{font:400 clamp(1.875rem,1.303rem + 2.441vw,3.5rem)/1.04 var(--font-display,Georgia,serif);transition:transform 450ms cubic-bezier(.22,1,.36,1)}.ds-row:hover .ds-t{transform:translateX(12px)}"
     },
     {
       "name": "Header Nav",
@@ -213,12 +213,12 @@
       "refersTo": "nav",
       "description": "Name left, three links + one filled button right.",
       "html": "<nav class=\"ds-nav\"><b>Dhananjay Hire</b><span><a aria-current=\"page\" href=\"#\">Work</a><a href=\"#\">About</a><a href=\"#\">Writing</a><a class=\"ds-cta\" href=\"#\">Get in touch</a></span></nav>",
-      "css": ".ds-nav{display:flex;justify-content:space-between;align-items:center;height:64px;font:400 .875rem/1 var(--font-sans,system-ui);color:var(--ink,#111)}.ds-nav b{font-weight:500}.ds-nav span{display:flex;gap:28px;align-items:center}.ds-nav a{color:var(--mute,#66635d);text-decoration:none;padding:14px 0;position:relative}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--ink,#111)}.ds-nav a[aria-current]::after{content:\"\";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--accent,#b93a15)}.ds-nav .ds-cta{color:var(--paper,#f2f0eb);background:var(--ink,#111);padding:0 16px;height:36px;display:inline-flex;align-items:center;border-radius:6px}.ds-nav .ds-cta::after{display:none}"
+      "css": ".ds-nav{display:flex;justify-content:space-between;align-items:center;height:64px;font:400 .875rem/1 var(--font-sans,system-ui);color:var(--ink,#111)}.ds-nav b{font-weight:500}.ds-nav span{display:flex;gap:28px;align-items:center}.ds-nav a{color:var(--mute,#5c5c5c);text-decoration:none;padding:14px 0;position:relative}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--ink,#111)}.ds-nav a[aria-current]::after{content:\"\";position:absolute;left:0;right:0;bottom:8px;height:1px;background:var(--accent,#b93a15)}.ds-nav .ds-cta{color:var(--paper,#ffffff);background:var(--ink,#111);padding:0 16px;height:36px;display:inline-flex;align-items:center;border-radius:6px}.ds-nav .ds-cta::after{display:none}"
     }
   ],
   "narrative": {
     "northStar": "The Engineer's Notebook",
-    "overview": "A working document, not a brochure. Warm paper, near-black ink, ruled hairlines and mono notes in\nthe margin: the page looks like the place where a system was reasoned out, and every mark on it is\nthere because it carries information. Precision is the ornament. The one splash of colour is the\npen you'd circle a finding with.\n\nThe page is quiet and dense in the right places. Large serif headings set the rhythm; everything\nelse is a disciplined sans and a small mono label. Structure comes from a 12-column grid and 1px\nrules, never from boxes, cards or shadows. Motion is part of the craft and held to the same\nrestraint: it explains where something came from or where it went, and is removed when it doesn't.",
+    "overview": "A working document, not a brochure. White paper, near-black ink, ruled hairlines and mono notes in\nthe margin: the page looks like the place where a system was reasoned out, and every mark on it is\nthere because it carries information. Precision is the ornament. The one splash of colour is the\npen you'd circle a finding with.\n\nThe page is quiet and dense in the right places. Large serif headings set the rhythm; everything\nelse is a disciplined sans and a small mono label. Structure comes from a 12-column grid and 1px\nrules, never from boxes, cards or shadows. Motion is part of the craft and held to the same\nrestraint: it explains where something came from or where it went, and is removed when it doesn't.",
     "keyCharacteristics": [
       "Paper and ink, one accent used like a red pen.",
       "Hairline rules instead of containers; the grid does the grouping.",
@@ -269,16 +269,16 @@
       }
     ],
     "dos": [
-      "**Do** use Ink (#111111) on Notebook Paper (#f2f0eb) for all reading text.",
+      "**Do** use Ink (#111111) on Notebook Paper (#ffffff) for all reading text.",
       "**Do** separate rows and sections with a 1px Rule Line and space on the 4px scale.",
       "**Do** set years, indices and tags in Label (Geist Mono 12px, uppercase, 0.06em).",
       "**Do** keep every interactive target at least 44px tall outside running text.",
-      "**Do** outline form fields in Field Edge (#85807a light, #6e6a63 dark).",
+      "**Do** outline form fields in Field Edge (#8a8a8a light, #6f6f6f dark).",
       "**Do** give every animation a reason, use the tokens in `lib/motion.ts`, and provide the reduced-motion fallback."
     ],
     "donts": [
       "**Don't** use shadows, gradients, glassmorphism or blur except the scrolled header's 12px backdrop.",
-      "**Don't** use emoji, stock icons or icon fonts; arrows are typographic glyphs.",
+      "**Don't** use emoji, stock icons or icon fonts; no decorative arrows on links or buttons.",
       "**Don't** introduce a second accent or any violet/lavender tone.",
       "**Don't** add a type size between two steps of the scale, or one that breaks the 1.2 Rule.",
       "**Don't** put spacing off the 4px base (no 6, 7, 10, 14 or 18px gaps).",

@@ -88,17 +88,15 @@ export function WorkList({ items, headingLevel = "h3" }: { items: WorkItem[]; he
               onPointerMove={(e) => active === i && place(e)}
               className="work-row group grid-12 items-baseline gap-y-4 py-[clamp(28px,4.2vw,52px)]"
             >
-              <span className="label tabular md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
 
-              <div className="md:col-span-5">
+              <div className="md:col-span-6">
                 <Heading className="work-title text-h2">
                   <SharedElement name={`work-title-${item.slug}`}>
                     <span className="inline-block">{item.title}</span>
                   </SharedElement>
                 </Heading>
                 {item.badge && (
-                  <p className="tag mt-4 gap-2 !text-ink">
-                    <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
+                  <p className="mt-3 text-[length:var(--text-small)] font-medium">
                     {item.badge}
                   </p>
                 )}
@@ -117,9 +115,6 @@ export function WorkList({ items, headingLevel = "h3" }: { items: WorkItem[]; he
 
               <div className="flex items-baseline justify-between gap-6 md:col-span-2 md:justify-end">
                 <span className="label tabular">{item.year}</span>
-                <span aria-hidden="true" className="work-arrow text-[1.25rem] leading-none">
-                  ↗
-                </span>
               </div>
 
               <div className="work-inline-preview mt-2 md:col-span-6 md:col-start-7" style={previewTransition(item.slug)}>

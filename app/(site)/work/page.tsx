@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <PageShell
-      eyebrow="Work"
       title="Things I've shipped, end to end."
       description="Each of these has a case study covering the problem, the architecture, the engineering decisions, and the result."
     >

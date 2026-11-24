@@ -14,7 +14,6 @@ export default function BlogPage() {
 
   return (
     <PageShell
-      eyebrow="Writing"
       title="Notes on building things."
       description="Writing on realtime systems, Web3, Rust, and AI-powered developer tooling."
     >
@@ -33,16 +32,13 @@ export default function BlogPage() {
                       day: "numeric",
                     })}
                   </time>
-                  <span aria-hidden="true"> · </span>
+                  <span>, </span>
                   {post.readingTime}
                 </p>
                 <div className="md:col-span-8">
                   <h2 className="work-title text-h3">{post.title}</h2>
                   <p className="mt-2 max-w-[60ch] text-mute">{post.description}</p>
                 </div>
-                <span aria-hidden="true" className="work-arrow hidden text-[1.25rem] leading-none md:col-span-1 md:block md:text-right">
-                  ↗
-                </span>
               </Link>
             </Reveal>
           ))}

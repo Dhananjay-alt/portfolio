@@ -11,7 +11,7 @@ export const luxauth: Project = {
   year: 2025,
   status: "Hackathon",
   role: "Full-stack Web3 engineer",
-  timeline: "ETHGlobal ETHOnline 2025 · Sept 2025",
+  timeline: "ETHGlobal ETHOnline 2025, Sept 2025",
   priority: 3,
   featured: true,
   context:
@@ -85,7 +85,7 @@ export const luxauth: Project = {
     },
   ],
   lessons: [
-    "Provenance is a UX problem as much as a contract problem — the verification page is what makes it real for buyers.",
+    "Provenance is a UX problem as much as a contract problem — the verification page is what buyers actually see.",
     "Content-addressed storage (IPFS) is the right default for anything that must be tamper-evident but not on-chain.",
     "Standards (ERC-721) buy you an entire ecosystem of tooling for free.",
   ],

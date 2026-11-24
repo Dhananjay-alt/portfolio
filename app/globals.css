@@ -6,17 +6,17 @@
 
 /* ------------------------------------------------------------------ *
  *  Design tokens                                                      *
- *  Warm paper, near-black ink, one grey, one accent. Hairlines        *
+ *  White paper, near-black ink, one grey, one accent. Hairlines       *
  *  instead of boxes. Motion tokens (--ease-*, --dur-*, --stagger,     *
  *  --reveal-y) are written onto <html> from lib/motion.ts.            *
  * ------------------------------------------------------------------ */
 :root {
-  --paper: #f2f0eb;
-  --surface: #e9e6df;
+  --paper: #ffffff;
+  --surface: #f4f4f4;
   --ink: #111111;
-  --mute: #66635d;
-  --line: #d9d5cc;
-  --field: #85807a;
+  --mute: #5c5c5c;
+  --line: #e5e5e5;
+  --field: #8a8a8a;
   --accent: #b93a15;
   --danger: #a3271b;
 
@@ -49,12 +49,12 @@
 }
 
 .dark {
-  --paper: #121211;
-  --surface: #1b1b19;
-  --ink: #eceae4;
-  --mute: #9b978f;
-  --line: #2b2a27;
-  --field: #6e6a63;
+  --paper: #0f0f0f;
+  --surface: #191919;
+  --ink: #ededed;
+  --mute: #a0a0a0;
+  --line: #2a2a2a;
+  --field: #6f6f6f;
   --accent: #ff7a4d;
   --danger: #ff8a7a;
 
@@ -91,7 +91,7 @@
   --color-input: var(--field);
   --color-ring: var(--accent);
 
-  --font-display: var(--font-instrument-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
@@ -138,8 +138,8 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.015em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.05;
     text-wrap: balance;
   }
@@ -240,22 +240,23 @@ html.lenis body {
   .text-display {
     font-family: var(--font-display);
     font-size: var(--text-display);
-    line-height: 0.96;
-    letter-spacing: -0.025em;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
   }
   .text-h1 {
     font-size: var(--text-h1);
-    line-height: 1;
-    letter-spacing: -0.02em;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
   }
   .text-h2 {
     font-size: var(--text-h2);
-    line-height: 1.04;
-    letter-spacing: -0.018em;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
   }
   .text-h3 {
     font-size: var(--text-h3);
-    line-height: 1.12;
+    line-height: 1.15;
+    letter-spacing: -0.022em;
   }
   .text-lead {
     font-size: var(--text-lead);
@@ -312,30 +313,6 @@ html.lenis body {
     margin-block: calc(-1 * var(--tap-pad));
   }
 
-  /* Arrow glyph that nudges with its parent's hover. */
-  .arrow {
-    display: inline-block;
-    transition: transform var(--dur-small) var(--ease-out);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    a:hover > .arrow,
-    button:hover > .arrow,
-    .group:hover .arrow {
-      transform: translate(3px, 0);
-    }
-    a:hover > .arrow-up,
-    .group:hover .arrow-up {
-      transform: translate(3px, -3px);
-    }
-    a:hover > .arrow-down,
-    .group:hover .arrow-down {
-      transform: translate(0, 3px);
-    }
-    a:hover > .arrow-back,
-    .group:hover .arrow-back {
-      transform: translate(-3px, 0);
-    }
-  }
 
   /* Link underline: draws in from the left, retracts to the right. */
   .link {
@@ -583,37 +560,6 @@ html.intro-repeat [data-intro="nav"] {
   animation: intro-fade-in 300ms var(--ease-out) both;
 }
 
-/* Scroll reveal: 16px fade-up, staggered by --i. */
-/* Blocks already inside the first viewport are marked revealed by an inline
-   script before first paint (see app/layout.tsx), so LCP never waits on JS. */
-.js [data-reveal] {
-  opacity: 0;
-  transform: translate3d(0, var(--reveal-y), 0);
-}
-.js [data-reveal][data-revealed] {
-  opacity: 1;
-  transform: none;
-  transition:
-    opacity var(--dur-medium) var(--ease-out),
-    transform var(--dur-medium) var(--ease-out);
-  transition-delay: calc(var(--i, 0) * var(--stagger));
-}
-
-/* Revealed before first paint by the inline script: appear, don't animate.
-   (Measuring the element computes its hidden style, which would otherwise
-   start a transition and push LCP out by its duration.) */
-.js [data-reveal][data-revealed="instant"],
-.js [data-split][data-split-ready="instant"] {
-  transition: none !important;
-}
-
-/* SplitText headings stay hidden until their lines are ready to move. */
-/* Opacity, not visibility: a visibility-hidden heading drops out of the
-   accessibility tree and leaves a gap in the heading order. */
-.js [data-split]:not([data-split-ready]) {
-  opacity: 0;
-}
-
 /* Header: slides away on scroll down, returns on scroll up. */
 .site-header {
   transition: transform var(--dur-small) var(--ease-in-out);
@@ -641,17 +587,10 @@ html.intro-repeat [data-intro="nav"] {
 .work-row .work-title {
   transition: transform var(--dur-small) var(--ease-out);
 }
-.work-row .work-arrow {
-  transition: transform var(--dur-small) var(--ease-out);
-}
 @media (hover: hover) and (pointer: fine) {
   .work-row:hover .work-title,
   .work-row:focus-visible .work-title {
     transform: translate3d(12px, 0, 0);
-  }
-  .work-row:hover .work-arrow,
-  .work-row:focus-visible .work-arrow {
-    transform: translate3d(4px, -4px, 0);
   }
 }
 /* With a mouse, JS and motion allowed, the preview follows the cursor
@@ -885,27 +824,12 @@ html.theme-vt::view-transition-new(root) {
     animation: none !important;
   }
 
-  .js [data-reveal] {
-    transform: none;
-  }
-  .js [data-reveal][data-revealed] {
-    transition: opacity 180ms linear !important;
-  }
-
-  .js [data-split]:not([data-split-ready]) {
-    opacity: 0;
-  }
-  .js [data-split][data-split-ready] {
-    transition: opacity 180ms linear !important;
-  }
 
   .site-header[data-hidden="true"] {
     transform: none;
   }
 
-  .work-row:hover .work-title,
-  .work-row:hover .work-arrow,
-  .arrow {
+  .work-row:hover .work-title {
     transform: none !important;
   }
 
@@ -942,7 +866,3 @@ html.theme-vt::view-transition-new(root) {
   }
 }
 
-/* The closing section is numbered only on the home page. */
-.closing-cta:not([data-home]) .closing-index {
-  display: none;
-}

@@ -83,18 +83,10 @@ export default async function CaseStudyPage({
 
         <header className="container-page pt-[clamp(40px,7vw,96px)]">
           <Link href="/work" className="tap group label inline-flex items-center gap-2 hover:text-ink">
-            <span aria-hidden="true" className="arrow arrow-back">
-              ←
-            </span>
             All work
           </Link>
 
-          <p data-intro="fade" style={i(0)} className="label mt-[clamp(40px,7vw,96px)]">
-            Case study <span aria-hidden="true">·</span> {project.category}{" "}
-            <span aria-hidden="true">·</span> <span className="tabular">{project.year}</span>
-          </p>
-
-          <h1 className="text-display mt-5">
+          <h1 className="text-display mt-[clamp(40px,7vw,96px)]">
             <span className="line-mask" data-intro="line" style={i(0)}>
               <span>
                 <SharedElement name={`work-title-${project.slug}`}>
@@ -109,8 +101,7 @@ export default async function CaseStudyPage({
           </p>
 
           {project.badge && (
-            <p data-intro="fade" style={i(2)} className="tag mt-6 gap-2 !text-ink">
-              <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
+            <p data-intro="fade" style={i(2)} className="mt-6 text-[length:var(--text-small)] font-medium">
               {project.badge}
             </p>
           )}
@@ -129,10 +120,7 @@ export default async function CaseStudyPage({
                 {links.length > 0 ? (
                   links.map((link) => (
                     <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener" className="tap link">
-                      {link.label}{" "}
-                      <span aria-hidden="true" className="arrow arrow-up">
-                        ↗
-                      </span>
+                      {link.label}
                     </a>
                   ))
                 ) : (
@@ -156,7 +144,7 @@ export default async function CaseStudyPage({
           </div>
         </div>
 
-        <CaseSection index="01" label="Problem" title="The problem">
+        <CaseSection label="Problem" title="The problem">
           <Reveal as="p" className="text-lead">
             {project.problem}
           </Reveal>
@@ -165,7 +153,7 @@ export default async function CaseStudyPage({
           </Reveal>
         </CaseSection>
 
-        <CaseSection index="02" label="Architecture" title="How it's built">
+        <CaseSection label="Architecture" title="How it's built">
           <Reveal as="p" className="text-lead">
             {project.approach}
           </Reveal>
@@ -176,11 +164,10 @@ export default async function CaseStudyPage({
                 as="li"
                 key={step.layer}
                 index={idx}
-                className="grid grid-cols-[3ch_minmax(0,1fr)] gap-x-5 border-t border-line py-5 md:grid-cols-[3ch_minmax(0,1fr)_minmax(0,2fr)]"
+                className="grid gap-x-5 border-t border-line py-5 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]"
               >
-                <span className="label tabular pt-1">{String(idx + 1).padStart(2, "0")}</span>
                 <h3 className="text-h3">{step.layer}</h3>
-                <p className="col-start-2 mt-2 text-mute md:col-start-3 md:mt-0">{step.detail}</p>
+                <p className="mt-2 text-mute md:mt-0">{step.detail}</p>
               </Reveal>
             ))}
           </ol>
@@ -212,7 +199,7 @@ export default async function CaseStudyPage({
           </Reveal>
         </CaseSection>
 
-        <CaseSection index="03" label="Key decisions" title="Decisions that shaped it">
+        <CaseSection label="Key decisions" title="Decisions that shaped it">
           <ul className="border-b border-line">
             {project.decisions.map((d, idx) => (
               <Reveal as="li" key={d.title} index={idx} className="border-t border-line py-7">
@@ -234,13 +221,13 @@ export default async function CaseStudyPage({
           </ul>
         </CaseSection>
 
-        <CaseSection index="04" label="Result" title="What shipped">
+        <CaseSection label="Result" title="What shipped">
           {project.metrics && project.metrics.length > 0 && (
-            <dl className="grid gap-x-6 gap-y-8 border-b border-line pb-10 sm:grid-cols-3">
+            <dl className="border-b border-line">
               {project.metrics.map((metric, idx) => (
-                <Reveal key={metric.label} index={idx} className="flex flex-col-reverse justify-end gap-2">
+                <Reveal key={metric.label} index={idx} className="grid gap-x-5 border-t border-line py-4 sm:grid-cols-[14ch_minmax(0,1fr)]">
                   <dt className="label">{metric.label}</dt>
-                  <dd className="text-h3 font-display">{metric.value}</dd>
+                  <dd>{metric.value}</dd>
                 </Reveal>
               ))}
             </dl>
@@ -256,19 +243,18 @@ export default async function CaseStudyPage({
           </ul>
 
           <h3 className="label mt-14">Lessons</h3>
-          <ol className="mt-5 border-b border-line">
+          <ul className="mt-5 border-b border-line">
             {project.lessons.map((lesson, idx) => (
               <Reveal
                 as="li"
                 key={lesson}
                 index={idx}
-                className="grid grid-cols-[3ch_minmax(0,1fr)] gap-x-5 border-t border-line py-4"
+                className="border-t border-line py-4"
               >
-                <span className="label tabular pt-1">{String(idx + 1).padStart(2, "0")}</span>
                 <span>{lesson}</span>
               </Reveal>
             ))}
-          </ol>
+          </ul>
         </CaseSection>
 
         <nav aria-label="Next project" className="rule">
@@ -284,9 +270,6 @@ export default async function CaseStudyPage({
                 </SharedElement>
               </span>
               <span className="mt-3 block text-mute">{next.outcome}</span>
-            </span>
-            <span aria-hidden="true" className="work-arrow text-[1.5rem] leading-none">
-              ↗
             </span>
           </Link>
         </nav>

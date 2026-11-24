@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Providers } from "@/providers";
@@ -7,15 +7,7 @@ import { RegisterSW } from "@/components/pwa/register-sw";
 import { InlineScript } from "@/components/site/inline-script";
 import { motionCssVars } from "@/lib/motion";
 
-// Display: a characterful serif for headings only.
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
-
-// Body.
+// Headings and body.
 const geistSans = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
@@ -64,8 +56,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f2f0eb" },
-    { media: "(prefers-color-scheme: dark)", color: "#121211" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0f0f" },
   ],
 };
 
@@ -78,13 +70,6 @@ export const viewport: Viewport = {
  */
 const BOOT_SCRIPT = `(function(){var d=document.documentElement,c=d.classList;c.add("js");try{var k="dh:intro";if(sessionStorage.getItem(k)){c.add("intro-repeat")}else{c.add("intro-first");sessionStorage.setItem(k,"1")}}catch(e){c.add("intro-repeat")}setTimeout(function(){if(!window.__dhReady){c.remove("js")}},6000)})()`;
 
-/**
- * Runs at the end of <body>, still before first paint. Anything meant to
- * reveal on scroll that is already inside the first viewport is shown
- * immediately, so above-the-fold content (and LCP) never waits for hydration.
- */
-const ABOVE_FOLD_SCRIPT = `(function(){var h=window.innerHeight,n=document.querySelectorAll("[data-reveal],[data-split]");for(var i=0;i<n.length;i++){var r=n[i].getBoundingClientRect();if(r.top<h&&r.bottom>0){n[i].setAttribute(n[i].hasAttribute("data-split")?"data-split-ready":"data-revealed","instant")}}})()`;
-
 export default function RootLayout({
   children,
 }: {
@@ -95,13 +80,12 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       style={motionCssVars()}
-      className={`${instrumentSerif.variable} ${geistSans.variable} ${geistMono.variable} h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
       <body className="flex min-h-full flex-col bg-paper text-ink">
         <InlineScript html={BOOT_SCRIPT} />
         <Providers>{children}</Providers>
         <RegisterSW />
-        <InlineScript html={ABOVE_FOLD_SCRIPT} />
       </body>
     </html>
   );

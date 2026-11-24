@@ -2,43 +2,43 @@
 name: Dhananjay Hire — Portfolio
 description: Complete systems, shipped end to end.
 colors:
-  paper: "#f2f0eb"
-  surface: "#e9e6df"
+  paper: "#ffffff"
+  surface: "#f4f4f4"
   ink: "#111111"
-  mute: "#66635d"
-  line: "#d9d5cc"
-  field: "#85807a"
+  mute: "#5c5c5c"
+  line: "#e5e5e5"
+  field: "#8a8a8a"
   signal-vermilion: "#b93a15"
   danger: "#a3271b"
-  paper-dark: "#121211"
-  surface-dark: "#1b1b19"
-  ink-dark: "#eceae4"
-  mute-dark: "#9b978f"
-  line-dark: "#2b2a27"
-  field-dark: "#6e6a63"
+  paper-dark: "#0f0f0f"
+  surface-dark: "#191919"
+  ink-dark: "#ededed"
+  mute-dark: "#a0a0a0"
+  line-dark: "#2a2a2a"
+  field-dark: "#6f6f6f"
   signal-vermilion-dark: "#ff7a4d"
   danger-dark: "#ff8a7a"
 typography:
   display:
-    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "clamp(2.75rem, 1.254rem + 6.385vw, 7rem)"
     fontWeight: 400
     lineHeight: 0.96
     letterSpacing: "-0.025em"
   headline-1:
-    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 1.37rem + 3.756vw, 4.75rem)"
     fontWeight: 400
     lineHeight: 1
     letterSpacing: "-0.02em"
   headline-2:
-    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "clamp(1.875rem, 1.303rem + 2.441vw, 3.5rem)"
     fontWeight: 400
     lineHeight: 1.04
     letterSpacing: "-0.018em"
   title:
-    fontFamily: "Instrument Serif, Iowan Old Style, Georgia, serif"
+    fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "clamp(1.5rem, 1.324rem + 0.751vw, 2rem)"
     fontWeight: 400
     lineHeight: 1.12
@@ -120,7 +120,7 @@ components:
 
 **Creative North Star: "The Engineer's Notebook"**
 
-A working document, not a brochure. Warm paper, near-black ink, ruled hairlines and mono notes in
+A working document, not a brochure. White paper, near-black ink, ruled hairlines and mono notes in
 the margin: the page looks like the place where a system was reasoned out, and every mark on it is
 there because it carries information. Precision is the ornament. The one splash of colour is the
 pen you'd circle a finding with.
@@ -170,20 +170,20 @@ fills: no backgrounds, no large type, no gradients.
 
 ## Typography
 
-**Display Font:** Instrument Serif (with Iowan Old Style, Georgia)
+**Display Font:** Geist 600 (the body face, set tight)
 **Body Font:** Geist (with system-ui)
 **Label/Mono Font:** Geist Mono (with ui-monospace)
 
-**Character:** A narrow, characterful serif with editorial authority over a neutral, engineered
-sans; the mono carries the "notebook margin" voice for years, tags and section numbers.
+**Character:** One engineered sans for headings and body, tightened with negative tracking at size;
+the mono carries metadata (years, tags, dates). No eyebrows, no section numbers.
 
 ### Hierarchy
-- **Display** (400, 44px → 112px fluid, 0.96): the home hero, the case-study title, the closing
+- **Display** (600, 44px → 112px fluid, 0.98): the home hero, the case-study title, the closing
   "Let's build what ships." and the Philosophy line.
-- **Headline 1** (400, 36px → 76px, 1.0): interior page titles and home section headings.
-- **Headline 2** (400, 30px → 56px, 1.04): case-study chapters, About sections, project titles in
+- **Headline 1** (600, 36px → 76px, 1.02): interior page titles and home section headings.
+- **Headline 2** (600, 30px → 56px, 1.06): case-study chapters, About sections, project titles in
   the work list.
-- **Title** (400 serif, 24px → 32px, 1.12): row titles (capabilities, decisions, architecture
+- **Title** (600, 24px → 32px, 1.15): row titles (capabilities, decisions, architecture
   layers, posts).
 - **Lead** (400, 18px → 20px, 1.5): the one paragraph that introduces a section. 46–56ch.
 - **Body** (400, 16px, 1.6): everything else. Long-form posts use 18px at 1.7.
@@ -246,7 +246,7 @@ rotated or skewed shapes.
 - **Default:** inherits colour; a 1px underline draws in from the left on hover and retracts to the
   right on leave (250ms).
 - **Emphasis:** Signal Vermilion for the single most important link in a section.
-- **Arrows:** a trailing glyph (→ ↗ ↓ ←) nudges 3px in its direction on hover.
+- **Arrows:** none. Links and buttons are labelled by their words alone.
 
 ### Tags
 - **Style:** transparent background, 1px Rule Line border, 4px radius, Label type in Pencil Grey,
@@ -272,7 +272,7 @@ preview sits inline under the row.
 
 ### Journey Year (signature)
 The one oversized number in the system: on desktop the Journey section pins and shows the current
-year at 7rem → 19rem fluid (Instrument Serif, tabular lining figures, 0.82 line height) while its
+year at 7rem → 19rem fluid (Geist, tabular lining figures, 0.82 line height) while its
 last digit rolls 4 → 5 → 6 with the scroll. It is a decorative, `aria-hidden` echo of the real
 year headings and is exempt from the type scale; nothing else may use it.
 
@@ -283,16 +283,16 @@ rail on Pressed Paper, the first node in Signal Vermilion. Replaced by `media.he
 ## Do's and Don'ts
 
 ### Do:
-- **Do** use Ink (#111111) on Notebook Paper (#f2f0eb) for all reading text.
+- **Do** use Ink (#111111) on Notebook Paper (#ffffff) for all reading text.
 - **Do** separate rows and sections with a 1px Rule Line and space on the 4px scale.
 - **Do** set years, indices and tags in Label (Geist Mono 12px, uppercase, 0.06em).
 - **Do** keep every interactive target at least 44px tall outside running text.
-- **Do** outline form fields in Field Edge (#85807a light, #6e6a63 dark).
+- **Do** outline form fields in Field Edge (#8a8a8a light, #6f6f6f dark).
 - **Do** give every animation a reason, use the tokens in `lib/motion.ts`, and provide the reduced-motion fallback.
 
 ### Don't:
 - **Don't** use shadows, gradients, glassmorphism or blur except the scrolled header's 12px backdrop.
-- **Don't** use emoji, stock icons or icon fonts; arrows are typographic glyphs.
+- **Don't** use emoji, stock icons or icon fonts; no decorative arrows on links or buttons.
 - **Don't** introduce a second accent or any violet/lavender tone.
 - **Don't** add a type size between two steps of the scale, or one that breaks the 1.2 Rule.
 - **Don't** put spacing off the 4px base (no 6, 7, 10, 14 or 18px gaps).

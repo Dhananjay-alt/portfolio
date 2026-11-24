@@ -20,7 +20,7 @@ export default function ResumePage() {
   ];
 
   return (
-    <PageShell eyebrow="Résumé" title="The one-page version.">
+    <PageShell title="The one-page version.">
       <div className="mt-8">
         <ResumeActions />
       </div>
@@ -31,7 +31,7 @@ export default function ResumePage() {
           <h2 className="text-h2">{profile.name}</h2>
           <p className="mt-2">{profile.role}</p>
           <p className="mt-2 text-sm text-muted-foreground">
-            {profile.email} · {profile.location}
+            {profile.email}, {profile.location}
           </p>
         </header>
 
@@ -42,7 +42,7 @@ export default function ResumePage() {
         <Section title="Education">
           <p className="text-sm font-medium">{profile.education.degree}</p>
           <p className="text-sm text-muted-foreground">
-            {profile.education.school} · Class of {profile.education.graduationYear}
+            {profile.education.school}, Class of {profile.education.graduationYear}
           </p>
           <p className="mt-1 text-sm text-muted-foreground">{profile.education.note}</p>
         </Section>
@@ -56,17 +56,17 @@ export default function ResumePage() {
                     {p.title}
                     {p.award && (
                       <span className="ml-2 font-normal text-mute">
-                        {p.award.replace(/^🏆\s*/, "· ")}
+                        {p.award.replace(/^🏆\s*/, "")}
                       </span>
                     )}
                   </p>
                   <p className="font-mono text-xs text-muted-foreground">
-                    {p.category} · {p.year}
+                    {p.category}, {p.year}
                   </p>
                 </div>
                 <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  {(p.allTech ?? []).slice(0, 6).join(" · ")}
+                  {(p.allTech ?? []).slice(0, 6).join(", ")}
                 </p>
               </li>
             ))}
@@ -75,7 +75,7 @@ export default function ResumePage() {
 
         <Section title="Skills">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            {allStack.join(" · ")}
+            {allStack.join(", ")}
           </p>
         </Section>
 

@@ -21,7 +21,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     title: "Repo Analyzer — dependency visualizer with AI",
-    org: "GDSC IIT Roorkee · Open Summer of Code",
+    org: "GDSC IIT Roorkee, Open Summer of Code",
     period: "Jun–Jul 2026",
     kind: "Project",
     description:
@@ -58,7 +58,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     title: "Paygent — agentic payments & DeFi automation",
-    org: "ETHGlobal · HackMoney 2026",
+    org: "ETHGlobal, HackMoney 2026",
     period: "Jan–Feb 2026",
     kind: "Hackathon",
     description:
@@ -68,7 +68,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     title: "LuxuryAuthNFT — on-chain luxury authentication",
-    org: "ETHGlobal · ETHOnline 2025",
+    org: "ETHGlobal, ETHOnline 2025",
     period: "Sept 2025",
     kind: "Hackathon",
     description:

@@ -1,6 +1,6 @@
 ---
 title: "Reading a codebase without running it"
-description: "Repo Analyzer maps a repo's real dependency graph using Python's ast module — no execution, no guesswork. A look at static import resolution and why it beats running the code."
+description: "Repo Analyzer maps a repo's dependency graph using Python's ast module — no execution, no guesswork. A look at static import resolution and why it beats running the code."
 date: "2025-07-10"
 tags: ["Developer Tools", "Python", "Static Analysis"]
 ---
@@ -9,7 +9,7 @@ To draw a dependency graph, you first have to answer a deceptively hard question
 
 ## Why not just run it?
 
-The tempting shortcut is to import the modules and inspect them at runtime. Don't. Running an unfamiliar repository is:
+The tempting shortcut is to import the modules and inspect them at runtime, but running an unfamiliar repository is:
 
 - **Unsafe** — arbitrary code executes on your machine.
 - **Slow** — you pay import costs, and side effects fire.
@@ -36,7 +36,7 @@ def imports_in(source: str) -> list[str]:
     return names
 ```
 
-## The real work: resolution
+## Where the work is: resolution
 
 Collecting import *statements* is easy. The hard part is mapping each one to an actual file in the repo — and doing it correctly across:
 
@@ -58,4 +58,4 @@ Feeding those same edges into an LLM is what makes the AI summaries useful — b
 
 ## Takeaway
 
-If you want to understand a codebase's shape, resolve its imports statically. `ast` gives you the raw facts safely; careful resolution turns them into a real graph. Running the code would tell you less, slower, and with more risk.
+If you want to understand a codebase's shape, resolve its imports statically. `ast` gives you the raw facts safely; careful resolution turns them into an accurate graph. Running the code would tell you less, slower, and with more risk.

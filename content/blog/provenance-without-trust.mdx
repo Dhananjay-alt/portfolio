@@ -5,13 +5,13 @@ date: "2025-07-18"
 tags: ["Web3", "IPFS", "Provenance"]
 ---
 
-Counterfeit luxury goods are a multi-billion-dollar problem, and the usual defenses — a paper certificate, a serial number in the brand's database — share one fatal flaw: **you have to trust the issuer, and you can't independently check.** A forged certificate looks identical to a real one, and a brand database is a black box to the buyer.
+Counterfeit luxury goods are a multi-billion-dollar problem, and the usual defenses — a paper certificate, a serial number in the brand's database — share one fatal flaw: **you have to trust the issuer, and you can't independently check.** A forged certificate looks identical to a genuine one, and a brand database is a black box to the buyer.
 
 [LuxAuth](/work/luxauth) (built at ETHOnline 2025) set out to make authenticity something a buyer can verify themselves, with no trusted middleman.
 
 ## The core idea: authenticity as a public, tamper-evident fact
 
-Instead of a certificate the brand *claims* is real, each authenticated product gets an on-chain **ERC-721 certificate** — a token whose existence and ownership anyone can check on a public blockchain. The certificate's details live in metadata pinned to **IPFS**, so they're content-addressed and can't be quietly altered.
+Instead of a certificate the brand *claims* is genuine, each authenticated product gets an on-chain **ERC-721 certificate** — a token whose existence and ownership anyone can check on a public blockchain. The certificate's details live in metadata pinned to **IPFS**, so they're content-addressed and can't be quietly altered.
 
 ```solidity
 // A certificate is just an NFT the brand mints for a genuine product.

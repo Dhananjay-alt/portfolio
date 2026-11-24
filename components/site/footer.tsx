@@ -17,15 +17,8 @@ export function Footer() {
     <footer className="site-footer mt-auto">
       <ClosingCtaFrame>
         <div className="container-page section-y">
-          <p className="label">
-            <span className="closing-index tabular text-ink">05</span>
-            <span className="closing-index" aria-hidden="true">
-              {" — "}
-            </span>
-            Contact
-          </p>
 
-          <SplitHeading id="closing-heading" className="text-display mt-8 max-w-[14ch]">
+          <SplitHeading id="closing-heading" className="text-display max-w-[14ch]">
             Let&apos;s build what ships.
           </SplitHeading>
 
@@ -42,9 +35,6 @@ export function Footer() {
                 <MagneticButton>
                   <Link href="/contact" className="btn btn-fill">
                     Start a conversation
-                    <span aria-hidden="true" className="arrow">
-                      →
-                    </span>
                   </Link>
                 </MagneticButton>
                 {external.map((s) => (
@@ -64,7 +54,7 @@ export function Footer() {
       <div className="rule">
         <div className="container-page flex flex-col gap-5 py-8 md:flex-row md:items-center md:justify-between">
           <p className="label">
-            © {new Date().getFullYear()} {profile.name} · {profile.education.school}
+            © {new Date().getFullYear()} {profile.name}, {profile.education.school}
           </p>
           <nav aria-label="Secondary" className="label flex flex-wrap gap-x-6 gap-y-2">
             {secondaryNav.map((item) => (

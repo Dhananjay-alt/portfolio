@@ -5,7 +5,6 @@ import { loadGsap, whenIdle } from "@/lib/gsap";
 import { gsapEase } from "@/lib/motion";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
-import { SectionLabel } from "@/components/site/section-label";
 
 const ERAS = [
   {
@@ -109,8 +108,7 @@ export function Journey() {
       <div className="journey-sticky">
         <div className="container-page journey-inner">
           <header>
-            <SectionLabel index="03">Journey</SectionLabel>
-            <SplitHeading id="journey-heading" className="text-h1 mt-8">
+            <SplitHeading id="journey-heading" className="text-h1">
               Three seasons
             </SplitHeading>
           </header>

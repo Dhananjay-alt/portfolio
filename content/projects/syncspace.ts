@@ -11,7 +11,7 @@ export const syncspace: Project = {
   year: 2026,
   status: "Demo",
   role: "Full-stack engineer",
-  timeline: "MDG Space, IIT Roorkee · May–June 2026",
+  timeline: "MDG Space, IIT Roorkee, May–June 2026",
   priority: 1,
   featured: true,
   context:
@@ -66,7 +66,7 @@ text.insert(3, "s");`,
         "Untrusted Python runs in a per-run Docker sandbox — network-isolated, read-only filesystem, memory/PID limits, and a wall-clock timeout — so nothing escapes to the host.",
     },
     {
-      title: "Real IDE in the browser",
+      title: "An IDE in the browser",
       description:
         "Monaco editor integration brings syntax highlighting, multi-cursor, and a genuine editor feel to the web.",
     },
@@ -108,8 +108,8 @@ text.insert(3, "s");`,
     "Presence UX is disproportionately important: live cursors are what make a collaborative tool feel alive.",
   ],
   metrics: [
-    { label: "Concurrent editors", value: "Unbounded (CRDT)" },
-    { label: "Merge conflicts", value: "0 by design" },
+    { label: "Editing model", value: "Yjs CRDT, no document locks" },
+    { label: "Conflict handling", value: "Concurrent edits merge automatically" },
     { label: "Execution isolation", value: "Per-run container" },
   ],
   media: {

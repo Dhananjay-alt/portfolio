@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/site/page-shell";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitHeading } from "@/components/motion/split-heading";
-import { SectionLabel } from "@/components/site/section-label";
 import { profile } from "@/content/profile";
 
 export const metadata: Metadata = {
@@ -43,7 +42,7 @@ const FAQS = [
 
 export default function AboutPage() {
   return (
-    <PageShell eyebrow="About" title="Engineer first, metallurgist by degree.">
+    <PageShell title="Engineer first, metallurgist by degree.">
       <div className="grid-12 mt-[clamp(48px,7vw,96px)] gap-y-14">
         <div className="space-y-6 md:col-span-7">
           {profile.bio.map((para, idx) => (
@@ -58,7 +57,7 @@ export default function AboutPage() {
             <h2 className="label !font-mono">Education</h2>
             <p className="mt-3 font-medium">{profile.education.degree}</p>
             <p className="text-[length:var(--text-small)] text-mute">
-              {profile.education.school} · Class of {profile.education.graduationYear}
+              {profile.education.school}, Class of {profile.education.graduationYear}
             </p>
             <p className="mt-3 text-[length:var(--text-small)] text-mute">{profile.education.note}</p>
           </Reveal>
@@ -79,8 +78,7 @@ export default function AboutPage() {
 
       <section aria-labelledby="philosophy-heading" className="rule grid-12 mt-[var(--section-y)] gap-y-8 pt-10">
         <div className="md:col-span-4">
-          <SectionLabel>Philosophy</SectionLabel>
-          <SplitHeading id="philosophy-heading" className="text-h2 mt-6">
+          <SplitHeading id="philosophy-heading" className="text-h2">
             The right primitive over the clever hack.
           </SplitHeading>
         </div>
@@ -105,9 +103,8 @@ export default function AboutPage() {
 
       <section aria-labelledby="toolbox-heading" className="rule grid-12 mt-[var(--section-y)] gap-y-8 pt-10">
         <div className="md:col-span-4">
-          <SectionLabel>Stack</SectionLabel>
-          <SplitHeading id="toolbox-heading" className="text-h2 mt-6">
-            The toolbox
+          <SplitHeading id="toolbox-heading" className="text-h2">
+            Stack
           </SplitHeading>
         </div>
         <dl className="border-b border-line md:col-span-7 md:col-start-6">
@@ -132,9 +129,8 @@ export default function AboutPage() {
 
       <section aria-labelledby="faq-heading" className="rule grid-12 mt-[var(--section-y)] gap-y-8 pt-10">
         <div className="md:col-span-4">
-          <SectionLabel>FAQ</SectionLabel>
-          <SplitHeading id="faq-heading" className="text-h2 mt-6">
-            Questions, answered
+          <SplitHeading id="faq-heading" className="text-h2">
+            Frequently asked questions
           </SplitHeading>
         </div>
         <div className="border-b border-line md:col-span-7 md:col-start-6">

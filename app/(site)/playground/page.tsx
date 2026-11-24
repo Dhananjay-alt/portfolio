@@ -15,14 +15,13 @@ export const metadata: Metadata = {
 export default function PlaygroundPage() {
   return (
     <PageShell
-      eyebrow="Playground"
       title="Experiments & interactive toys."
       description="The fun, exploratory side of the craft. Everything here runs in your browser — poke at it."
     >
       <div className="mt-12 space-y-12">
         <Experiment
           title="CLI portfolio"
-          blurb="A real terminal. Try help, projects, open syncspace, skills, or confetti."
+          blurb="A working terminal. Try help, projects, open syncspace, skills, or confetti."
         >
           <Terminal />
         </Experiment>

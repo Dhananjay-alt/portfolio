@@ -6,7 +6,7 @@ import { MagneticButton } from "@/components/motion/magnetic-button";
 const i = (n: number) => ({ "--i": n }) as CSSProperties;
 
 /**
- * Eyebrow, headline, one line of subtext, two CTAs — nothing else above the
+ * Headline, one line of subtext, two CTAs — nothing else above the
  * fold.
  *
  * The headline's two lines are masked in the server HTML and animated by CSS
@@ -19,11 +19,8 @@ export function Hero() {
       aria-labelledby="hero-heading"
       className="container-page flex flex-col pb-4 pt-12 md:min-h-[calc(100svh-var(--header-h))] md:justify-end md:pb-[clamp(40px,9vh,112px)] md:pt-16"
     >
-      <p data-intro="fade" style={i(0)} className="label">
-        {profile.role} <span aria-hidden="true">·</span> {profile.education.school}
-      </p>
 
-      <h1 id="hero-heading" className="text-display mt-6">
+      <h1 id="hero-heading" className="text-display">
         <span className="line-mask" data-intro="line" style={i(0)}>
           <span>Complete systems,</span>
         </span>{" "}
@@ -40,9 +37,6 @@ export function Hero() {
         <MagneticButton>
           <Link href="#work" className="btn btn-fill">
             View selected work
-            <span aria-hidden="true" className="arrow arrow-down">
-              ↓
-            </span>
           </Link>
         </MagneticButton>
         <Link href="/resume" className="tap link">

@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <PageShell
-      eyebrow="Experience"
       title="Hackathons, builds, and communities."
       description="How the work has unfolded — ETHGlobal builds, shipped products, and community roles at IIT Roorkee."
     >

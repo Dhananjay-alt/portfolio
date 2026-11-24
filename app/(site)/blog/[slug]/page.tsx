@@ -81,9 +81,6 @@ export default async function BlogPostPage({
             href="/blog"
             className="tap group label inline-flex items-center gap-2 hover:text-ink"
           >
-            <span aria-hidden="true" className="arrow arrow-back">
-              ←
-            </span>
             All writing
           </Link>
           <div className="flex items-center gap-6" data-reading-hide>
@@ -103,7 +100,6 @@ export default async function BlogPostPage({
                     day: "numeric",
                   })}
                 </time>
-                <span>·</span>
                 <span>{post.meta.readingTime}</span>
               </div>
               <h1 className="text-h1 mt-5">

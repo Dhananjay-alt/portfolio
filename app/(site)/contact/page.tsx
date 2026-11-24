@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageShell
-      eyebrow="Contact"
       title="Let's build something."
       description="Recruiters, founders, and collaborators — drop a message and I'll get back to you. Or reach me directly through any of the links."
     >
@@ -39,10 +38,7 @@ export default function ContactPage() {
                 .map((s) => (
                   <li key={s.label}>
                     <a href={s.href} target="_blank" rel="noreferrer noopener" className="tap link">
-                      {s.label}{" "}
-                      <span aria-hidden="true" className="arrow arrow-up">
-                        ↗
-                      </span>
+                      {s.label}
                     </a>
                   </li>
                 ))}

@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 export default function SkillsPage() {
   return (
     <PageShell
-      eyebrow="Skills"
       title="An interactive map of what I build with."
       description="Hover or focus any node to see how I've used it. Grouped by frontend, backend, systems, Web3, and AI."
     >

@@ -61,7 +61,7 @@ export function Terminal() {
         HELP.forEach((l) => print(l));
         break;
       case "whoami":
-        print(`${profile.name}, ${profile.role} · ${profile.education.school} '${String(profile.education.graduationYear).slice(2)}`);
+        print(`${profile.name}, ${profile.role}, ${profile.education.school} '${String(profile.education.graduationYear).slice(2)}`);
         break;
       case "about":
         profile.bio.forEach((b) => print(b));

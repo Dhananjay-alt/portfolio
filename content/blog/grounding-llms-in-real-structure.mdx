@@ -1,5 +1,5 @@
 ---
-title: "Grounding LLMs in real structure"
+title: "Grounding LLM summaries in the import graph"
 description: "Why a generic 'summarize this file' prompt produces vague output — and how feeding an LLM the actual dependency edges made Repo Analyzer's summaries useful."
 date: "2025-08-01"
 tags: ["AI", "Developer Tools", "RAG"]
@@ -20,7 +20,7 @@ That describes almost any file ever written. It tells a new engineer nothing abo
 
 ## Give the model the graph, not just the file
 
-Repo Analyzer already computes the real dependency graph — it resolves every import to the actual file in the repo using Python's `ast` module. So the fix was to stop summarizing files in isolation and start summarizing them **in context of their edges**:
+Repo Analyzer already computes the full dependency graph — it resolves every import to the actual file in the repo using Python's `ast` module. So the fix was to stop summarizing files in isolation and start summarizing them **in context of their edges**:
 
 ```python
 prompt = f"""
